@@ -75,7 +75,7 @@ namespace ReCITE
             this.button2.Text = "INSTRUCTIONS";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +83,7 @@ namespace ReCITE
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "Home";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
