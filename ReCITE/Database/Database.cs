@@ -32,10 +32,11 @@ namespace ReCITE.Database
             sqlConnection.Open();
         }
         
+        //  GET STUDENT LIST
         public List<List<string>> getStudents(string ClassList) {
             List<List<string>> StudentList = new List<List<string>>();
             ConnectToDatabase();
-            string query = "SELECT * FROM Students WHERE Class='" + ClassList +"'";
+            string query = "SELECT * FROM " + ClassList;
             try
             {
                 sqlCommand = new SqlCommand(query, sqlConnection);
@@ -50,19 +51,49 @@ namespace ReCITE.Database
             }
             catch
             {
-                CreateTable();
+                CreateTables();
             }
 
             sqlConnection.Close();
             return StudentList;
         }
 
-        public void CreateTable()
+        //  DELETE STUDENT DATA
+        public void DeleteStudent(string StudentId)
         {
-            string createTable = "CREATE TABLE Students (StudentId varchar(255), StudentName varchar(255), Class varchar(255), Score int);";
-            sqlCommand = new SqlCommand(createTable, sqlConnection);
+            string query = "DELETE FROM Class1 WHERE StudentId = '"+StudentId+"'";
+            sqlCommand = new SqlCommand(query, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
 
+        //  UPDATE STUDENT DATA
+        public void UpdateName(string StudentID, string NameChanges)
+        {
+            
+            string query = "UPDATE Class1 SET StudentName='"+ NameChanges +"' WHERE StudentId = '"+ StudentID +"'";
+            sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+        }
+
+
+        //  ADD STUDENT DATA
+        public void AddStudent(Object StudentData)
+        {
+            string InsertQuery = "INSERT INTO Class1 WHERE StudentId = '[student_id]'";
+            sqlCommand = new SqlCommand(InsertQuery, sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+        }
+
+
+        //  CREATE TABLES
+        public void CreateTables()
+        {
+            for (var index = 1; index <= 5; index++)
+            {
+                string createTable = "CREATE TABLE Class"+index+" (StudentId varchar(255), StudentName varchar(255), Class varchar(255), Score int);";
+                sqlCommand = new SqlCommand(createTable, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
     }
 }

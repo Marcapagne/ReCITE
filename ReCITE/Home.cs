@@ -19,7 +19,7 @@ namespace ReCITE
             Database.Database databaseConnection = new Database.Database();
 
             List<List<string>> StudentRecords = new List<List<string>>();
-            StudentRecords = databaseConnection.getStudents("BTVTED-CP"); // STUDENT LIST AND SCORE
+            StudentRecords = databaseConnection.getStudents("Class1"); // STUDENT LIST AND SCORE
         }
 
     }
