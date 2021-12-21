@@ -17,18 +17,60 @@ namespace ReCITE
            className_tb.Text = globalClass.classid;
         }
 
+        // Minimize and Close Button
+        #region Toolbar
+        private void minimize_btn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
+
+        // Button Function to new forms...
+        #region Buttons
         private void start_btn_Click(object sender, EventArgs e)
         {
-            Form game = new Game();
-            game.Show();
+            Form gameMenu = new Game_Menu();
+            gameMenu.Show();
             this.Hide();
         }
 
+        private void add_btn_Click(object sender, EventArgs e)
+        {
+            Form addStudent = new addStudent();
+            addStudent.Show();
+        }
+
+        private void back_btn_Click(object sender, EventArgs e)
+        {
+            Form class_list = new Class_List();
+            class_list.Show();
+            this.Hide();
+        }
+
+        // Editing Class Name 
         private void edit_btn_Click(object sender, EventArgs e)
         {
             className_tb.Enabled = true;
             className_tb.Focus();
             className_tb.BackColor = Color.White;
+            edit_btn.Hide();
+            check_btn.Show();
+        }
+        #endregion
+
+        // Updating Class Name
+        private void check_btn_Click(object sender, EventArgs e)
+        {
+            className_tb.Enabled = false;
+            //className_tb.Focus();
+            className_tb.BackColor = default;
+            check_btn.Hide();
+            edit_btn.Show();
         }
     }
 }

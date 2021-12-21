@@ -32,24 +32,27 @@ namespace ReCITE
             this.back_btn = new System.Windows.Forms.PictureBox();
             this.start_btn = new System.Windows.Forms.PictureBox();
             this.add_btn = new System.Windows.Forms.PictureBox();
-            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.webStudentList_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolbar_pnl = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.className_tb = new System.Windows.Forms.TextBox();
             this.edit_btn = new System.Windows.Forms.PictureBox();
+            this.check_btn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.start_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webStudentList_pnl)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edit_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.check_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // back_btn
             // 
+            this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
             this.back_btn.Location = new System.Drawing.Point(12, 46);
             this.back_btn.Name = "back_btn";
@@ -57,9 +60,11 @@ namespace ReCITE
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.back_btn.TabIndex = 1;
             this.back_btn.TabStop = false;
+            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
             // 
             // start_btn
             // 
+            this.start_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.start_btn.Image = global::ReCITE.Properties.Resources.start_btn;
             this.start_btn.Location = new System.Drawing.Point(1011, 612);
             this.start_btn.Name = "start_btn";
@@ -79,16 +84,17 @@ namespace ReCITE
             this.add_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.add_btn.TabIndex = 5;
             this.add_btn.TabStop = false;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
-            // webView21
+            // webStudentList_pnl
             // 
-            this.webView21.CreationProperties = null;
-            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(169, 166);
-            this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(885, 426);
-            this.webView21.TabIndex = 6;
-            this.webView21.ZoomFactor = 1D;
+            this.webStudentList_pnl.CreationProperties = null;
+            this.webStudentList_pnl.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webStudentList_pnl.Location = new System.Drawing.Point(169, 166);
+            this.webStudentList_pnl.Name = "webStudentList_pnl";
+            this.webStudentList_pnl.Size = new System.Drawing.Size(885, 426);
+            this.webStudentList_pnl.TabIndex = 6;
+            this.webStudentList_pnl.ZoomFactor = 1D;
             // 
             // toolbar_pnl
             // 
@@ -106,6 +112,7 @@ namespace ReCITE
             // 
             this.minimize_btn.BackgroundImage = global::ReCITE.Properties.Resources.minimize;
             this.minimize_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimize_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimize_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimize_btn.FlatAppearance.BorderSize = 0;
             this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -118,11 +125,13 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
+            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
             // 
             // exit_btn
             // 
             this.exit_btn.BackgroundImage = global::ReCITE.Properties.Resources.exit;
             this.exit_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.exit_btn.FlatAppearance.BorderSize = 0;
             this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -133,6 +142,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
+            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -167,6 +177,18 @@ namespace ReCITE
             this.edit_btn.TabStop = false;
             this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
             // 
+            // check_btn
+            // 
+            this.check_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.check_btn.Image = global::ReCITE.Properties.Resources.check;
+            this.check_btn.Location = new System.Drawing.Point(701, 82);
+            this.check_btn.Name = "check_btn";
+            this.check_btn.Size = new System.Drawing.Size(40, 40);
+            this.check_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.check_btn.TabIndex = 10;
+            this.check_btn.TabStop = false;
+            this.check_btn.Click += new System.EventHandler(this.check_btn_Click);
+            // 
             // Student_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -175,10 +197,11 @@ namespace ReCITE
             this.Controls.Add(this.className_tb);
             this.Controls.Add(this.edit_btn);
             this.Controls.Add(this.toolbar_pnl);
-            this.Controls.Add(this.webView21);
+            this.Controls.Add(this.webStudentList_pnl);
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.back_btn);
+            this.Controls.Add(this.check_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Student_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -186,10 +209,11 @@ namespace ReCITE
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.start_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webStudentList_pnl)).EndInit();
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edit_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.check_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,12 +224,13 @@ namespace ReCITE
         private System.Windows.Forms.PictureBox back_btn;
         private System.Windows.Forms.PictureBox start_btn;
         private System.Windows.Forms.PictureBox add_btn;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webStudentList_pnl;
         private System.Windows.Forms.Panel toolbar_pnl;
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.TextBox className_tb;
         private System.Windows.Forms.PictureBox edit_btn;
+        private System.Windows.Forms.PictureBox check_btn;
     }
 }

@@ -46,6 +46,7 @@ namespace ReCITE
             // 
             // back_btn
             // 
+            this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
             this.back_btn.Location = new System.Drawing.Point(12, 46);
             this.back_btn.Name = "back_btn";
@@ -70,6 +71,7 @@ namespace ReCITE
             // 
             this.class1_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.class1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.class1_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.class1_btn.FlatAppearance.BorderSize = 0;
             this.class1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -86,6 +88,7 @@ namespace ReCITE
             // 
             this.class2_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.class2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.class2_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.class2_btn.FlatAppearance.BorderSize = 0;
             this.class2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -102,6 +105,7 @@ namespace ReCITE
             // 
             this.class3_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.class3_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.class3_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.class3_btn.FlatAppearance.BorderSize = 0;
             this.class3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class3_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -118,6 +122,7 @@ namespace ReCITE
             // 
             this.class4_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.class4_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.class4_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.class4_btn.FlatAppearance.BorderSize = 0;
             this.class4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class4_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -147,6 +152,7 @@ namespace ReCITE
             // 
             this.minimize_btn.BackgroundImage = global::ReCITE.Properties.Resources.minimize;
             this.minimize_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimize_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimize_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimize_btn.FlatAppearance.BorderSize = 0;
             this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -165,6 +171,7 @@ namespace ReCITE
             // 
             this.exit_btn.BackgroundImage = global::ReCITE.Properties.Resources.exit;
             this.exit_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.exit_btn.FlatAppearance.BorderSize = 0;
             this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
