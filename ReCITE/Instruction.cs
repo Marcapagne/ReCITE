@@ -8,14 +8,13 @@ using System.Windows.Forms;
 
 namespace ReCITE
 {
-    public partial class Game_Menu : Form
+    public partial class Instruction : Form
     {
-        public Game_Menu()
+        public Instruction()
         {
             InitializeComponent();
         }
 
-        // Minimize and Close Button
         #region Toolbar
         private void exit_btn_Click(object sender, EventArgs e)
         {
@@ -28,10 +27,10 @@ namespace ReCITE
         }
         #endregion
 
-        private void gamebtn_Click(object sender, EventArgs e)
+        private void back_btn_Click(object sender, EventArgs e)
         {
-            Form game = new Game();
-            game.Show();
+            Form back = new Home();
+            back.Show();
             this.Hide();
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 namespace ReCITE
 {
-    partial class Leaderboard
+    partial class Instruction
     {
         /// <summary>
         /// Required designer variable.
@@ -29,64 +29,15 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
-            this.className_lbl = new System.Windows.Forms.Label();
-            this.leaderboard_lbl = new System.Windows.Forms.Label();
-            this.proceed_btn = new System.Windows.Forms.PictureBox();
-            this.webLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolbar_pnl = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.proceed_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webLeaderboard_pnl)).BeginInit();
+            this.back_btn = new System.Windows.Forms.PictureBox();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // className_lbl
-            // 
-            this.className_lbl.AutoSize = true;
-            this.className_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.className_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.className_lbl.Location = new System.Drawing.Point(425, 60);
-            this.className_lbl.Name = "className_lbl";
-            this.className_lbl.Size = new System.Drawing.Size(404, 77);
-            this.className_lbl.TabIndex = 6;
-            this.className_lbl.Text = "Class Name";
-            // 
-            // leaderboard_lbl
-            // 
-            this.leaderboard_lbl.AutoSize = true;
-            this.leaderboard_lbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.leaderboard_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.leaderboard_lbl.Location = new System.Drawing.Point(524, 137);
-            this.leaderboard_lbl.Name = "leaderboard_lbl";
-            this.leaderboard_lbl.Size = new System.Drawing.Size(208, 23);
-            this.leaderboard_lbl.TabIndex = 7;
-            this.leaderboard_lbl.Text = "Today\'s Leaderboard";
-            // 
-            // proceed_btn
-            // 
-            this.proceed_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.proceed_btn.Image = global::ReCITE.Properties.Resources.proceed_btn;
-            this.proceed_btn.Location = new System.Drawing.Point(996, 610);
-            this.proceed_btn.Name = "proceed_btn";
-            this.proceed_btn.Size = new System.Drawing.Size(192, 78);
-            this.proceed_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.proceed_btn.TabIndex = 8;
-            this.proceed_btn.TabStop = false;
-            this.proceed_btn.Click += new System.EventHandler(this.proceed_btn_Click);
-            // 
-            // webLeaderboard_pnl
-            // 
-            this.webLeaderboard_pnl.CreationProperties = null;
-            this.webLeaderboard_pnl.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webLeaderboard_pnl.Location = new System.Drawing.Point(176, 178);
-            this.webLeaderboard_pnl.Name = "webLeaderboard_pnl";
-            this.webLeaderboard_pnl.Size = new System.Drawing.Size(885, 426);
-            this.webLeaderboard_pnl.Source = new System.Uri("https://www.youtube.com/", System.UriKind.Absolute);
-            this.webLeaderboard_pnl.TabIndex = 9;
-            this.webLeaderboard_pnl.ZoomFactor = 1D;
             // 
             // toolbar_pnl
             // 
@@ -98,7 +49,7 @@ namespace ReCITE
             this.toolbar_pnl.Location = new System.Drawing.Point(0, 0);
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
-            this.toolbar_pnl.TabIndex = 10;
+            this.toolbar_pnl.TabIndex = 9;
             // 
             // minimize_btn
             // 
@@ -146,38 +97,42 @@ namespace ReCITE
             this.reciteLogo.TabIndex = 4;
             this.reciteLogo.TabStop = false;
             // 
-            // Leaderboard
+            // back_btn
+            // 
+            this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
+            this.back_btn.Location = new System.Drawing.Point(12, 46);
+            this.back_btn.Name = "back_btn";
+            this.back_btn.Size = new System.Drawing.Size(93, 36);
+            this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.back_btn.TabIndex = 10;
+            this.back_btn.TabStop = false;
+            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            // 
+            // Instruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.back_btn);
             this.Controls.Add(this.toolbar_pnl);
-            this.Controls.Add(this.webLeaderboard_pnl);
-            this.Controls.Add(this.proceed_btn);
-            this.Controls.Add(this.leaderboard_lbl);
-            this.Controls.Add(this.className_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Leaderboard";
+            this.Name = "Instruction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Leaderboard";
-            ((System.ComponentModel.ISupportInitialize)(this.proceed_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webLeaderboard_pnl)).EndInit();
+            this.Text = "Instruction";
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label className_lbl;
-        private System.Windows.Forms.Label leaderboard_lbl;
-        private System.Windows.Forms.PictureBox proceed_btn;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webLeaderboard_pnl;
         private System.Windows.Forms.Panel toolbar_pnl;
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
+        private System.Windows.Forms.PictureBox back_btn;
     }
 }

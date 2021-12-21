@@ -29,175 +29,188 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.game1_btn = new System.Windows.Forms.Button();
+            this.selectGame_lbl = new System.Windows.Forms.Label();
+            this.back_btn = new System.Windows.Forms.PictureBox();
+            this.game2_btn = new System.Windows.Forms.Button();
+            this.game3_btn = new System.Windows.Forms.Button();
+            this.toolbar_pnl = new System.Windows.Forms.Panel();
+            this.minimize_btn = new System.Windows.Forms.Button();
+            this.exit_btn = new System.Windows.Forms.Button();
+            this.reciteLogo = new System.Windows.Forms.PictureBox();
+            this.game4_btn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
+            this.toolbar_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // game1_btn
             // 
-            this.button1.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(376, 268);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 57);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Game 1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.game1_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
+            this.game1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.game1_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.game1_btn.FlatAppearance.BorderSize = 0;
+            this.game1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.game1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game1_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.game1_btn.Location = new System.Drawing.Point(376, 268);
+            this.game1_btn.Name = "game1_btn";
+            this.game1_btn.Size = new System.Drawing.Size(220, 57);
+            this.game1_btn.TabIndex = 4;
+            this.game1_btn.Text = "Game 1";
+            this.game1_btn.UseVisualStyleBackColor = true;
+            this.game1_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
-            // label1
+            // selectGame_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(364, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(478, 77);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "SELECT GAME";
+            this.selectGame_lbl.AutoSize = true;
+            this.selectGame_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.selectGame_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.selectGame_lbl.Location = new System.Drawing.Point(364, 172);
+            this.selectGame_lbl.Name = "selectGame_lbl";
+            this.selectGame_lbl.Size = new System.Drawing.Size(478, 77);
+            this.selectGame_lbl.TabIndex = 3;
+            this.selectGame_lbl.Text = "SELECT GAME";
             // 
-            // pictureBox1
+            // back_btn
             // 
-            this.pictureBox1.Image = global::ReCITE.Properties.Resources.back_btn;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
+            this.back_btn.Location = new System.Drawing.Point(12, 46);
+            this.back_btn.Name = "back_btn";
+            this.back_btn.Size = new System.Drawing.Size(93, 36);
+            this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.back_btn.TabIndex = 5;
+            this.back_btn.TabStop = false;
             // 
-            // button2
+            // game2_btn
             // 
-            this.button2.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(613, 268);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 57);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Game 2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.game2_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
+            this.game2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.game2_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.game2_btn.FlatAppearance.BorderSize = 0;
+            this.game2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.game2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game2_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.game2_btn.Location = new System.Drawing.Point(613, 268);
+            this.game2_btn.Name = "game2_btn";
+            this.game2_btn.Size = new System.Drawing.Size(220, 57);
+            this.game2_btn.TabIndex = 6;
+            this.game2_btn.Text = "Game 2";
+            this.game2_btn.UseVisualStyleBackColor = true;
+            this.game2_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
-            // button3
+            // game3_btn
             // 
-            this.button3.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button3.Location = new System.Drawing.Point(376, 344);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(220, 57);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Game 3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.game3_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
+            this.game3_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.game3_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.game3_btn.FlatAppearance.BorderSize = 0;
+            this.game3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.game3_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game3_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.game3_btn.Location = new System.Drawing.Point(376, 344);
+            this.game3_btn.Name = "game3_btn";
+            this.game3_btn.Size = new System.Drawing.Size(220, 57);
+            this.game3_btn.TabIndex = 7;
+            this.game3_btn.Text = "Game 3";
+            this.game3_btn.UseVisualStyleBackColor = true;
+            this.game3_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
-            // panel2
+            // toolbar_pnl
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1184, 40);
-            this.panel2.TabIndex = 9;
+            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.Controls.Add(this.minimize_btn);
+            this.toolbar_pnl.Controls.Add(this.exit_btn);
+            this.toolbar_pnl.Controls.Add(this.reciteLogo);
+            this.toolbar_pnl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolbar_pnl.Location = new System.Drawing.Point(0, 0);
+            this.toolbar_pnl.Name = "toolbar_pnl";
+            this.toolbar_pnl.Size = new System.Drawing.Size(1184, 40);
+            this.toolbar_pnl.TabIndex = 9;
             // 
-            // button6
+            // minimize_btn
             // 
-            this.button6.BackgroundImage = global::ReCITE.Properties.Resources.minimize;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.Location = new System.Drawing.Point(1104, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 40);
-            this.button6.TabIndex = 5;
-            this.button6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button6.UseVisualStyleBackColor = true;
+            this.minimize_btn.BackgroundImage = global::ReCITE.Properties.Resources.minimize;
+            this.minimize_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimize_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimize_btn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.minimize_btn.FlatAppearance.BorderSize = 0;
+            this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimize_btn.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.minimize_btn.ForeColor = System.Drawing.SystemColors.Control;
+            this.minimize_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.minimize_btn.Location = new System.Drawing.Point(1104, 0);
+            this.minimize_btn.Name = "minimize_btn";
+            this.minimize_btn.Size = new System.Drawing.Size(40, 40);
+            this.minimize_btn.TabIndex = 5;
+            this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.minimize_btn.UseVisualStyleBackColor = true;
+            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
             // 
-            // button7
+            // exit_btn
             // 
-            this.button7.BackgroundImage = global::ReCITE.Properties.Resources.exit;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button7.ForeColor = System.Drawing.Color.LightCoral;
-            this.button7.Location = new System.Drawing.Point(1144, 0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 40);
-            this.button7.TabIndex = 4;
-            this.button7.UseVisualStyleBackColor = true;
+            this.exit_btn.BackgroundImage = global::ReCITE.Properties.Resources.exit;
+            this.exit_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exit_btn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.exit_btn.FlatAppearance.BorderSize = 0;
+            this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit_btn.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exit_btn.ForeColor = System.Drawing.Color.LightCoral;
+            this.exit_btn.Location = new System.Drawing.Point(1144, 0);
+            this.exit_btn.Name = "exit_btn";
+            this.exit_btn.Size = new System.Drawing.Size(40, 40);
+            this.exit_btn.TabIndex = 4;
+            this.exit_btn.UseVisualStyleBackColor = true;
+            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
             // 
-            // pictureBox2
+            // reciteLogo
             // 
-            this.pictureBox2.Image = global::ReCITE.Properties.Resources.recite_logo_white;
-            this.pictureBox2.Location = new System.Drawing.Point(540, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(112, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.reciteLogo.Image = global::ReCITE.Properties.Resources.recite_logo_white;
+            this.reciteLogo.Location = new System.Drawing.Point(540, 7);
+            this.reciteLogo.Name = "reciteLogo";
+            this.reciteLogo.Size = new System.Drawing.Size(112, 27);
+            this.reciteLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.reciteLogo.TabIndex = 4;
+            this.reciteLogo.TabStop = false;
             // 
-            // button4
+            // game4_btn
             // 
-            this.button4.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button4.Location = new System.Drawing.Point(613, 344);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(220, 57);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Game 4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.game4_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
+            this.game4_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.game4_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.game4_btn.FlatAppearance.BorderSize = 0;
+            this.game4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.game4_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game4_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.game4_btn.Location = new System.Drawing.Point(613, 344);
+            this.game4_btn.Name = "game4_btn";
+            this.game4_btn.Size = new System.Drawing.Size(220, 57);
+            this.game4_btn.TabIndex = 10;
+            this.game4_btn.Text = "Game 4";
+            this.game4_btn.UseVisualStyleBackColor = true;
+            this.game4_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
             // Game_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.game4_btn);
+            this.Controls.Add(this.toolbar_pnl);
+            this.Controls.Add(this.game3_btn);
+            this.Controls.Add(this.game2_btn);
+            this.Controls.Add(this.back_btn);
+            this.Controls.Add(this.game1_btn);
+            this.Controls.Add(this.selectGame_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Game_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
+            this.toolbar_pnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,15 +218,15 @@ namespace ReCITE
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button game1_btn;
+        private System.Windows.Forms.Label selectGame_lbl;
+        private System.Windows.Forms.PictureBox back_btn;
+        private System.Windows.Forms.Button game2_btn;
+        private System.Windows.Forms.Button game3_btn;
+        private System.Windows.Forms.Panel toolbar_pnl;
+        private System.Windows.Forms.Button minimize_btn;
+        private System.Windows.Forms.Button exit_btn;
+        private System.Windows.Forms.PictureBox reciteLogo;
+        private System.Windows.Forms.Button game4_btn;
     }
 }

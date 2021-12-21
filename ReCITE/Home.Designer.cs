@@ -53,6 +53,7 @@ namespace ReCITE
             // 
             this.start_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.start_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.start_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.start_btn.FlatAppearance.BorderSize = 0;
             this.start_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -69,6 +70,7 @@ namespace ReCITE
             // 
             this.instruction_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.instruction_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.instruction_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.instruction_btn.FlatAppearance.BorderSize = 0;
             this.instruction_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.instruction_btn.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -79,6 +81,7 @@ namespace ReCITE
             this.instruction_btn.TabIndex = 2;
             this.instruction_btn.Text = "INSTRUCTIONS";
             this.instruction_btn.UseVisualStyleBackColor = true;
+            this.instruction_btn.Click += new System.EventHandler(this.instruction_btn_Click);
             // 
             // toolbar_pnl
             // 
@@ -95,6 +98,7 @@ namespace ReCITE
             // 
             this.minimize_btn.BackgroundImage = global::ReCITE.Properties.Resources.minimize;
             this.minimize_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimize_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimize_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimize_btn.FlatAppearance.BorderSize = 0;
             this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -113,6 +117,7 @@ namespace ReCITE
             // 
             this.close_btn.BackgroundImage = global::ReCITE.Properties.Resources.exit;
             this.close_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.close_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.close_btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.close_btn.FlatAppearance.BorderSize = 0;
             this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -124,36 +129,6 @@ namespace ReCITE
             this.close_btn.TabIndex = 4;
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
-            // 
-            // tabControl1
-            // 
-            this.pictureBox1.Image = global::ReCITE.Properties.Resources.recite_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(277, 130);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(645, 159);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 72);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 72);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Home
             // 

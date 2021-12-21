@@ -15,6 +15,7 @@ namespace ReCITE
             InitializeComponent();
         }
 
+        // Minimize and Close Button
         #region Toolbar
         private void exit_btn_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace ReCITE
         }
         #endregion
 
+        //Back button
         private void back_btn_Click(object sender, EventArgs e)
         {
             Form back = new Home();
@@ -34,9 +36,9 @@ namespace ReCITE
             this.Hide();
         }
 
+        // Select Class Button
         private void class_btn_click(object sender, EventArgs e)
         {
-            //System.Windows.Forms.Button, Text: 
             Button btnName = (Button)sender;
             var name = btnName.Text;
 

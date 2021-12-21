@@ -14,5 +14,25 @@ namespace ReCITE
         {
             InitializeComponent();
         }
+
+        // Minimize and Close Button
+        #region Toolbar
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimize_btn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+
+        private void end_btn_Click(object sender, EventArgs e)
+        {
+            Form leaderboard = new Leaderboard();
+            leaderboard.Show();
+            this.Hide();
+        }
     }
 }

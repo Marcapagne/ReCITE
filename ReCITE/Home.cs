@@ -22,6 +22,7 @@ namespace ReCITE
             StudentRecords = databaseConnection.getStudents("Class1"); // STUDENT LIST AND SCORE
         }
 
+        // Minimize and Close Button
         #region Toolbar
         private void close_btn_Click(object sender, EventArgs e)
         {
@@ -34,6 +35,8 @@ namespace ReCITE
         }
         #endregion
 
+        // Button Function to new forms...
+        #region Buttons
         private void start_btn_Click(object sender, EventArgs e)
         {
             Form class_list = new Class_List();
@@ -42,7 +45,12 @@ namespace ReCITE
             //this.Dispose();
         }
 
-
-
+        private void instruction_btn_Click(object sender, EventArgs e)
+        {
+            Form instruction = new Instruction();
+            instruction.Show();
+            this.Hide();
+        }
+        #endregion
     }
 }
