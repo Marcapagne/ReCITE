@@ -47,7 +47,7 @@ namespace ReCITE
             // 
             this.className_lbl.AutoSize = true;
             this.className_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.className_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.className_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.className_lbl.Location = new System.Drawing.Point(425, 60);
             this.className_lbl.Name = "className_lbl";
             this.className_lbl.Size = new System.Drawing.Size(404, 77);
@@ -58,7 +58,7 @@ namespace ReCITE
             // 
             this.leaderboard_lbl.AutoSize = true;
             this.leaderboard_lbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.leaderboard_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.leaderboard_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.leaderboard_lbl.Location = new System.Drawing.Point(524, 137);
             this.leaderboard_lbl.Name = "leaderboard_lbl";
             this.leaderboard_lbl.Size = new System.Drawing.Size(208, 23);
@@ -90,7 +90,7 @@ namespace ReCITE
             // 
             // toolbar_pnl
             // 
-            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.toolbar_pnl.Controls.Add(this.minimize_btn);
             this.toolbar_pnl.Controls.Add(this.exit_btn);
             this.toolbar_pnl.Controls.Add(this.reciteLogo);

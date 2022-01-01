@@ -35,14 +35,16 @@ namespace ReCITE
             this.toolbar_pnl = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
             // 
             this.logo.Image = global::ReCITE.Properties.Resources.recite_logo;
-            this.logo.Location = new System.Drawing.Point(286, 135);
+            this.logo.Location = new System.Drawing.Point(300, 156);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(645, 159);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -51,41 +53,43 @@ namespace ReCITE
             // 
             // start_btn
             // 
+            this.start_btn.BackColor = System.Drawing.Color.Transparent;
             this.start_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.start_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.start_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.start_btn.FlatAppearance.BorderSize = 0;
             this.start_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.start_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.start_btn.Location = new System.Drawing.Point(493, 349);
+            this.start_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.start_btn.Location = new System.Drawing.Point(511, 356);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(220, 57);
             this.start_btn.TabIndex = 1;
             this.start_btn.Text = "START";
-            this.start_btn.UseVisualStyleBackColor = true;
+            this.start_btn.UseVisualStyleBackColor = false;
             this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
             // 
             // instruction_btn
             // 
+            this.instruction_btn.BackColor = System.Drawing.Color.Transparent;
             this.instruction_btn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
             this.instruction_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.instruction_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.instruction_btn.FlatAppearance.BorderSize = 0;
             this.instruction_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instruction_btn.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.instruction_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.instruction_btn.Location = new System.Drawing.Point(493, 422);
+            this.instruction_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.instruction_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.instruction_btn.Location = new System.Drawing.Point(511, 419);
             this.instruction_btn.Name = "instruction_btn";
             this.instruction_btn.Size = new System.Drawing.Size(220, 57);
             this.instruction_btn.TabIndex = 2;
-            this.instruction_btn.Text = "INSTRUCTIONS";
-            this.instruction_btn.UseVisualStyleBackColor = true;
+            this.instruction_btn.Text = "HELP";
+            this.instruction_btn.UseVisualStyleBackColor = false;
             this.instruction_btn.Click += new System.EventHandler(this.instruction_btn_Click);
             // 
             // toolbar_pnl
             // 
-            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.toolbar_pnl.Controls.Add(this.minimize_btn);
             this.toolbar_pnl.Controls.Add(this.close_btn);
             this.toolbar_pnl.Dock = System.Windows.Forms.DockStyle.Top;
@@ -130,22 +134,35 @@ namespace ReCITE
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ReCITE.Properties.Resources.teacherImg;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 300);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(420, 388);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(232)))), ((int)(((byte)(236)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.logo);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.instruction_btn);
             this.Controls.Add(this.start_btn);
-            this.Controls.Add(this.logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.toolbar_pnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,6 +175,7 @@ namespace ReCITE
         private System.Windows.Forms.Panel toolbar_pnl;
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button close_btn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
