@@ -30,10 +30,6 @@ namespace ReCITE
         private void InitializeComponent()
         {
             this.end_btn = new System.Windows.Forms.Button();
-            this.game3_btn = new System.Windows.Forms.Button();
-            this.game2_btn = new System.Windows.Forms.Button();
-            this.game1_btn = new System.Windows.Forms.Button();
-            this.gameImage = new System.Windows.Forms.PictureBox();
             this.leadeboard_pnl = new System.Windows.Forms.Panel();
             this.leaderboard_lbl = new System.Windows.Forms.Label();
             this.addPoint_btn = new System.Windows.Forms.Button();
@@ -44,91 +40,56 @@ namespace ReCITE
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.userControl_pnl = new System.Windows.Forms.Panel();
             this.game_pnl = new System.Windows.Forms.Panel();
-            this.game4_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.gameImage)).BeginInit();
+            this.DTB_game = new System.Windows.Forms.Button();
+            this.WON_game = new System.Windows.Forms.Button();
+            this.OOE_game = new System.Windows.Forms.Button();
+            this.LN_game = new System.Windows.Forms.Button();
+            this.gameImage = new System.Windows.Forms.PictureBox();
             this.leadeboard_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webGame_pnl)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
             this.userControl_pnl.SuspendLayout();
             this.game_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameImage)).BeginInit();
             this.SuspendLayout();
             // 
             // end_btn
             // 
+            this.end_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(101)))));
             this.end_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.end_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.end_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.end_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.end_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.end_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.end_btn.Location = new System.Drawing.Point(0, 602);
+            this.end_btn.ForeColor = System.Drawing.SystemColors.Control;
+            this.end_btn.Location = new System.Drawing.Point(0, 593);
             this.end_btn.Name = "end_btn";
-            this.end_btn.Size = new System.Drawing.Size(200, 58);
+            this.end_btn.Size = new System.Drawing.Size(200, 67);
             this.end_btn.TabIndex = 2;
-            this.end_btn.Text = "END";
-            this.end_btn.UseVisualStyleBackColor = true;
+            this.end_btn.Text = "E N D";
+            this.end_btn.UseVisualStyleBackColor = false;
             this.end_btn.Click += new System.EventHandler(this.end_btn_Click);
-            // 
-            // game3_btn
-            // 
-            this.game3_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.game3_btn.Location = new System.Drawing.Point(7, 164);
-            this.game3_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.game3_btn.Name = "game3_btn";
-            this.game3_btn.Size = new System.Drawing.Size(184, 39);
-            this.game3_btn.TabIndex = 6;
-            this.game3_btn.Text = "Game 3";
-            this.game3_btn.UseVisualStyleBackColor = true;
-            // 
-            // game2_btn
-            // 
-            this.game2_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.game2_btn.Location = new System.Drawing.Point(7, 119);
-            this.game2_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.game2_btn.Name = "game2_btn";
-            this.game2_btn.Size = new System.Drawing.Size(184, 39);
-            this.game2_btn.TabIndex = 5;
-            this.game2_btn.Text = "Game 2";
-            this.game2_btn.UseVisualStyleBackColor = true;
-            // 
-            // game1_btn
-            // 
-            this.game1_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.game1_btn.Location = new System.Drawing.Point(7, 76);
-            this.game1_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.game1_btn.Name = "game1_btn";
-            this.game1_btn.Size = new System.Drawing.Size(184, 39);
-            this.game1_btn.TabIndex = 4;
-            this.game1_btn.Text = "Game 1";
-            this.game1_btn.UseVisualStyleBackColor = true;
-            // 
-            // gameImage
-            // 
-            this.gameImage.Image = global::ReCITE.Properties.Resources.game;
-            this.gameImage.Location = new System.Drawing.Point(53, 6);
-            this.gameImage.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.gameImage.Name = "gameImage";
-            this.gameImage.Size = new System.Drawing.Size(98, 58);
-            this.gameImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gameImage.TabIndex = 3;
-            this.gameImage.TabStop = false;
             // 
             // leadeboard_pnl
             // 
-            this.leadeboard_pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.leadeboard_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(101)))));
+            this.leadeboard_pnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.leadeboard_pnl.Controls.Add(this.leaderboard_lbl);
             this.leadeboard_pnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.leadeboard_pnl.Location = new System.Drawing.Point(0, 0);
             this.leadeboard_pnl.Name = "leadeboard_pnl";
-            this.leadeboard_pnl.Size = new System.Drawing.Size(200, 334);
+            this.leadeboard_pnl.Size = new System.Drawing.Size(200, 355);
             this.leadeboard_pnl.TabIndex = 2;
             // 
             // leaderboard_lbl
             // 
             this.leaderboard_lbl.AutoSize = true;
-            this.leaderboard_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.leaderboard_lbl.Location = new System.Drawing.Point(68, 3);
+            this.leaderboard_lbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.leaderboard_lbl.ForeColor = System.Drawing.SystemColors.Control;
+            this.leaderboard_lbl.Location = new System.Drawing.Point(64, 2);
             this.leaderboard_lbl.Name = "leaderboard_lbl";
-            this.leaderboard_lbl.Size = new System.Drawing.Size(73, 30);
+            this.leaderboard_lbl.Size = new System.Drawing.Size(77, 30);
             this.leaderboard_lbl.TabIndex = 2;
             this.leaderboard_lbl.Text = "Today\'s \r\nLeaderboard";
             this.leaderboard_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +126,7 @@ namespace ReCITE
             // 
             // toolbar_pnl
             // 
-            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.toolbar_pnl.Controls.Add(this.minimize_btn);
             this.toolbar_pnl.Controls.Add(this.exit_btn);
             this.toolbar_pnl.Controls.Add(this.reciteLogo);
@@ -234,28 +195,98 @@ namespace ReCITE
             // 
             // game_pnl
             // 
-            this.game_pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.game_pnl.Controls.Add(this.game4_btn);
+            this.game_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(101)))));
+            this.game_pnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.game_pnl.Controls.Add(this.DTB_game);
+            this.game_pnl.Controls.Add(this.WON_game);
+            this.game_pnl.Controls.Add(this.OOE_game);
+            this.game_pnl.Controls.Add(this.LN_game);
             this.game_pnl.Controls.Add(this.gameImage);
-            this.game_pnl.Controls.Add(this.game3_btn);
-            this.game_pnl.Controls.Add(this.game1_btn);
-            this.game_pnl.Controls.Add(this.game2_btn);
             this.game_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.game_pnl.Location = new System.Drawing.Point(0, 334);
+            this.game_pnl.Location = new System.Drawing.Point(0, 355);
             this.game_pnl.Name = "game_pnl";
-            this.game_pnl.Size = new System.Drawing.Size(200, 268);
+            this.game_pnl.Size = new System.Drawing.Size(200, 238);
             this.game_pnl.TabIndex = 3;
             // 
-            // game4_btn
+            // DTB_game
             // 
-            this.game4_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.game4_btn.Location = new System.Drawing.Point(7, 209);
-            this.game4_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.game4_btn.Name = "game4_btn";
-            this.game4_btn.Size = new System.Drawing.Size(184, 39);
-            this.game4_btn.TabIndex = 10;
-            this.game4_btn.Text = "Game 4";
-            this.game4_btn.UseVisualStyleBackColor = true;
+            this.DTB_game.BackColor = System.Drawing.Color.Transparent;
+            this.DTB_game.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DTB_game.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DTB_game.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.DTB_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DTB_game.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DTB_game.ForeColor = System.Drawing.Color.White;
+            this.DTB_game.Location = new System.Drawing.Point(0, 78);
+            this.DTB_game.Margin = new System.Windows.Forms.Padding(5);
+            this.DTB_game.Name = "DTB_game";
+            this.DTB_game.Size = new System.Drawing.Size(196, 39);
+            this.DTB_game.TabIndex = 15;
+            this.DTB_game.Text = "Defuse the Bomb";
+            this.DTB_game.UseVisualStyleBackColor = false;
+            // 
+            // WON_game
+            // 
+            this.WON_game.BackColor = System.Drawing.Color.Transparent;
+            this.WON_game.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WON_game.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.WON_game.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.WON_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WON_game.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.WON_game.ForeColor = System.Drawing.Color.White;
+            this.WON_game.Location = new System.Drawing.Point(0, 117);
+            this.WON_game.Margin = new System.Windows.Forms.Padding(5);
+            this.WON_game.Name = "WON_game";
+            this.WON_game.Size = new System.Drawing.Size(196, 39);
+            this.WON_game.TabIndex = 14;
+            this.WON_game.Text = "Wheel of Names";
+            this.WON_game.UseVisualStyleBackColor = false;
+            // 
+            // OOE_game
+            // 
+            this.OOE_game.BackColor = System.Drawing.Color.Transparent;
+            this.OOE_game.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OOE_game.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OOE_game.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.OOE_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OOE_game.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OOE_game.ForeColor = System.Drawing.Color.White;
+            this.OOE_game.Location = new System.Drawing.Point(0, 156);
+            this.OOE_game.Margin = new System.Windows.Forms.Padding(5);
+            this.OOE_game.Name = "OOE_game";
+            this.OOE_game.Size = new System.Drawing.Size(196, 39);
+            this.OOE_game.TabIndex = 13;
+            this.OOE_game.Text = "Odd or Even";
+            this.OOE_game.UseVisualStyleBackColor = false;
+            // 
+            // LN_game
+            // 
+            this.LN_game.BackColor = System.Drawing.Color.Transparent;
+            this.LN_game.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LN_game.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LN_game.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.LN_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LN_game.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LN_game.ForeColor = System.Drawing.Color.White;
+            this.LN_game.Location = new System.Drawing.Point(0, 195);
+            this.LN_game.Margin = new System.Windows.Forms.Padding(5);
+            this.LN_game.Name = "LN_game";
+            this.LN_game.Size = new System.Drawing.Size(196, 39);
+            this.LN_game.TabIndex = 12;
+            this.LN_game.Text = "Lotto Name";
+            this.LN_game.UseVisualStyleBackColor = false;
+            // 
+            // gameImage
+            // 
+            this.gameImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gameImage.Image = global::ReCITE.Properties.Resources.game;
+            this.gameImage.Location = new System.Drawing.Point(0, 0);
+            this.gameImage.Margin = new System.Windows.Forms.Padding(3, 3, 10, 50);
+            this.gameImage.Name = "gameImage";
+            this.gameImage.Size = new System.Drawing.Size(196, 74);
+            this.gameImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gameImage.TabIndex = 11;
+            this.gameImage.TabStop = false;
             // 
             // Game
             // 
@@ -270,7 +301,6 @@ namespace ReCITE
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
-            ((System.ComponentModel.ISupportInitialize)(this.gameImage)).EndInit();
             this.leadeboard_pnl.ResumeLayout(false);
             this.leadeboard_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webGame_pnl)).EndInit();
@@ -278,16 +308,13 @@ namespace ReCITE
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
             this.userControl_pnl.ResumeLayout(false);
             this.game_pnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gameImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button end_btn;
-        private System.Windows.Forms.Button game3_btn;
-        private System.Windows.Forms.Button game2_btn;
-        private System.Windows.Forms.Button game1_btn;
-        private System.Windows.Forms.PictureBox gameImage;
         private System.Windows.Forms.Panel leadeboard_pnl;
         private System.Windows.Forms.Label leaderboard_lbl;
         private System.Windows.Forms.Button addPoint_btn;
@@ -298,6 +325,10 @@ namespace ReCITE
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.Panel userControl_pnl;
         private System.Windows.Forms.Panel game_pnl;
-        private System.Windows.Forms.Button game4_btn;
+        private System.Windows.Forms.Button DTB_game;
+        private System.Windows.Forms.Button WON_game;
+        private System.Windows.Forms.Button OOE_game;
+        private System.Windows.Forms.Button LN_game;
+        private System.Windows.Forms.PictureBox gameImage;
     }
 }

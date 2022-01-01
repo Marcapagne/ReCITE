@@ -39,9 +39,13 @@ namespace ReCITE
             this.minimize_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // back_btn
@@ -60,8 +64,8 @@ namespace ReCITE
             // 
             this.classList_lbl.AutoSize = true;
             this.classList_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.classList_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.classList_lbl.Location = new System.Drawing.Point(414, 148);
+            this.classList_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.classList_lbl.Location = new System.Drawing.Point(414, 144);
             this.classList_lbl.Name = "classList_lbl";
             this.classList_lbl.Size = new System.Drawing.Size(406, 77);
             this.classList_lbl.TabIndex = 1;
@@ -75,7 +79,7 @@ namespace ReCITE
             this.class1_btn.FlatAppearance.BorderSize = 0;
             this.class1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.class1_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.class1_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.class1_btn.Location = new System.Drawing.Point(506, 254);
             this.class1_btn.Name = "class1_btn";
             this.class1_btn.Size = new System.Drawing.Size(220, 57);
@@ -92,7 +96,7 @@ namespace ReCITE
             this.class2_btn.FlatAppearance.BorderSize = 0;
             this.class2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.class2_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.class2_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.class2_btn.Location = new System.Drawing.Point(506, 317);
             this.class2_btn.Name = "class2_btn";
             this.class2_btn.Size = new System.Drawing.Size(220, 57);
@@ -109,7 +113,7 @@ namespace ReCITE
             this.class3_btn.FlatAppearance.BorderSize = 0;
             this.class3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class3_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.class3_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.class3_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.class3_btn.Location = new System.Drawing.Point(506, 380);
             this.class3_btn.Name = "class3_btn";
             this.class3_btn.Size = new System.Drawing.Size(220, 57);
@@ -126,7 +130,7 @@ namespace ReCITE
             this.class4_btn.FlatAppearance.BorderSize = 0;
             this.class4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.class4_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.class4_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.class4_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.class4_btn.Location = new System.Drawing.Point(506, 443);
             this.class4_btn.Name = "class4_btn";
             this.class4_btn.Size = new System.Drawing.Size(220, 57);
@@ -138,7 +142,7 @@ namespace ReCITE
             // 
             // toolbar_pnl
             // 
-            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.toolbar_pnl.Controls.Add(this.minimize_btn);
             this.toolbar_pnl.Controls.Add(this.exit_btn);
             this.toolbar_pnl.Controls.Add(this.reciteLogo);
@@ -187,12 +191,32 @@ namespace ReCITE
             // reciteLogo
             // 
             this.reciteLogo.Image = global::ReCITE.Properties.Resources.recite_logo_white;
-            this.reciteLogo.Location = new System.Drawing.Point(540, 7);
+            this.reciteLogo.Location = new System.Drawing.Point(546, 7);
             this.reciteLogo.Name = "reciteLogo";
             this.reciteLogo.Size = new System.Drawing.Size(112, 27);
             this.reciteLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.reciteLogo.TabIndex = 4;
             this.reciteLogo.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ReCITE.Properties.Resources.Learning_rafiki;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 204);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(496, 460);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ReCITE.Properties.Resources.Library_rafiki;
+            this.pictureBox2.Location = new System.Drawing.Point(675, 204);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(513, 474);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // Class_List
             // 
@@ -206,6 +230,8 @@ namespace ReCITE
             this.Controls.Add(this.class1_btn);
             this.Controls.Add(this.classList_lbl);
             this.Controls.Add(this.back_btn);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Class_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -213,6 +239,8 @@ namespace ReCITE
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +258,7 @@ namespace ReCITE
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

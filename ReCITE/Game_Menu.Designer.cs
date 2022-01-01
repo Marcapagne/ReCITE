@@ -39,9 +39,11 @@ namespace ReCITE
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.game4_btn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // game1_btn
@@ -52,12 +54,12 @@ namespace ReCITE
             this.game1_btn.FlatAppearance.BorderSize = 0;
             this.game1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.game1_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.game1_btn.Location = new System.Drawing.Point(376, 268);
+            this.game1_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.game1_btn.Location = new System.Drawing.Point(129, 193);
             this.game1_btn.Name = "game1_btn";
-            this.game1_btn.Size = new System.Drawing.Size(220, 57);
+            this.game1_btn.Size = new System.Drawing.Size(478, 57);
             this.game1_btn.TabIndex = 4;
-            this.game1_btn.Text = "Game 1";
+            this.game1_btn.Text = "Lotto Name";
             this.game1_btn.UseVisualStyleBackColor = true;
             this.game1_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
@@ -65,8 +67,8 @@ namespace ReCITE
             // 
             this.selectGame_lbl.AutoSize = true;
             this.selectGame_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectGame_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.selectGame_lbl.Location = new System.Drawing.Point(364, 172);
+            this.selectGame_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.selectGame_lbl.Location = new System.Drawing.Point(129, 102);
             this.selectGame_lbl.Name = "selectGame_lbl";
             this.selectGame_lbl.Size = new System.Drawing.Size(478, 77);
             this.selectGame_lbl.TabIndex = 3;
@@ -91,12 +93,12 @@ namespace ReCITE
             this.game2_btn.FlatAppearance.BorderSize = 0;
             this.game2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.game2_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.game2_btn.Location = new System.Drawing.Point(613, 268);
+            this.game2_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.game2_btn.Location = new System.Drawing.Point(129, 266);
             this.game2_btn.Name = "game2_btn";
-            this.game2_btn.Size = new System.Drawing.Size(220, 57);
+            this.game2_btn.Size = new System.Drawing.Size(478, 57);
             this.game2_btn.TabIndex = 6;
-            this.game2_btn.Text = "Game 2";
+            this.game2_btn.Text = "Odd or Even";
             this.game2_btn.UseVisualStyleBackColor = true;
             this.game2_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
@@ -107,19 +109,19 @@ namespace ReCITE
             this.game3_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game3_btn.FlatAppearance.BorderSize = 0;
             this.game3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.game3_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.game3_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.game3_btn.Location = new System.Drawing.Point(376, 344);
+            this.game3_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game3_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.game3_btn.Location = new System.Drawing.Point(129, 340);
             this.game3_btn.Name = "game3_btn";
-            this.game3_btn.Size = new System.Drawing.Size(220, 57);
+            this.game3_btn.Size = new System.Drawing.Size(478, 57);
             this.game3_btn.TabIndex = 7;
-            this.game3_btn.Text = "Game 3";
+            this.game3_btn.Text = "Wheel of Names";
             this.game3_btn.UseVisualStyleBackColor = true;
             this.game3_btn.Click += new System.EventHandler(this.gamebtn_Click);
             // 
             // toolbar_pnl
             // 
-            this.toolbar_pnl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolbar_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.toolbar_pnl.Controls.Add(this.minimize_btn);
             this.toolbar_pnl.Controls.Add(this.exit_btn);
             this.toolbar_pnl.Controls.Add(this.reciteLogo);
@@ -182,15 +184,26 @@ namespace ReCITE
             this.game4_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game4_btn.FlatAppearance.BorderSize = 0;
             this.game4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.game4_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.game4_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.game4_btn.Location = new System.Drawing.Point(613, 344);
+            this.game4_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.game4_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.game4_btn.Location = new System.Drawing.Point(129, 414);
             this.game4_btn.Name = "game4_btn";
-            this.game4_btn.Size = new System.Drawing.Size(220, 57);
+            this.game4_btn.Size = new System.Drawing.Size(478, 57);
             this.game4_btn.TabIndex = 10;
-            this.game4_btn.Text = "Game 4";
+            this.game4_btn.TabStop = false;
+            this.game4_btn.Text = "Defuse the bomb";
             this.game4_btn.UseVisualStyleBackColor = true;
             this.game4_btn.Click += new System.EventHandler(this.gamebtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ReCITE.Properties.Resources.Online_test_amico;
+            this.pictureBox1.Location = new System.Drawing.Point(613, 113);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(522, 480);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // Game_Menu
             // 
@@ -198,6 +211,7 @@ namespace ReCITE
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.game4_btn);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.game3_btn);
             this.Controls.Add(this.game2_btn);
@@ -211,6 +225,7 @@ namespace ReCITE
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +243,6 @@ namespace ReCITE
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.Button game4_btn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
