@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,8 +15,13 @@ namespace ReCITE
         public Student_List()
         {
             InitializeComponent();
-           // globalClass global = new globalClass();
-           className_tb.Text = globalClass.classid;
+            // globalClass global = new globalClass();
+            className_tb.Text = globalClass.classid;
+
+            //Initialize Class List
+            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string path = Path.Combine(directory, @"Web_Apps\classList.html");
+            webStudentList_pnl.Source = new Uri(path);
         }
 
         // Minimize and Close Button

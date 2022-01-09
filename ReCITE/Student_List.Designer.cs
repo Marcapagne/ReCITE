@@ -91,6 +91,7 @@ namespace ReCITE
             this.webStudentList_pnl.CreationProperties = null;
             this.webStudentList_pnl.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webStudentList_pnl.Location = new System.Drawing.Point(169, 166);
+            this.webStudentList_pnl.Margin = new System.Windows.Forms.Padding(0);
             this.webStudentList_pnl.Name = "webStudentList_pnl";
             this.webStudentList_pnl.Size = new System.Drawing.Size(885, 426);
             this.webStudentList_pnl.TabIndex = 6;
@@ -193,6 +194,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.className_tb);
             this.Controls.Add(this.edit_btn);

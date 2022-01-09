@@ -7,5 +7,6 @@ namespace ReCITE
     class globalClass
     {
         public static string classid;
+        public static string choosengame;
     }
 }

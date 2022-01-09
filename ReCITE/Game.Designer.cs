@@ -31,6 +31,7 @@ namespace ReCITE
         {
             this.end_btn = new System.Windows.Forms.Button();
             this.leadeboard_pnl = new System.Windows.Forms.Panel();
+            this.WebLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.leaderboard_lbl = new System.Windows.Forms.Label();
             this.addPoint_btn = new System.Windows.Forms.Button();
             this.webGame_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -46,6 +47,7 @@ namespace ReCITE
             this.LN_game = new System.Windows.Forms.Button();
             this.gameImage = new System.Windows.Forms.PictureBox();
             this.leadeboard_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WebLeaderboard_pnl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webGame_pnl)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
@@ -75,12 +77,24 @@ namespace ReCITE
             // 
             this.leadeboard_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(73)))), ((int)(((byte)(101)))));
             this.leadeboard_pnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.leadeboard_pnl.Controls.Add(this.WebLeaderboard_pnl);
             this.leadeboard_pnl.Controls.Add(this.leaderboard_lbl);
             this.leadeboard_pnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.leadeboard_pnl.Location = new System.Drawing.Point(0, 0);
             this.leadeboard_pnl.Name = "leadeboard_pnl";
             this.leadeboard_pnl.Size = new System.Drawing.Size(200, 355);
             this.leadeboard_pnl.TabIndex = 2;
+            // 
+            // WebLeaderboard_pnl
+            // 
+            this.WebLeaderboard_pnl.CreationProperties = null;
+            this.WebLeaderboard_pnl.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.WebLeaderboard_pnl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.WebLeaderboard_pnl.Location = new System.Drawing.Point(13, 35);
+            this.WebLeaderboard_pnl.Name = "WebLeaderboard_pnl";
+            this.WebLeaderboard_pnl.Size = new System.Drawing.Size(173, 303);
+            this.WebLeaderboard_pnl.TabIndex = 3;
+            this.WebLeaderboard_pnl.ZoomFactor = 1D;
             // 
             // leaderboard_lbl
             // 
@@ -224,6 +238,7 @@ namespace ReCITE
             this.DTB_game.TabIndex = 15;
             this.DTB_game.Text = "Defuse the Bomb";
             this.DTB_game.UseVisualStyleBackColor = false;
+            this.DTB_game.Click += new System.EventHandler(this.DTB_game_Click);
             // 
             // WON_game
             // 
@@ -258,6 +273,7 @@ namespace ReCITE
             this.OOE_game.TabIndex = 13;
             this.OOE_game.Text = "Odd or Even";
             this.OOE_game.UseVisualStyleBackColor = false;
+            this.OOE_game.Click += new System.EventHandler(this.OOE_game_Click);
             // 
             // LN_game
             // 
@@ -275,6 +291,7 @@ namespace ReCITE
             this.LN_game.TabIndex = 12;
             this.LN_game.Text = "Lotto Name";
             this.LN_game.UseVisualStyleBackColor = false;
+            this.LN_game.Click += new System.EventHandler(this.LN_game_Click);
             // 
             // gameImage
             // 
@@ -303,6 +320,7 @@ namespace ReCITE
             this.Text = "Form5";
             this.leadeboard_pnl.ResumeLayout(false);
             this.leadeboard_pnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WebLeaderboard_pnl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webGame_pnl)).EndInit();
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
@@ -330,5 +348,6 @@ namespace ReCITE
         private System.Windows.Forms.Button OOE_game;
         private System.Windows.Forms.Button LN_game;
         private System.Windows.Forms.PictureBox gameImage;
+        private Microsoft.Web.WebView2.WinForms.WebView2 WebLeaderboard_pnl;
     }
 }

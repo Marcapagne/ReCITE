@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #game p {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 50px;
+        }
+
+        #game button {
+            background-color: white;
+            border: none;
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #game #stp {
+            float: right;
+        }
+
+        #game button:hover {
+            background-color: rgb(196, 196, 196);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<html>
+
+<body>
+
+    <div id="header">
+        <p id="studentName">Student Name</p>
+        <div id="lifeline">
+            <div id="item">
+                <button type="button" id="cll" onclick="btn()">
+                    <img src="../Resources/callafriend.png">
+                </button>
+            </div>
+            <div id="item">
+                <button type="button" id="skp" onclick="btn()">
+                    <img src="../Resources/skip.png">
+                </button>
+            </div>
+            <div id="item">
+                <button type="button" id="hdle" onclick="btn()">
+                    <img src="../Resources/huddle.png">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game">
+        </br> </br> </br>
+        <p id="names">Names</p>
+        </br> </br> </br> </br> </br> </br> </br>
+        </br> </br> </br> </br>
+        <button type="button" id="strt" onclick="strt()">Start</button>
+        <button type="button" id="stp" onclick="stp()">Stop</button>
+
+    </div>
+
+</body>
+
+<script>
+    var samp_names = ["LM Albo", "Junie Azul", "Rafael Edades", "Chris Lapidez", "Eugine Villar"];
+    var t;
+    var s;
+
+    function strt() {
+        t = setInterval(roll, 10);
+        document.getElementById("strt").setAttribute("disabled","disabled")
+        document.getElementById("stp").removeAttribute("disabled")
+    }
+
+    function stp() {
+        clearTimeout(t);
+        document.getElementById("stp").setAttribute("disabled","disabled")
+        document.getElementById("strt").removeAttribute("disabled")
+        document.getElementById("studentName").innerHTML = document.getElementById("names").innerText;
+    }
+
+
+    function roll() {
+
+        var randnames = Math.floor(Math.random() * 5) + 1;
+
+        if (randnames == 1) {
+            document.getElementById("names").innerHTML = samp_names[0];
+        }
+        else if (randnames == 2) {
+            document.getElementById("names").innerHTML = samp_names[1];
+        }
+        else if (randnames == 3) {
+            document.getElementById("names").innerHTML = samp_names[2];
+        }
+        else if (randnames == 4) {
+            document.getElementById("names").innerHTML = samp_names[3];
+        }
+        else {
+            document.getElementById("names").innerHTML = samp_names[4];
+        }
+    }
+</script>
+
+
+</html>
