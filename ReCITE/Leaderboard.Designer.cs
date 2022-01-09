@@ -84,7 +84,6 @@ namespace ReCITE
             this.webLeaderboard_pnl.Location = new System.Drawing.Point(176, 178);
             this.webLeaderboard_pnl.Name = "webLeaderboard_pnl";
             this.webLeaderboard_pnl.Size = new System.Drawing.Size(885, 426);
-            this.webLeaderboard_pnl.Source = new System.Uri("https://www.youtube.com/", System.UriKind.Absolute);
             this.webLeaderboard_pnl.TabIndex = 9;
             this.webLeaderboard_pnl.ZoomFactor = 1D;
             // 

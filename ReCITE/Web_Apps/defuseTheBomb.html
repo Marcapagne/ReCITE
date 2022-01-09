@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #game p {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 78px;
+            color: grey;
+            font-weight: bold;
+
+            /*background-color: cornsilk;*/
+        }
+
+        #strt {
+            background-color: white;
+            border-radius: 25px;
+            margin-top: -50px;
+            margin-left: 350px;
+            cursor: pointer;
+        }
+
+        #bomb {
+            width: 600px;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 30px;
+        }
+
+        #grn {
+            float: right;
+            margin-top: 60px;
+            margin-right: 70px;
+            cursor: pointer;
+        }
+
+        #red {
+            position: absolute;
+            cursor: pointer;
+            float: left;
+            margin-top: 60px;
+            margin-left: 10px;
+
+        }
+
+        #blue {
+            cursor: pointer;
+            width: 900px;
+            position: absolute;
+            margin-left: 40px;
+            margin-top: 200px;
+        }
+
+        #rst {
+            margin-left: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            color: grey;
+            background-color: white;
+            border-radius: 25px;
+            padding: 5px 10px 10px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<html>
+
+<body>
+
+    <div id="header">
+        <p id="studentName">Student Name</p>
+        <div id="lifeline">
+            <div id="item">
+                <button type="button" id="cll" onclick="btn()">
+                    <img src="../Resources/callafriend.png">
+                </button>
+            </div>
+            <div id="item">
+                <button type="button" id="skp" onclick="btn()">
+                    <img src="../Resources/skip.png">
+                </button>
+            </div>
+            <div id="item">
+                <button type="button" id="hdle" onclick="btn()">
+                    <img src="../Resources/huddle.png">
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="game">
+        <br>
+        <div onload="frst()">
+            <p id="ttl">DEFUSE THE BOMB</p>
+            <button type="button" onclick="strt()" id="strt"><img src="../Resources/start_btn.png"></button>
+        </div>
+
+        <img src="../Resources/bomb.png" id="bomb">
+        <img src="../Resources/green.png" onclick="grn()" id="grn">
+        <img src="../Resources/red.png" onclick="red()" id="red">
+        <img src="../Resources/blue.png" onclick="blue()" id="blue">
+        <br> <br> <br> <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br> <br>
+        <button type="button" onclick="rst()" id="rst">RESET</button>
+
+    </div>
+
+</body>
+<script>
+    var a = 0;
+
+    document.getElementById("grn").style.display = 'none';
+    document.getElementById("red").style.display = 'none';
+    document.getElementById("blue").style.display = 'none';
+    document.getElementById("bomb").style.display = 'none';
+    document.getElementById("rst").style.display = 'none';
+
+    function strt() {
+        randnum = Math.floor(Math.random() * 3) + 1;
+        a = 1;
+        unhide();
+
+    }
+
+    function grn() {
+        if (randnum == 1) {
+            alert("No Recite")
+            document.getElementById("grn").style.display = 'none';
+            document.getElementById("rst").style.display = 'block';
+
+        }
+        else
+            alert("Recite")
+        document.getElementById("grn").style.display = 'none';
+        document.getElementById("rst").style.display = 'block';
+
+    }
+    function red() {
+
+        if (randnum == 2) {
+            alert("No Recite")
+            document.getElementById("red").style.display = 'none';
+            document.getElementById("rst").style.display = 'block';
+
+        }
+        else
+            alert("Recite")
+        document.getElementById("red").style.display = 'none';
+        document.getElementById("rst").style.display = 'block';
+
+    }
+    function blue() {
+
+        if (randnum == 3) {
+            alert("No Recite")
+            document.getElementById("blue").style.display = 'none';
+            document.getElementById("rst").style.display = 'block';
+
+        }
+        else
+            alert("Recite")
+        document.getElementById("blue").style.display = 'none';
+        document.getElementById("rst").style.display = 'block';
+
+    }
+    function rst() {
+        a = 0;
+        document.getElementById("rst").style.display = 'none';
+        strt();
+    }
+    function unhide() {
+        document.getElementById("grn").style.display = 'block';
+        document.getElementById("red").style.display = 'block';
+        document.getElementById("blue").style.display = 'block';
+        document.getElementById("bomb").style.display = 'block';
+        document.getElementById("strt").style.display = 'none';
+        document.getElementById("ttl").style.display = 'none';
+    }
+</script>
+
+</html>

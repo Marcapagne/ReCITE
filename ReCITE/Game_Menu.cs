@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -30,9 +31,52 @@ namespace ReCITE
 
         private void gamebtn_Click(object sender, EventArgs e)
         {
-            Form game = new Game();
-            game.Show();
-            this.Hide();
+            Button btnTag = (Button)sender;
+            var tag = btnTag.Tag;
+
+            if (tag == "Lotto")
+            {
+                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                string path = Path.Combine(directory, @"Web_Apps\LottoGame.html");
+                globalClass.choosengame = path;
+
+                Form game = new Game();
+                game.Show();
+                this.Hide();
+            }
+
+            if (tag == "Wheel of Names")
+            {
+                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                string path = Path.Combine(directory, @"Web_Apps\LottoGame.html");
+                globalClass.choosengame = path;
+
+                Form game = new Game();
+                game.Show();
+                this.Hide();
+            }
+
+            if (tag == "Odd or Even")
+            {
+                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                string path = Path.Combine(directory, @"Web_Apps\OddEvenGame.html");
+                globalClass.choosengame = path;
+
+                Form game = new Game();
+                game.Show();
+                this.Hide();
+            }
+
+            if (tag == "Defuse the bomb")
+            {
+                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                string path = Path.Combine(directory, @"Web_Apps\defuseTheBomb.html");
+                globalClass.choosengame = path;
+
+                Form game = new Game();
+                game.Show();
+                this.Hide();
+            }
         }
     }
 }
