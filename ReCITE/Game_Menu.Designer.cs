@@ -52,6 +52,7 @@ namespace ReCITE
             this.game1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.game1_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game1_btn.FlatAppearance.BorderSize = 0;
+            this.game1_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.game1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game1_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -62,7 +63,7 @@ namespace ReCITE
             this.game1_btn.Tag = "Lotto";
             this.game1_btn.Text = "Lotto Name";
             this.game1_btn.UseVisualStyleBackColor = true;
-            this.game1_btn.Click += new System.EventHandler(this.gamebtn_Click);
+            this.game1_btn.Click += new System.EventHandler(this.Gamebtn_Click);
             // 
             // selectGame_lbl
             // 
@@ -92,6 +93,7 @@ namespace ReCITE
             this.game2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.game2_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game2_btn.FlatAppearance.BorderSize = 0;
+            this.game2_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.game2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game2_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -102,7 +104,7 @@ namespace ReCITE
             this.game2_btn.Tag = "Odd or Even";
             this.game2_btn.Text = "Odd or Even";
             this.game2_btn.UseVisualStyleBackColor = true;
-            this.game2_btn.Click += new System.EventHandler(this.gamebtn_Click);
+            this.game2_btn.Click += new System.EventHandler(this.Gamebtn_Click);
             // 
             // game3_btn
             // 
@@ -110,6 +112,7 @@ namespace ReCITE
             this.game3_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.game3_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game3_btn.FlatAppearance.BorderSize = 0;
+            this.game3_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.game3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game3_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game3_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -120,7 +123,7 @@ namespace ReCITE
             this.game3_btn.Tag = "Wheel of Names";
             this.game3_btn.Text = "Wheel of Names";
             this.game3_btn.UseVisualStyleBackColor = true;
-            this.game3_btn.Click += new System.EventHandler(this.gamebtn_Click);
+            this.game3_btn.Click += new System.EventHandler(this.Gamebtn_Click);
             // 
             // toolbar_pnl
             // 
@@ -133,6 +136,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1184, 40);
             this.toolbar_pnl.TabIndex = 9;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -151,7 +157,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -168,7 +174,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -186,6 +192,7 @@ namespace ReCITE
             this.game4_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.game4_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.game4_btn.FlatAppearance.BorderSize = 0;
+            this.game4_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.game4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game4_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game4_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -197,7 +204,7 @@ namespace ReCITE
             this.game4_btn.Tag = "Defuse the bomb";
             this.game4_btn.Text = "Defuse the bomb";
             this.game4_btn.UseVisualStyleBackColor = true;
-            this.game4_btn.Click += new System.EventHandler(this.gamebtn_Click);
+            this.game4_btn.Click += new System.EventHandler(this.Gamebtn_Click);
             // 
             // pictureBox1
             // 

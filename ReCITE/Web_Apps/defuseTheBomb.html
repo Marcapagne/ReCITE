@@ -3,66 +3,69 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <style>
-        #game p {
-            text-align: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 78px;
-            color: grey;
-            font-weight: bold;
-
-            /*background-color: cornsilk;*/
+        #game img {
+            display: inline;
+            margin: auto;
+            cursor: pointer;
         }
 
-        #strt {
-            background-color: white;
-            border-radius: 25px;
-            margin-top: -50px;
-            margin-left: 350px;
-            cursor: pointer;
+        #dis {
+            z-index: 2;
+        }
+
+        #player {
+            font-size: 30px;
+            font-weight: 900;
         }
 
         #bomb {
-            width: 600px;
-            position: absolute;
-            margin-left: 170px;
-            margin-top: 30px;
+            z-index: 2;
+            position: relative;
         }
 
         #grn {
-            float: right;
-            margin-top: 60px;
-            margin-right: 70px;
-            cursor: pointer;
+
+            position: relative;
+            bottom: 30px;
+            right: 10px;
         }
 
         #red {
-            position: absolute;
-            cursor: pointer;
-            float: left;
-            margin-top: 60px;
-            margin-left: 10px;
-
+            position: relative;
+            bottom: 30px;
+            left: 10px;
         }
 
         #blue {
-            cursor: pointer;
-            width: 900px;
-            position: absolute;
-            margin-left: 40px;
-            margin-top: 200px;
+            position: relative;
+            bottom: 100px;
+            left: 10px;
+            width: 450px;
+        }
+
+        #explode {
+            z-index: -1;
+            position: relative;
+            width: 450px;
+            bottom: 480px;
         }
 
         #rst {
-            margin-left: 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: bold;
-            font-size: 30px;
-            color: grey;
-            background-color: white;
-            border-radius: 25px;
-            padding: 5px 10px 10px;
+            position: relative;
+            bottom: 50px;
+            width: 100px;
+            height: 50px;
+            border-radius: 30px;
+            color: white;
+            background-color: rgb(1, 88, 122);
+            border: none;
             cursor: pointer;
+        }
 
+        #rst:hover{
+            background-color: rgb(196, 196, 196);
+            color: rgb(1, 88, 122);
+            cursor: pointer;
         }
     </style>
 </head>
@@ -91,96 +94,115 @@
         </div>
     </div>
 
+    <img src="../Resources/helpIcon.png" style="position:absolute; right: 0; margin:10px;" />
+    <div id="game" class="box" style="text-align: center; padding-top: 50px;">
 
-    <div id="game">
-        <br>
-        <div onload="frst()">
-            <p id="ttl">DEFUSE THE BOMB</p>
-            <button type="button" onclick="strt()" id="strt"><img src="../Resources/start_btn.png"></button>
-        </div>
+        <p id="dis" class="center" style="font-weight: bold;">Bomb Defuser Expert:</p>
+        <p id="player" class="center"> Student Name </p><br>
 
-        <img src="../Resources/bomb.png" id="bomb">
-        <img src="../Resources/green.png" onclick="grn()" id="grn">
-        <img src="../Resources/red.png" onclick="red()" id="red">
-        <img src="../Resources/blue.png" onclick="blue()" id="blue">
-        <br> <br> <br> <br> <br> <br> <br> <br>
-        <br> <br> <br> <br> <br> <br> <br> <br>
-        <br> <br> <br> <br> <br> <br>
-        <button type="button" onclick="rst()" id="rst">RESET</button>
+        <img id="red" class="center" src="../Resources/red.png" onclick="red()">
+        <img id="bomb" class="center" src="../Resources/bomb.png">
+        <img id="grn" class="center" src="../Resources/green.png" onclick="grn()"><br>
+        <img id="blue" class="center" src="../Resources/blue.png" onclick="blue()">
 
+        <button id="rst" class="center" type="button" onclick="rst()" style="font-weight: bold;">RESET</button>
+
+        <img id="explode" class="center" src="../Resources/explosion.png">
     </div>
 
 </body>
 <script>
+    document.getElementById("rst").style.visibility = "hidden";
+    document.getElementById("explode").style.visibility = "hidden";
+    strt();
     var a = 0;
+    var noRecite = 0;
 
-    document.getElementById("grn").style.display = 'none';
-    document.getElementById("red").style.display = 'none';
-    document.getElementById("blue").style.display = 'none';
-    document.getElementById("bomb").style.display = 'none';
-    document.getElementById("rst").style.display = 'none';
+    function newPlayer() {
+        var samp_names = ["LM Albo", "Junie Azul", "Rafael Edades", "Chris Lapidez", "Eugine Villar"];
+        var randnames = Math.floor(Math.random() * 4);
+        document.getElementById("player").innerText = samp_names[randnames];
+    }
 
     function strt() {
+        newPlayer();
         randnum = Math.floor(Math.random() * 3) + 1;
-        a = 1;
-        unhide();
-
+        a = randnum;
     }
 
     function grn() {
-        if (randnum == 1) {
-            alert("No Recite")
-            document.getElementById("grn").style.display = 'none';
-            document.getElementById("rst").style.display = 'block';
-
-        }
-        else
-            alert("Recite")
-        document.getElementById("grn").style.display = 'none';
-        document.getElementById("rst").style.display = 'block';
-
+        if (randnum != 1) {
+            noRecite = noRecite + 1;
+            if (noRecite != 2) {
+                newPlayer();
+                document.getElementById("grn").style.visibility = "hidden";
+            }
+            else if (noRecite == 2) {
+                document.getElementById("dis").innerText = "Bomb has been defused by:"
+                document.getElementById("rst").style.visibility = "visible";
+            }
+        } else
+            explode();
     }
+
     function red() {
-
-        if (randnum == 2) {
-            alert("No Recite")
-            document.getElementById("red").style.display = 'none';
-            document.getElementById("rst").style.display = 'block';
-
-        }
-        else
-            alert("Recite")
-        document.getElementById("red").style.display = 'none';
-        document.getElementById("rst").style.display = 'block';
-
+        if (randnum != 2) {
+            noRecite = noRecite + 1;
+            if (noRecite != 2) {
+                newPlayer();
+                document.getElementById("red").style.visibility = "hidden";
+            }
+            else if (noRecite == 2) {
+                document.getElementById("dis").innerText = "Bomb has been defused by:"
+                document.getElementById("rst").style.visibility = "visible";
+            }
+        } else
+            explode();
     }
+
     function blue() {
-
-        if (randnum == 3) {
-            alert("No Recite")
-            document.getElementById("blue").style.display = 'none';
-            document.getElementById("rst").style.display = 'block';
-
-        }
-        else
-            alert("Recite")
-        document.getElementById("blue").style.display = 'none';
-        document.getElementById("rst").style.display = 'block';
-
+        if (randnum != 3) {
+            noRecite = noRecite + 1;
+            if (noRecite != 2) {
+                newPlayer();
+                document.getElementById("blue").style.visibility = "hidden";
+            }
+            else if (noRecite == 2) {
+                document.getElementById("dis").innerText = "Bomb has been defused by:"
+                document.getElementById("rst").style.visibility = "visible";
+            }
+        } else
+            explode();
     }
+
     function rst() {
+        document.getElementById("dis").innerText = "Bomb Defuser Expert:"
+        document.getElementById("grn").style.visibility = "visible";
+        document.getElementById("red").style.visibility = "visible";
+        document.getElementById("blue").style.visibility = "visible";
+        document.getElementById("bomb").style.visibility = "visible";
+
+        document.getElementById("explode").style.visibility = "hidden";
+        document.getElementById("rst").style.visibility = "hidden";
+
         a = 0;
-        document.getElementById("rst").style.display = 'none';
+        noRecite = 0;
         strt();
     }
-    function unhide() {
-        document.getElementById("grn").style.display = 'block';
-        document.getElementById("red").style.display = 'block';
-        document.getElementById("blue").style.display = 'block';
-        document.getElementById("bomb").style.display = 'block';
-        document.getElementById("strt").style.display = 'none';
-        document.getElementById("ttl").style.display = 'none';
+
+    function explode() {
+        document.getElementById("dis").innerText = "Bomb has been activated by:"
+        document.getElementById("grn").style.visibility = "hidden";
+        document.getElementById("red").style.visibility = "hidden";
+        document.getElementById("blue").style.visibility = "hidden";
+        document.getElementById("bomb").style.visibility = "hidden";
+
+        document.getElementById("explode").style.visibility = "visible";
+        document.getElementById("rst").style.visibility = "visible";
+
+        document.getElementById("studentName").innerHTML = document.getElementById("player").innerText;
     }
+
 </script>
 
 </html>
