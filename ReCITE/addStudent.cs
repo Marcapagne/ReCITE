@@ -15,10 +15,10 @@ namespace ReCITE
             InitializeComponent();
         }
 
-        private void add_btn_Click(object sender, EventArgs e)
+        private void Add_btn_Click(object sender, EventArgs e)
         {
             //add student function to database 
-
+            
             //Clear textbox
             studentName_tb.Text = "";
         }

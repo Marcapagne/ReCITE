@@ -58,7 +58,7 @@ namespace ReCITE
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.back_btn.TabIndex = 0;
             this.back_btn.TabStop = false;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            this.back_btn.Click += new System.EventHandler(this.Back_btn_Click);
             // 
             // classList_lbl
             // 
@@ -86,7 +86,7 @@ namespace ReCITE
             this.class1_btn.TabIndex = 2;
             this.class1_btn.Text = "Class 1 ";
             this.class1_btn.UseVisualStyleBackColor = true;
-            this.class1_btn.Click += new System.EventHandler(this.class_btn_click);
+            this.class1_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
             // class2_btn
             // 
@@ -103,7 +103,7 @@ namespace ReCITE
             this.class2_btn.TabIndex = 3;
             this.class2_btn.Text = "Class 2";
             this.class2_btn.UseVisualStyleBackColor = true;
-            this.class2_btn.Click += new System.EventHandler(this.class_btn_click);
+            this.class2_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
             // class3_btn
             // 
@@ -120,7 +120,7 @@ namespace ReCITE
             this.class3_btn.TabIndex = 4;
             this.class3_btn.Text = "Class 3 ";
             this.class3_btn.UseVisualStyleBackColor = true;
-            this.class3_btn.Click += new System.EventHandler(this.class_btn_click);
+            this.class3_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
             // class4_btn
             // 
@@ -138,7 +138,7 @@ namespace ReCITE
             this.class4_btn.Tag = "";
             this.class4_btn.Text = "Class 4";
             this.class4_btn.UseVisualStyleBackColor = true;
-            this.class4_btn.Click += new System.EventHandler(this.class_btn_click);
+            this.class4_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
             // toolbar_pnl
             // 
@@ -151,6 +151,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 6;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -169,7 +172,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -186,7 +189,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 

@@ -12,6 +12,9 @@ namespace ReCITE
 {
     public partial class Student_List : Form
     {
+        private bool mouseDown;
+        private Point lastLocation;
+
         public Student_List()
         {
             InitializeComponent();
@@ -26,33 +29,56 @@ namespace ReCITE
 
         // Minimize and Close Button
         #region Toolbar
-        private void minimize_btn_Click(object sender, EventArgs e)
+        private void Minimize_btn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void exit_btn_Click(object sender, EventArgs e)
+        private void Exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        // Movable Toolbar -------------------------- 
+        private void Toolbar_pnl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void Toolbar_pnl_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void Toolbar_pnl_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+        //--------------------------------------------------
         #endregion
 
         // Button Function to new forms...
         #region Buttons
-        private void start_btn_Click(object sender, EventArgs e)
+        private void Start_btn_Click(object sender, EventArgs e)
         {
             Form gameMenu = new Game_Menu();
             gameMenu.Show();
             this.Hide();
         }
 
-        private void add_btn_Click(object sender, EventArgs e)
+        private void Add_btn_Click(object sender, EventArgs e)
         {
             Form addStudent = new addStudent();
             addStudent.Show();
         }
 
-        private void back_btn_Click(object sender, EventArgs e)
+        private void Back_btn_Click(object sender, EventArgs e)
         {
             Form class_list = new Class_List();
             class_list.Show();
@@ -60,22 +86,23 @@ namespace ReCITE
         }
 
         // Editing Class Name 
-        private void edit_btn_Click(object sender, EventArgs e)
+        private void Edit_btn_Click(object sender, EventArgs e)
         {
-            className_tb.Enabled = true;
+            className_tb.ReadOnly = false;
             className_tb.Focus();
             className_tb.BackColor = Color.White;
+            className_tb.ForeColor = Color.FromArgb(1, 88, 122);
             edit_btn.Hide();
             check_btn.Show();
         }
         #endregion
 
         // Updating Class Name
-        private void check_btn_Click(object sender, EventArgs e)
+        private void Check_btn_Click(object sender, EventArgs e)
         {
-            className_tb.Enabled = false;
-            //className_tb.Focus();
             className_tb.BackColor = default;
+            className_tb.ForeColor = Color.FromArgb(1, 88, 122);
+            className_tb.ReadOnly = true;
             check_btn.Hide();
             edit_btn.Show();
         }

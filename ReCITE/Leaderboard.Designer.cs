@@ -29,7 +29,6 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
-            this.className_lbl = new System.Windows.Forms.Label();
             this.leaderboard_lbl = new System.Windows.Forms.Label();
             this.proceed_btn = new System.Windows.Forms.PictureBox();
             this.webLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -37,22 +36,12 @@ namespace ReCITE
             this.minimize_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
+            this.className_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.proceed_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webLeaderboard_pnl)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // className_lbl
-            // 
-            this.className_lbl.AutoSize = true;
-            this.className_lbl.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.className_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
-            this.className_lbl.Location = new System.Drawing.Point(425, 60);
-            this.className_lbl.Name = "className_lbl";
-            this.className_lbl.Size = new System.Drawing.Size(404, 77);
-            this.className_lbl.TabIndex = 6;
-            this.className_lbl.Text = "Class Name";
             // 
             // leaderboard_lbl
             // 
@@ -75,7 +64,7 @@ namespace ReCITE
             this.proceed_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.proceed_btn.TabIndex = 8;
             this.proceed_btn.TabStop = false;
-            this.proceed_btn.Click += new System.EventHandler(this.proceed_btn_Click);
+            this.proceed_btn.Click += new System.EventHandler(this.Proceed_btn_Click);
             // 
             // webLeaderboard_pnl
             // 
@@ -98,6 +87,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 10;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -116,7 +108,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -133,7 +125,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -145,16 +137,30 @@ namespace ReCITE
             this.reciteLogo.TabIndex = 4;
             this.reciteLogo.TabStop = false;
             // 
+            // className_tb
+            // 
+            this.className_tb.BackColor = System.Drawing.SystemColors.Menu;
+            this.className_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.className_tb.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.className_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.className_tb.Location = new System.Drawing.Point(363, 56);
+            this.className_tb.Name = "className_tb";
+            this.className_tb.ReadOnly = true;
+            this.className_tb.Size = new System.Drawing.Size(526, 78);
+            this.className_tb.TabIndex = 11;
+            this.className_tb.Text = "Class 1";
+            this.className_tb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Leaderboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.className_tb);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.webLeaderboard_pnl);
             this.Controls.Add(this.proceed_btn);
             this.Controls.Add(this.leaderboard_lbl);
-            this.Controls.Add(this.className_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Leaderboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,8 +175,6 @@ namespace ReCITE
         }
 
         #endregion
-
-        private System.Windows.Forms.Label className_lbl;
         private System.Windows.Forms.Label leaderboard_lbl;
         private System.Windows.Forms.PictureBox proceed_btn;
         private Microsoft.Web.WebView2.WinForms.WebView2 webLeaderboard_pnl;
@@ -178,5 +182,6 @@ namespace ReCITE
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
+        private System.Windows.Forms.TextBox className_tb;
     }
 }

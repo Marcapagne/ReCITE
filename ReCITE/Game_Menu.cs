@@ -11,6 +11,10 @@ namespace ReCITE
 {
     public partial class Game_Menu : Form
     {
+        //For Movable Toolbar
+        private bool mouseDown;
+        private Point lastLocation;
+
         public Game_Menu()
         {
             InitializeComponent();
@@ -18,65 +22,101 @@ namespace ReCITE
 
         // Minimize and Close Button
         #region Toolbar
-        private void exit_btn_Click(object sender, EventArgs e)
+        private void Exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void minimize_btn_Click(object sender, EventArgs e)
+        private void Minimize_btn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        #endregion
 
-        private void gamebtn_Click(object sender, EventArgs e)
+        // Movable Toolbar -------------------------- 
+        private void Toolbar_pnl_MouseMove(object sender, MouseEventArgs e)
         {
-            Button btnTag = (Button)sender;
-            var tag = btnTag.Tag;
-
-            if (tag == "Lotto")
+            if (mouseDown)
             {
-                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                string path = Path.Combine(directory, @"Web_Apps\LottoGame.html");
-                globalClass.choosengame = path;
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
 
-                Form game = new Game();
-                game.Show();
-                this.Hide();
-            }
-
-            if (tag == "Wheel of Names")
-            {
-                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                string path = Path.Combine(directory, @"Web_Apps\LottoGame.html");
-                globalClass.choosengame = path;
-
-                Form game = new Game();
-                game.Show();
-                this.Hide();
-            }
-
-            if (tag == "Odd or Even")
-            {
-                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                string path = Path.Combine(directory, @"Web_Apps\OddEvenGame.html");
-                globalClass.choosengame = path;
-
-                Form game = new Game();
-                game.Show();
-                this.Hide();
-            }
-
-            if (tag == "Defuse the bomb")
-            {
-                string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                string path = Path.Combine(directory, @"Web_Apps\defuseTheBomb.html");
-                globalClass.choosengame = path;
-
-                Form game = new Game();
-                game.Show();
-                this.Hide();
+                this.Update();
             }
         }
+
+        private void Toolbar_pnl_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void Toolbar_pnl_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+        //--------------------------------------------------
+        #endregion
+
+        // Select Game Buttons
+        #region Selct Game Buttons
+        private void Gamebtn_Click(object sender, EventArgs e)
+        {
+            Button btnTag = (Button)sender;
+            string tag = btnTag.Tag.ToString();
+            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            _ = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+            Form game;
+            string path;
+            switch (tag)
+            {
+                case "Lotto":
+                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    globalClass.choosengame = path;
+                    game = new Game();
+                    game.Show();
+                    this.Hide();
+                    break;
+
+                case "Wheel of Names":
+                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    globalClass.choosengame = path;
+                    game = new Game();
+                    game.Show();
+                    this.Hide();
+                    break;
+
+                case "Odd or Even":
+                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                    path = Path.Combine(directory, @"Web_Apps\OddEvenGameStart.html");
+                    globalClass.choosengame = path;
+                    game = new Game();
+                    game.Show();
+                    this.Hide();
+                    break;
+
+                case "Defuse the Bomb":
+                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                    path = Path.Combine(directory, @"Web_Apps\defuseTheBombGameStart.html");
+                    globalClass.choosengame = path;
+                    game = new Game();
+                    game.Show();
+                    this.Hide();
+                    break;
+
+                default:
+                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    globalClass.choosengame = path;
+                    game = new Game();
+                    game.Show();
+                    this.Hide();
+                    break;
+
+            }
+        }
+        #endregion
+
     }
 }

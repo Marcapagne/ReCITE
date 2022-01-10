@@ -67,7 +67,7 @@ namespace ReCITE
             this.start_btn.TabIndex = 1;
             this.start_btn.Text = "START";
             this.start_btn.UseVisualStyleBackColor = false;
-            this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
+            this.start_btn.Click += new System.EventHandler(this.Start_btn_Click);
             // 
             // instruction_btn
             // 
@@ -85,7 +85,7 @@ namespace ReCITE
             this.instruction_btn.TabIndex = 2;
             this.instruction_btn.Text = "HELP";
             this.instruction_btn.UseVisualStyleBackColor = false;
-            this.instruction_btn.Click += new System.EventHandler(this.instruction_btn_Click);
+            this.instruction_btn.Click += new System.EventHandler(this.Instruction_btn_Click);
             // 
             // toolbar_pnl
             // 
@@ -97,6 +97,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 3;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -115,7 +118,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // close_btn
             // 
@@ -132,7 +135,7 @@ namespace ReCITE
             this.close_btn.Size = new System.Drawing.Size(40, 40);
             this.close_btn.TabIndex = 4;
             this.close_btn.UseVisualStyleBackColor = true;
-            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
+            this.close_btn.Click += new System.EventHandler(this.Close_btn_Click);
             // 
             // pictureBox1
             // 

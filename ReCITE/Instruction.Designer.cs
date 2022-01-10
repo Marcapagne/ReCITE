@@ -50,6 +50,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 9;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -68,7 +71,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -85,7 +88,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -107,7 +110,7 @@ namespace ReCITE
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.back_btn.TabIndex = 10;
             this.back_btn.TabStop = false;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            this.back_btn.Click += new System.EventHandler(this.Back_btn_Click);
             // 
             // Instruction
             // 

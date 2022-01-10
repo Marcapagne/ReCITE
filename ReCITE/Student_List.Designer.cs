@@ -60,7 +60,7 @@ namespace ReCITE
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.back_btn.TabIndex = 1;
             this.back_btn.TabStop = false;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            this.back_btn.Click += new System.EventHandler(this.Back_btn_Click);
             // 
             // start_btn
             // 
@@ -72,7 +72,7 @@ namespace ReCITE
             this.start_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.start_btn.TabIndex = 2;
             this.start_btn.TabStop = false;
-            this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
+            this.start_btn.Click += new System.EventHandler(this.Start_btn_Click);
             // 
             // add_btn
             // 
@@ -84,7 +84,7 @@ namespace ReCITE
             this.add_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.add_btn.TabIndex = 5;
             this.add_btn.TabStop = false;
-            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
+            this.add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
             // webStudentList_pnl
             // 
@@ -108,6 +108,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 7;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -126,7 +129,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -143,7 +146,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -159,10 +162,11 @@ namespace ReCITE
             // 
             this.className_tb.BackColor = System.Drawing.SystemColors.Menu;
             this.className_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.className_tb.Enabled = false;
             this.className_tb.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.className_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
             this.className_tb.Location = new System.Drawing.Point(169, 82);
             this.className_tb.Name = "className_tb";
+            this.className_tb.ReadOnly = true;
             this.className_tb.Size = new System.Drawing.Size(526, 78);
             this.className_tb.TabIndex = 8;
             // 
@@ -176,7 +180,7 @@ namespace ReCITE
             this.edit_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.edit_btn.TabIndex = 9;
             this.edit_btn.TabStop = false;
-            this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
+            this.edit_btn.Click += new System.EventHandler(this.Edit_btn_Click);
             // 
             // check_btn
             // 
@@ -188,7 +192,7 @@ namespace ReCITE
             this.check_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.check_btn.TabIndex = 10;
             this.check_btn.TabStop = false;
-            this.check_btn.Click += new System.EventHandler(this.check_btn_Click);
+            this.check_btn.Click += new System.EventHandler(this.Check_btn_Click);
             // 
             // Student_List
             // 

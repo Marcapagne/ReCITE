@@ -64,7 +64,7 @@ namespace ReCITE
             this.add_btn.TabIndex = 2;
             this.add_btn.Text = "Add Student";
             this.add_btn.UseVisualStyleBackColor = false;
-            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
+            this.add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
             // addStudent
             // 

@@ -71,7 +71,7 @@ namespace ReCITE
             this.end_btn.TabIndex = 2;
             this.end_btn.Text = "E N D";
             this.end_btn.UseVisualStyleBackColor = false;
-            this.end_btn.Click += new System.EventHandler(this.end_btn_Click);
+            this.end_btn.Click += new System.EventHandler(this.End_btn_Click);
             // 
             // leadeboard_pnl
             // 
@@ -115,8 +115,8 @@ namespace ReCITE
             this.addPoint_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addPoint_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addPoint_btn.FlatAppearance.BorderSize = 0;
-            this.addPoint_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addPoint_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addPoint_btn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.addPoint_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.addPoint_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPoint_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addPoint_btn.ForeColor = System.Drawing.Color.Transparent;
@@ -149,6 +149,9 @@ namespace ReCITE
             this.toolbar_pnl.Name = "toolbar_pnl";
             this.toolbar_pnl.Size = new System.Drawing.Size(1200, 40);
             this.toolbar_pnl.TabIndex = 8;
+            this.toolbar_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseDown);
+            this.toolbar_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseMove);
+            this.toolbar_pnl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toolbar_pnl_MouseUp);
             // 
             // minimize_btn
             // 
@@ -167,7 +170,7 @@ namespace ReCITE
             this.minimize_btn.TabIndex = 5;
             this.minimize_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            this.minimize_btn.Click += new System.EventHandler(this.Minimize_btn_Click);
             // 
             // exit_btn
             // 
@@ -184,7 +187,7 @@ namespace ReCITE
             this.exit_btn.Size = new System.Drawing.Size(40, 40);
             this.exit_btn.TabIndex = 4;
             this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // reciteLogo
             // 
@@ -239,6 +242,8 @@ namespace ReCITE
             this.DTB_game.Text = "Defuse the Bomb";
             this.DTB_game.UseVisualStyleBackColor = false;
             this.DTB_game.Click += new System.EventHandler(this.DTB_game_Click);
+            this.DTB_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.DTB_game.MouseHover += new System.EventHandler(this.Hover);
             // 
             // WON_game
             // 
@@ -256,6 +261,8 @@ namespace ReCITE
             this.WON_game.TabIndex = 14;
             this.WON_game.Text = "Wheel of Names";
             this.WON_game.UseVisualStyleBackColor = false;
+            this.WON_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.WON_game.MouseHover += new System.EventHandler(this.Hover);
             // 
             // OOE_game
             // 
@@ -274,6 +281,8 @@ namespace ReCITE
             this.OOE_game.Text = "Odd or Even";
             this.OOE_game.UseVisualStyleBackColor = false;
             this.OOE_game.Click += new System.EventHandler(this.OOE_game_Click);
+            this.OOE_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.OOE_game.MouseHover += new System.EventHandler(this.Hover);
             // 
             // LN_game
             // 
@@ -292,6 +301,8 @@ namespace ReCITE
             this.LN_game.Text = "Lotto Name";
             this.LN_game.UseVisualStyleBackColor = false;
             this.LN_game.Click += new System.EventHandler(this.LN_game_Click);
+            this.LN_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.LN_game.MouseHover += new System.EventHandler(this.Hover);
             // 
             // gameImage
             // 
