@@ -69,12 +69,10 @@ namespace ReCITE.Database
         //  UPDATE STUDENT DATA
         public void UpdateName(string StudentID, string NameChanges)
         {
-            
             string query = "UPDATE Class1 SET StudentName='"+ NameChanges +"' WHERE StudentId = '"+ StudentID +"'";
             sqlCommand = new SqlCommand(query, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
-
 
         //  ADD STUDENT DATA
         public void AddStudent(Object StudentData)
@@ -83,7 +81,6 @@ namespace ReCITE.Database
             sqlCommand = new SqlCommand(InsertQuery, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
-
 
         //  CREATE TABLES
         public void CreateTables()
@@ -95,5 +92,35 @@ namespace ReCITE.Database
                 sqlCommand.ExecuteNonQuery();
             }
         }
+
+        // Update Tables
+        public void UpdateTables(string Oldname, string Newname)
+        {
+            ConnectToDatabase();
+            string createTable = @"EXEC sp_rename '"+ Oldname +"','"+ Newname +"'";
+            sqlCommand = new SqlCommand(createTable, sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        //Load ClassName
+        public List<List<string>> LoadTableName()
+        {
+            List<List<string>> ClassName = new List<List<string>>();
+            ConnectToDatabase();
+            string query = "USE StudentData SELECT * FROM sys.Tables";
+
+            sqlCommand = new SqlCommand(query, sqlConnection);
+            dataReader = sqlCommand.ExecuteReader();
+            while (dataReader.Read())
+            {
+                List<string> vs = new List<string>();
+                vs.Add(dataReader["Name"].ToString());
+                ClassName.Add(vs);
+            }
+
+            sqlConnection.Close();
+            return ClassName;
+        }
+
     }
 }

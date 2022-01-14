@@ -105,6 +105,9 @@ namespace ReCITE
             className_tb.ReadOnly = true;
             check_btn.Hide();
             edit_btn.Show();
+
+            Database.Database databaseConnection = new Database.Database();
+            databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
         }
     }
 }

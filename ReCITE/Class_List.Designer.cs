@@ -41,6 +41,7 @@ namespace ReCITE
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
@@ -84,7 +85,7 @@ namespace ReCITE
             this.class1_btn.Name = "class1_btn";
             this.class1_btn.Size = new System.Drawing.Size(220, 57);
             this.class1_btn.TabIndex = 2;
-            this.class1_btn.Text = "Class 1 ";
+            this.class1_btn.Text = "Class1 ";
             this.class1_btn.UseVisualStyleBackColor = true;
             this.class1_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
@@ -101,7 +102,7 @@ namespace ReCITE
             this.class2_btn.Name = "class2_btn";
             this.class2_btn.Size = new System.Drawing.Size(220, 57);
             this.class2_btn.TabIndex = 3;
-            this.class2_btn.Text = "Class 2";
+            this.class2_btn.Text = "Class2";
             this.class2_btn.UseVisualStyleBackColor = true;
             this.class2_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
@@ -118,7 +119,7 @@ namespace ReCITE
             this.class3_btn.Name = "class3_btn";
             this.class3_btn.Size = new System.Drawing.Size(220, 57);
             this.class3_btn.TabIndex = 4;
-            this.class3_btn.Text = "Class 3 ";
+            this.class3_btn.Text = "Class3 ";
             this.class3_btn.UseVisualStyleBackColor = true;
             this.class3_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
@@ -136,7 +137,7 @@ namespace ReCITE
             this.class4_btn.Size = new System.Drawing.Size(220, 57);
             this.class4_btn.TabIndex = 5;
             this.class4_btn.Tag = "";
-            this.class4_btn.Text = "Class 4";
+            this.class4_btn.Text = "Class4";
             this.class4_btn.UseVisualStyleBackColor = true;
             this.class4_btn.Click += new System.EventHandler(this.Class_btn_click);
             // 
@@ -221,11 +222,21 @@ namespace ReCITE
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(147, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
             // Class_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.class4_btn);
             this.Controls.Add(this.class3_btn);
@@ -263,5 +274,6 @@ namespace ReCITE
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
     }
 }

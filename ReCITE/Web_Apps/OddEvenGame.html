@@ -2,13 +2,21 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <style>
+        .modal-backdrop {
+            background-color: transparent;
+            z-index: -1;
+        }
+
         #game p {
             text-align: center;
             font-size: 30px;
         }
 
-        #game #num, #dis{
+        #game #num,
+        #dis {
             font-size: 200px;
             font-weight: 900;
         }
@@ -29,20 +37,26 @@
         #game button:hover {
             cursor: pointer;
         }
-        
+
         #game button:disabled {
             color: rgb(226, 226, 226);
-            background-color:rgb(179, 179, 179)!important 
+            background-color: rgb(179, 179, 179) !important
         }
-
     </style>
 </head>
 <html>
 
 <body onload="initialize()">
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+
     <div id="header">
-        <p id="studentName">Student Name</p>
+        <p id="studentName">Odd or Even</p>
         <div id="lifeline">
             <div id="item">
                 <button type="button" id="cll" onclick="btn()">
@@ -62,24 +76,54 @@
         </div>
     </div>
 
-    <img src="../Resources/helpIcon.png" style="position:absolute; right: 0; margin:10px;" />
+    <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
+
     <div id="game" class="box" style="text-align: center; padding: 30px;">
 
         <p id="dis" class="center">Recite or not?</p>
         <p class="center"> <span id="player" style="font-weight:bold;">Student Name</span>, is it Odd or Even?</p>
         <p id="num" class="center">?</p><br>
 
-        
+
         <button type="button" id="odd" onclick="odd()" style="background-color: tomato; font-weight: 900;">Odd</button>
         <button type="button" id="new" onclick="newPlayer()" style="font-weight: 900;">New</button>
-        <button type="button" id="evn" onclick="evn()" style="background-color:mediumseagreen; font-weight: 900;">Even</button>
+        <button type="button" id="evn" onclick="evn()"
+            style="background-color:mediumseagreen; font-weight: 900;">Even</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal modal-dialog modal-dialog-centered fade" id="staticBackdrop" data-bs-backdrop="static"
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog shadow">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <div class="d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                            <use xlink:href="#exclamation-triangle-fill" />
+                        </svg>
+                        <div>
+                            Hold up! Leaving the page?
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    The game will reset once you leave the page and will not turn back on previous state. Do you want to continue?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <a href="OddEvenGameInstruction.html">
+                        <button type="button" class="btn btn-success">Proceed</button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
 <script>
-    function initialize(){
-        document.getElementById("odd").setAttribute("disabled","disabled");
-        document.getElementById("evn").setAttribute("disabled","disabled");
+    function initialize() {
+        document.getElementById("odd").setAttribute("disabled", "disabled");
+        document.getElementById("evn").setAttribute("disabled", "disabled");
     }
 
     var a = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -118,12 +162,12 @@
 
     }
     function odd() {
-        document.getElementById("odd").setAttribute("disabled","disabled");
-        document.getElementById("evn").setAttribute("disabled","disabled");
+        document.getElementById("odd").setAttribute("disabled", "disabled");
+        document.getElementById("evn").setAttribute("disabled", "disabled");
         document.getElementById("new").removeAttribute("disabled");
         roll();
         if (x == 1 || x == 3 || x == 5 || x == 7 || x == 9) {
-            document.getElementById("dis").innerHTML = "Not";
+            document.getElementById("dis").innerHTML = "Nice one! You're Safe";
         }
         else {
             document.getElementById("dis").innerHTML = "Recite";
@@ -132,12 +176,12 @@
     }
 
     function evn() {
-        document.getElementById("odd").setAttribute("disabled","disabled");
-        document.getElementById("evn").setAttribute("disabled","disabled");
+        document.getElementById("odd").setAttribute("disabled", "disabled");
+        document.getElementById("evn").setAttribute("disabled", "disabled");
         document.getElementById("new").removeAttribute("disabled");
         roll();
         if (x == 2 || x == 4 || x == 6 || x == 8) {
-            document.getElementById("dis").innerHTML = "Not";
+            document.getElementById("dis").innerHTML = "Nice one! You're Safe";
         }
         else {
             document.getElementById("dis").innerHTML = "Recite";
@@ -147,7 +191,7 @@
 
     var samp_names = ["LM Albo", "Junie Azul", "Rafael Edades", "Chris Lapidez", "Eugine Villar"];
     function newPlayer() {
-        document.getElementById("new").setAttribute("disabled","disabled");
+        document.getElementById("new").setAttribute("disabled", "disabled");
         document.getElementById("evn").removeAttribute("disabled");
         document.getElementById("odd").removeAttribute("disabled");
         document.getElementById("dis").innerHTML = "Recite or not?";
