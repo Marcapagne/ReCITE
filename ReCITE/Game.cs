@@ -27,6 +27,8 @@ namespace ReCITE
 
             //Load Selected Game
             webGame_pnl.Source = new Uri(globalClass.choosengame);
+
+            addPoint_btn.Visible = false;
         }
 
         // Minimize and Close Button & Movable Toolbar
@@ -75,6 +77,11 @@ namespace ReCITE
             string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             string path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
             webGame_pnl.Source = new Uri(path);
+
+            LN_game.Enabled = false;
+            OOE_game.Enabled = true;
+            DTB_game.Enabled = true;
+            WON_game.Enabled = true;
         }
 
         //Odd or Even Game
@@ -83,6 +90,11 @@ namespace ReCITE
             string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             string path = Path.Combine(directory, @"Web_Apps\OddEvenGameStart.html");
             webGame_pnl.Source = new Uri(path);
+
+            LN_game.Enabled = true;
+            OOE_game.Enabled = false;
+            DTB_game.Enabled = true;
+            WON_game.Enabled = true;
         }
 
         //Defuse the Bomb Game 
@@ -91,6 +103,24 @@ namespace ReCITE
             string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             string path = Path.Combine(directory, @"Web_Apps\defuseTheBombStart.html");
             webGame_pnl.Source = new Uri(path);
+
+            LN_game.Enabled = true;
+            OOE_game.Enabled = true;
+            DTB_game.Enabled = false;
+            WON_game.Enabled = true;
+        }
+
+        //Wheel of Names
+        private void WON_game_Click(object sender, EventArgs e)
+        {
+            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+            webGame_pnl.Source = new Uri(path);
+
+            LN_game.Enabled = true;
+            OOE_game.Enabled = true;
+            DTB_game.Enabled = true;
+            WON_game.Enabled = false;
         }
 
         //Aesthetic 
@@ -105,6 +135,24 @@ namespace ReCITE
             Button btnFontColor = (Button)sender;
             btnFontColor.ForeColor = Color.White;
         }
+
+        private void LN_game_EnabledChanged(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            if (btn.Enabled == false)
+            {
+                btn.ForeColor = Color.Transparent;
+                btn.BackColor = Color.White;
+            }
+            else
+            {
+                btn.BackColor = Color.Transparent;
+                btn.ForeColor = Color.White;
+            }
+
+        }
+
         // End of Aesthetic 
         #endregion
 
@@ -114,6 +162,22 @@ namespace ReCITE
             Form leaderboard = new Leaderboard();
             leaderboard.Show();
             this.Hide();
+        }
+
+        //Web App Panel
+        private void webGame_pnl_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
+        {
+            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            var lotto = new Uri (Path.Combine(directory, @"Web_Apps\LottoGame.html"));
+            var oddeven = new Uri(Path.Combine(directory, @"Web_Apps\OddEvenGame.html"));
+            var bomb = new Uri(Path.Combine(directory, @"Web_Apps\defuseTheBomb.html"));
+
+            if (webGame_pnl.Source == lotto || webGame_pnl.Source == oddeven || webGame_pnl.Source == bomb)
+            {
+                addPoint_btn.Visible = true;
+            } else
+                addPoint_btn.Visible = false;
+
         }
     }
 }

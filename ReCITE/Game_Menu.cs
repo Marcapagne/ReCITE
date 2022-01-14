@@ -63,8 +63,8 @@ namespace ReCITE
         {
             Button btnTag = (Button)sender;
             string tag = btnTag.Tag.ToString();
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            _ = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+            string directory;
+            
             Form game;
             string path;
             switch (tag)
@@ -96,9 +96,9 @@ namespace ReCITE
                     this.Hide();
                     break;
 
-                case "Defuse the Bomb":
+                case "Defuse the bomb":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\defuseTheBombGameStart.html");
+                    path = Path.Combine(directory, @"Web_Apps\defuseTheBombStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();

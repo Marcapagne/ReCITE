@@ -110,7 +110,7 @@ namespace ReCITE
             // 
             // addPoint_btn
             // 
-            this.addPoint_btn.BackColor = System.Drawing.Color.Transparent;
+            this.addPoint_btn.BackColor = System.Drawing.Color.White;
             this.addPoint_btn.BackgroundImage = global::ReCITE.Properties.Resources.add_point_btn;
             this.addPoint_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addPoint_btn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -120,7 +120,7 @@ namespace ReCITE
             this.addPoint_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPoint_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addPoint_btn.ForeColor = System.Drawing.Color.Transparent;
-            this.addPoint_btn.Location = new System.Drawing.Point(750, 53);
+            this.addPoint_btn.Location = new System.Drawing.Point(757, 47);
             this.addPoint_btn.Name = "addPoint_btn";
             this.addPoint_btn.Size = new System.Drawing.Size(230, 56);
             this.addPoint_btn.TabIndex = 3;
@@ -137,6 +137,7 @@ namespace ReCITE
             this.webGame_pnl.Source = new System.Uri("file:///C:/Users/junie/Desktop/webGame.html", System.UriKind.Absolute);
             this.webGame_pnl.TabIndex = 1;
             this.webGame_pnl.ZoomFactor = 1D;
+            this.webGame_pnl.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webGame_pnl_SourceChanged);
             // 
             // toolbar_pnl
             // 
@@ -241,6 +242,7 @@ namespace ReCITE
             this.DTB_game.TabIndex = 15;
             this.DTB_game.Text = "Defuse the Bomb";
             this.DTB_game.UseVisualStyleBackColor = false;
+            this.DTB_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
             this.DTB_game.Click += new System.EventHandler(this.DTB_game_Click);
             this.DTB_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
             this.DTB_game.MouseHover += new System.EventHandler(this.Hover);
@@ -261,6 +263,8 @@ namespace ReCITE
             this.WON_game.TabIndex = 14;
             this.WON_game.Text = "Wheel of Names";
             this.WON_game.UseVisualStyleBackColor = false;
+            this.WON_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
+            this.WON_game.Click += new System.EventHandler(this.WON_game_Click);
             this.WON_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
             this.WON_game.MouseHover += new System.EventHandler(this.Hover);
             // 
@@ -280,6 +284,7 @@ namespace ReCITE
             this.OOE_game.TabIndex = 13;
             this.OOE_game.Text = "Odd or Even";
             this.OOE_game.UseVisualStyleBackColor = false;
+            this.OOE_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
             this.OOE_game.Click += new System.EventHandler(this.OOE_game_Click);
             this.OOE_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
             this.OOE_game.MouseHover += new System.EventHandler(this.Hover);
@@ -300,6 +305,7 @@ namespace ReCITE
             this.LN_game.TabIndex = 12;
             this.LN_game.Text = "Lotto Name";
             this.LN_game.UseVisualStyleBackColor = false;
+            this.LN_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
             this.LN_game.Click += new System.EventHandler(this.LN_game_Click);
             this.LN_game.MouseLeave += new System.EventHandler(this.Btn_Leave);
             this.LN_game.MouseHover += new System.EventHandler(this.Hover);

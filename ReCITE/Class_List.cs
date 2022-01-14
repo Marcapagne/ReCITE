@@ -16,6 +16,11 @@ namespace ReCITE
         public Class_List()
         {
             InitializeComponent();
+            Database.Database databaseConnection = new Database.Database();
+
+            //string[] classname = new string[] { databaseConnection.LoadTableName().ToArray() };
+
+
         }
 
         // Minimize and Close Button
