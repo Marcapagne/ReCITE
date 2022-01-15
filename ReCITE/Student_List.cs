@@ -108,6 +108,8 @@ namespace ReCITE
 
             Database.Database databaseConnection = new Database.Database();
             databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
+
+            globalClass.classid = className_tb.Text;
         }
     }
 }

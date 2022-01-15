@@ -17,10 +17,15 @@ namespace ReCITE
         {
             InitializeComponent();
             Database.Database databaseConnection = new Database.Database();
+            List<string> sample = new List<string>();
+            sample = databaseConnection.LoadTableName();
 
-            //string[] classname = new string[] { databaseConnection.LoadTableName().ToArray() };
+            //label1.Text = sample[0].ToString();
 
-
+            class1_btn.Text = sample[0].ToString();
+            class2_btn.Text = sample[1].ToString();
+            class3_btn.Text = sample[2].ToString();
+            class4_btn.Text = sample[3].ToString();
         }
 
         // Minimize and Close Button
@@ -60,7 +65,7 @@ namespace ReCITE
         //--------------------------------------------------
         #endregion
 
-        //Back button
+        // Back button
         private void Back_btn_Click(object sender, EventArgs e)
         {
             Form back = new Home();

@@ -17,8 +17,10 @@ namespace ReCITE
 
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            //add student function to database 
-            
+            //add student function to database
+            Database.Database databaseConnection = new Database.Database();
+            databaseConnection.AddStudent(studentName_tb.Text, globalClass.classid);
+
             //Clear textbox
             studentName_tb.Text = "";
         }
