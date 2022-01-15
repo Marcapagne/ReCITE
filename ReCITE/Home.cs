@@ -20,7 +20,9 @@ namespace ReCITE
         {
             InitializeComponent();
 
-            //Database.Database databaseConnection = new Database.Database();
+           // Database.Database databaseConnection = new Database.Database();
+            //databaseConnection.CreateTables();
+
             //List<List<string>> StudentRecords = new List<List<string>>();
             //StudentRecords = databaseConnection.getStudents("Class1"); // STUDENT LIST AND SCORE
         }

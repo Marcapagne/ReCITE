@@ -41,7 +41,6 @@ namespace ReCITE
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
@@ -207,7 +206,7 @@ namespace ReCITE
             this.pictureBox1.Image = global::ReCITE.Properties.Resources.Learning_rafiki;
             this.pictureBox1.Location = new System.Drawing.Point(17, 204);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(496, 460);
+            this.pictureBox1.Size = new System.Drawing.Size(509, 474);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -222,21 +221,11 @@ namespace ReCITE
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
-            // 
             // Class_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.class4_btn);
             this.Controls.Add(this.class3_btn);
@@ -274,6 +263,5 @@ namespace ReCITE
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
     }
 }

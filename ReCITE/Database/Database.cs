@@ -61,7 +61,7 @@ namespace ReCITE.Database
         //  DELETE STUDENT DATA
         public void DeleteStudent(string StudentId)
         {
-            string query = "DELETE FROM Class1 WHERE StudentId = '"+StudentId+"'";
+            string query = "DELETE FROM Class1 WHERE StudentId = '"+ StudentId +"'";
             sqlCommand = new SqlCommand(query, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
@@ -75,9 +75,10 @@ namespace ReCITE.Database
         }
 
         //  ADD STUDENT DATA
-        public void AddStudent(Object StudentData)
+        public void AddStudent(string Name, string Section)
         {
-            string InsertQuery = "INSERT INTO Class1 WHERE StudentId = '[student_id]'";
+            ConnectToDatabase();
+            string InsertQuery = @"INSERT INTO "+ Section + @"  (StudentName, Score, CAFL, SL, HUL) VALUES ('" + Name + "', 0, 1, 1, 1)";
             sqlCommand = new SqlCommand(InsertQuery, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
@@ -85,9 +86,10 @@ namespace ReCITE.Database
         //  CREATE TABLES
         public void CreateTables()
         {
+            ConnectToDatabase();
             for (var index = 1; index <= 5; index++)
             {
-                string createTable = "CREATE TABLE Class"+index+" (StudentId varchar(255), StudentName varchar(255), Class varchar(255), Score int);";
+                string createTable = @"CREATE TABLE Class" + index + " (StudentId int IDENTITY(1,1) PRIMARY KEY, StudentName varchar(255), Score int, CAFL bit, SL bit, HUL bit);";
                 sqlCommand = new SqlCommand(createTable, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
@@ -97,15 +99,15 @@ namespace ReCITE.Database
         public void UpdateTables(string Oldname, string Newname)
         {
             ConnectToDatabase();
-            string createTable = @"EXEC sp_rename '"+ Oldname +"','"+ Newname +"'";
+            string createTable = @"EXEC sp_rename '" + Oldname + "','" + Newname + "'";
             sqlCommand = new SqlCommand(createTable, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
 
         //Load ClassName
-        public List<List<string>> LoadTableName()
+        public List<string> LoadTableName()
         {
-            List<List<string>> ClassName = new List<List<string>>();
+            List<string> ClassName = new List<string>();
             ConnectToDatabase();
             string query = "USE StudentData SELECT * FROM sys.Tables";
 
@@ -113,9 +115,7 @@ namespace ReCITE.Database
             dataReader = sqlCommand.ExecuteReader();
             while (dataReader.Read())
             {
-                List<string> vs = new List<string>();
-                vs.Add(dataReader["Name"].ToString());
-                ClassName.Add(vs);
+                ClassName.Add(dataReader["Name"].ToString());
             }
 
             sqlConnection.Close();
