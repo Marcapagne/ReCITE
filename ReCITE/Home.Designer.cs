@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.logo = new System.Windows.Forms.PictureBox();
             this.start_btn = new System.Windows.Forms.Button();
             this.instruction_btn = new System.Windows.Forms.Button();
@@ -151,7 +152,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(232)))), ((int)(((byte)(236)))));
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.logo);
@@ -160,6 +161,7 @@ namespace ReCITE
             this.Controls.Add(this.instruction_btn);
             this.Controls.Add(this.start_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

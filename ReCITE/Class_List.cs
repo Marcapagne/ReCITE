@@ -17,15 +17,25 @@ namespace ReCITE
         {
             InitializeComponent();
             Database.Database databaseConnection = new Database.Database();
-            List<string> sample = new List<string>();
-            sample = databaseConnection.LoadTableName();
+            List<string> className = databaseConnection.LoadTableName();
 
             //label1.Text = sample[0].ToString();
 
-            class1_btn.Text = sample[0].ToString();
-            class2_btn.Text = sample[1].ToString();
-            class3_btn.Text = sample[2].ToString();
-            class4_btn.Text = sample[3].ToString();
+            class1_btn.Text = className[0].ToString();
+            class2_btn.Text = className[1].ToString();
+            class3_btn.Text = className[2].ToString();
+            class4_btn.Text = className[3].ToString();
+        }
+
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
         }
 
         // Minimize and Close Button
@@ -84,5 +94,6 @@ namespace ReCITE
             student_list.Show();
             this.Hide();
         }
+
     }
 }

@@ -27,6 +27,17 @@ namespace ReCITE
             webStudentList_pnl.Source = new Uri(path);
         }
 
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
+        }
+
         // Minimize and Close Button
         #region Toolbar
         private void Minimize_btn_Click(object sender, EventArgs e)
@@ -75,7 +86,7 @@ namespace ReCITE
         private void Add_btn_Click(object sender, EventArgs e)
         {
             Form addStudent = new addStudent();
-            addStudent.Show();
+            addStudent.ShowDialog();
         }
 
         private void Back_btn_Click(object sender, EventArgs e)
@@ -100,16 +111,23 @@ namespace ReCITE
         // Updating Class Name
         private void Check_btn_Click(object sender, EventArgs e)
         {
-            className_tb.BackColor = default;
-            className_tb.ForeColor = Color.FromArgb(1, 88, 122);
-            className_tb.ReadOnly = true;
-            check_btn.Hide();
-            edit_btn.Show();
+            if (className_tb.Text.IndexOf(' ') >= 0 || className_tb.Text.IndexOf('-') >= 0)
+            {
+                MessageBox.Show("Invalid character detected.\n Use \"_\" to instead if there is a space.");
+            } 
+            else
+            {
+                className_tb.BackColor = Color.White;
+                className_tb.ForeColor = Color.FromArgb(1, 88, 122);
+                className_tb.ReadOnly = true;
+                check_btn.Hide();
+                edit_btn.Show();
 
-            Database.Database databaseConnection = new Database.Database();
-            databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
+                Database.Database databaseConnection = new Database.Database();
+                databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
 
-            globalClass.classid = className_tb.Text;
+                globalClass.classid = className_tb.Text;
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game_Menu));
             this.game1_btn = new System.Windows.Forms.Button();
             this.selectGame_lbl = new System.Windows.Forms.Label();
             this.back_btn = new System.Windows.Forms.PictureBox();
@@ -220,6 +221,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.game4_btn);
             this.Controls.Add(this.pictureBox1);
@@ -230,6 +232,7 @@ namespace ReCITE
             this.Controls.Add(this.game1_btn);
             this.Controls.Add(this.selectGame_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";

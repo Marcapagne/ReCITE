@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,6 +17,11 @@ namespace ReCITE
         public Instruction()
         {
             InitializeComponent();
+
+            //Initialize Instruction
+            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string path = Path.Combine(directory, @"Web_Apps\Instruction.html");
+            webView_Instuction.Source = new Uri(path);
         }
 
         #region Toolbar

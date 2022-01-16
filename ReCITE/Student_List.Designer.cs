@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student_List));
             this.back_btn = new System.Windows.Forms.PictureBox();
             this.start_btn = new System.Windows.Forms.PictureBox();
             this.add_btn = new System.Windows.Forms.PictureBox();
@@ -160,7 +161,7 @@ namespace ReCITE
             // 
             // className_tb
             // 
-            this.className_tb.BackColor = System.Drawing.SystemColors.Menu;
+            this.className_tb.BackColor = System.Drawing.Color.White;
             this.className_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.className_tb.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.className_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -198,7 +199,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.className_tb);
             this.Controls.Add(this.edit_btn);
@@ -209,6 +210,7 @@ namespace ReCITE
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.check_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Student_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";

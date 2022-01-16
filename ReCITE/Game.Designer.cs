@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.end_btn = new System.Windows.Forms.Button();
             this.leadeboard_pnl = new System.Windows.Forms.Panel();
             this.WebLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -128,6 +129,7 @@ namespace ReCITE
             // 
             // webGame_pnl
             // 
+            this.webGame_pnl.BackColor = System.Drawing.Color.White;
             this.webGame_pnl.CreationProperties = null;
             this.webGame_pnl.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webGame_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -137,7 +139,7 @@ namespace ReCITE
             this.webGame_pnl.Source = new System.Uri("file:///C:/Users/junie/Desktop/webGame.html", System.UriKind.Absolute);
             this.webGame_pnl.TabIndex = 1;
             this.webGame_pnl.ZoomFactor = 1D;
-            this.webGame_pnl.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webGame_pnl_SourceChanged);
+            this.webGame_pnl.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebGame_pnl_SourceChanged);
             // 
             // toolbar_pnl
             // 
@@ -332,6 +334,7 @@ namespace ReCITE
             this.Controls.Add(this.userControl_pnl);
             this.Controls.Add(this.toolbar_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";

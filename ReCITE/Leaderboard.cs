@@ -27,6 +27,17 @@ namespace ReCITE
             webLeaderboard_pnl.Source = new Uri(path);
         }
 
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
+        }
+
         // Minimize and Close Button
         #region Toolbar
         private void Exit_btn_Click(object sender, EventArgs e)
