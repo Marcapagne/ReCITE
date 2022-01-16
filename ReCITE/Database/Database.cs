@@ -21,7 +21,7 @@ namespace ReCITE.Database
 
     class Database
     {
-        private string ConnectionString = @"Data Source=" + Environment.MachineName + @"\SQLEXPRESS;Initial Catalog=StudentData;Trusted_Connection=True;";
+        private readonly string ConnectionString = @"Data Source=" + Environment.MachineName + @"\SQLEXPRESS;Initial Catalog=StudentData;Trusted_Connection=True;";
         private SqlConnection sqlConnection;
         private SqlDataReader dataReader;
         private SqlCommand sqlCommand;
@@ -33,7 +33,7 @@ namespace ReCITE.Database
         }
         
         //  GET STUDENT LIST
-        public List<List<string>> getStudents(string ClassList) {
+        public List<List<string>> GetStudents(string ClassList) {
             List<List<string>> StudentList = new List<List<string>>();
             ConnectToDatabase();
             string query = "SELECT * FROM " + ClassList;
@@ -43,9 +43,11 @@ namespace ReCITE.Database
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    List<string> StudentRecord = new List<string>();
-                    StudentRecord.Add(dataReader["StudentName"].ToString());
-                    StudentRecord.Add(dataReader["Score"].ToString());
+                    List<string> StudentRecord = new List<string>
+                    {
+                        dataReader["StudentName"].ToString(),
+                        dataReader["Score"].ToString()
+                    };
                     StudentList.Add(StudentRecord);
                 }
             }

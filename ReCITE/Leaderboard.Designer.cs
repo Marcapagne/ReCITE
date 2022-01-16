@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Leaderboard));
             this.leaderboard_lbl = new System.Windows.Forms.Label();
             this.proceed_btn = new System.Windows.Forms.PictureBox();
             this.webLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -139,7 +140,7 @@ namespace ReCITE
             // 
             // className_tb
             // 
-            this.className_tb.BackColor = System.Drawing.SystemColors.Menu;
+            this.className_tb.BackColor = System.Drawing.Color.White;
             this.className_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.className_tb.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.className_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
@@ -155,6 +156,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.className_tb);
             this.Controls.Add(this.toolbar_pnl);
@@ -162,6 +164,7 @@ namespace ReCITE
             this.Controls.Add(this.proceed_btn);
             this.Controls.Add(this.leaderboard_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Leaderboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Leaderboard";

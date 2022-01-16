@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_List));
             this.back_btn = new System.Windows.Forms.PictureBox();
             this.classList_lbl = new System.Windows.Forms.Label();
             this.class1_btn = new System.Windows.Forms.Button();
@@ -225,6 +226,7 @@ namespace ReCITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.toolbar_pnl);
             this.Controls.Add(this.class4_btn);
@@ -236,6 +238,7 @@ namespace ReCITE
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Class_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

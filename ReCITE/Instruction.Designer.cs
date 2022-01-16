@@ -29,14 +29,17 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Instruction));
             this.toolbar_pnl = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.reciteLogo = new System.Windows.Forms.PictureBox();
             this.back_btn = new System.Windows.Forms.PictureBox();
+            this.webView_Instuction = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView_Instuction)).BeginInit();
             this.SuspendLayout();
             // 
             // toolbar_pnl
@@ -104,7 +107,7 @@ namespace ReCITE
             // 
             this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
-            this.back_btn.Location = new System.Drawing.Point(12, 46);
+            this.back_btn.Location = new System.Drawing.Point(12, 652);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(93, 36);
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,20 +115,34 @@ namespace ReCITE
             this.back_btn.TabStop = false;
             this.back_btn.Click += new System.EventHandler(this.Back_btn_Click);
             // 
+            // webView_Instuction
+            // 
+            this.webView_Instuction.CreationProperties = null;
+            this.webView_Instuction.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView_Instuction.Location = new System.Drawing.Point(12, 46);
+            this.webView_Instuction.Name = "webView_Instuction";
+            this.webView_Instuction.Size = new System.Drawing.Size(1176, 642);
+            this.webView_Instuction.TabIndex = 11;
+            this.webView_Instuction.ZoomFactor = 1D;
+            // 
             // Instruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.toolbar_pnl);
+            this.Controls.Add(this.webView_Instuction);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Instruction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instruction";
             this.toolbar_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reciteLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView_Instuction)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +154,6 @@ namespace ReCITE
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.PictureBox reciteLogo;
         private System.Windows.Forms.PictureBox back_btn;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView_Instuction;
     }
 }

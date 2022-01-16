@@ -27,6 +27,17 @@ namespace ReCITE
             //StudentRecords = databaseConnection.getStudents("Class1"); // STUDENT LIST AND SCORE
         }
 
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
+        }
+
         // Minimize and Close Button & Movable Toolbar
         #region Toolbar
         //Close Button

@@ -31,6 +31,17 @@ namespace ReCITE
             addPoint_btn.Visible = false;
         }
 
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
+        }
+
         // Minimize and Close Button & Movable Toolbar
         #region Toolbar
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -165,7 +176,7 @@ namespace ReCITE
         }
 
         //Web App Panel
-        private void webGame_pnl_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
+        private void WebGame_pnl_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
         {
             string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             var lotto = new Uri (Path.Combine(directory, @"Web_Apps\LottoGame.html"));

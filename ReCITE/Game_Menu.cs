@@ -20,6 +20,17 @@ namespace ReCITE
             InitializeComponent();
         }
 
+        // Remove Flickering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparams = base.CreateParams;
+                handleparams.ExStyle |= 0x02000000;
+                return handleparams;
+            }
+        }
+
         // Minimize and Close Button
         #region Toolbar
         private void Exit_btn_Click(object sender, EventArgs e)
