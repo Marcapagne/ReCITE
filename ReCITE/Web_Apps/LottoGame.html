@@ -111,6 +111,27 @@
 </body>
 
 <script>
+const firebaseConfig = {
+    apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
+    authDomain: "curriculum-9f921.firebaseapp.com",
+    databaseURL: "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "curriculum-9f921",
+    storageBucket: "curriculum-9f921.appspot.com",
+    messagingSenderId: "850351009105",
+    appId: "1:850351009105:web:b8a53325f995a656cb7770",
+    measurementId: "G-X5NRSY58F5"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var ref = database.ref('studentData/Class1');
+
+  ref.on('value', function (snapshot) {
+    snapshot.forEach(element => {
+      samp_names.push(element.val().name);
+    });
+  });
 
     var t;
     var s;
@@ -151,7 +172,7 @@
             document.getElementById("names").innerHTML = samp_names[4];
         }
     }
-</script>
+ </script>
 
 
 </html>
