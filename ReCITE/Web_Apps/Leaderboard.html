@@ -16,6 +16,10 @@
             right: 0;
         }
     </style>
+    
+      <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 
 <body>
@@ -24,25 +28,70 @@
             <col span="1" style="width: 70%;">
             <col span="1" style="width: 30%;">
         </colgroup>
-        <tbody>
-            <tr>
-                <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Name</th>
-                <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Score</th>
-            </tr>
-            <tr class="item">
-                <td>Jon</td>
-                <td>1</td>
-            </tr>
-            <tr class="item">
-                <td>Jonny</td>
-                <td>2</td>
-            </tr>
-            <tr class="item">
-                <td>Jonnard</td>
-                <td>3</td>
-            </tr>
+        <tr>
+          <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Name</th>
+          <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Score</th>
+        </tr>
+        <tbody id="main">
+          <div id="elementHolder"></div>
         </tbody>
     </table>
+    
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
+          authDomain: "curriculum-9f921.firebaseapp.com",
+          databaseURL: "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "curriculum-9f921",
+          storageBucket: "curriculum-9f921.appspot.com",
+          messagingSenderId: "850351009105",
+          appId: "1:850351009105:web:b8a53325f995a656cb7770",
+          measurementId: "G-X5NRSY58F5"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        var ref = database.ref('studentData/Class1');
+
+        let data = [];
+
+        ref.on('value', function (snapshot) {
+          snapshot.forEach(element => {
+            var item = {
+              'score': element.val().score,
+              'name': element.val().name
+            }
+            segments.push(item);
+          });
+          console.log(segments)
+          createTableItems();
+        });
+
+        function createTableItems() {
+          let main = document.getElementById("main");
+          segments.forEach(student => {
+            console.log(student['name'])
+            let tr = document.createElement("tr");
+            tr.className = 'item';
+            let td_name = document.createElement("td");
+            let name = document.createTextNode(student['name']);
+            let td_score = document.createElement("td");
+            let score = document.createTextNode(student['score']);
+
+            td_name.appendChild(name);
+            td_score.appendChild(score);
+            tr.appendChild(td_name);
+            tr.appendChild(td_score);
+
+            main.appendChild(tr)
+          })
+        }
+
+        //  SAMPLE PALANG TO tanggalin yung ibang yan pag mdarami na laman ng data
+        let segments = [
+        ];
+  </script>
 </body>
 
 </html>
