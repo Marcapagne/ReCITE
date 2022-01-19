@@ -37,6 +37,7 @@ namespace ReCITE
             this.minimize_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.aboutUsbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.toolbar_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,6 +149,24 @@ namespace ReCITE
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // aboutUsbtn
+            // 
+            this.aboutUsbtn.BackColor = System.Drawing.Color.Transparent;
+            this.aboutUsbtn.BackgroundImage = global::ReCITE.Properties.Resources.roundedrectangle;
+            this.aboutUsbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.aboutUsbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aboutUsbtn.FlatAppearance.BorderSize = 0;
+            this.aboutUsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aboutUsbtn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.aboutUsbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
+            this.aboutUsbtn.Location = new System.Drawing.Point(511, 482);
+            this.aboutUsbtn.Name = "aboutUsbtn";
+            this.aboutUsbtn.Size = new System.Drawing.Size(220, 57);
+            this.aboutUsbtn.TabIndex = 5;
+            this.aboutUsbtn.Text = "ABOUT US";
+            this.aboutUsbtn.UseVisualStyleBackColor = false;
+            this.aboutUsbtn.Click += new System.EventHandler(this.AboutUsbtn_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -155,6 +174,7 @@ namespace ReCITE
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.aboutUsbtn);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolbar_pnl);
@@ -181,6 +201,7 @@ namespace ReCITE
         private System.Windows.Forms.Button minimize_btn;
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button aboutUsbtn;
     }
 }
 

@@ -72,8 +72,8 @@
       cursor: pointer;
     }
   </style>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 <html>
 
@@ -90,17 +90,19 @@
     <p id="studentName">Defuse the Bomb</p>
     <div id="lifeline">
       <div id="item">
-        <button type="button" id="cll" onclick="btn()">
+        <button type="button" id="cll" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          title="Call A Friend">
           <img src="../Resources/callafriend.png">
         </button>
       </div>
       <div id="item">
-        <button type="button" id="skp" onclick="btn()">
+        <button type="button" id="skp" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Skip">
           <img src="../Resources/skip.png">
         </button>
       </div>
       <div id="item">
-        <button type="button" id="hdle" onclick="btn()">
+        <button type="button" id="hdle" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          title="Huddle Up">
           <img src="../Resources/huddle.png">
         </button>
       </div>
@@ -182,7 +184,7 @@
   function newPlayer() {
     let samp_names = [];
     ref.on('value', function (snapshot) {
-     snapshot.forEach(element => {
+      snapshot.forEach(element => {
         samp_names.push(element.val().name);
       });
     });
