@@ -91,7 +91,7 @@ namespace ReCITE
 
                 case "Wheel of Names":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    path = Path.Combine(directory, @"Web_Apps\wheelOfNamesStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
