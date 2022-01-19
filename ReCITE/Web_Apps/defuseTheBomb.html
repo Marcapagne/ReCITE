@@ -1,250 +1,270 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" media="all" rel="stylesheet">
-    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .modal-backdrop {
-            background-color: transparent;
-            z-index: -1;
-        }
+  <link rel="stylesheet" href="style.css">
+  <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" media="all" rel="stylesheet">
+  <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .modal-backdrop {
+      background-color: transparent;
+      z-index: -1;
+    }
 
-        #game img {
-            display: inline;
-            margin: auto;
-            cursor: pointer;
-        }
+    #game img {
+      display: inline;
+      margin: auto;
+      cursor: pointer;
+    }
 
-        #dis {
-            z-index: 2;
-        }
+    #dis {
+      z-index: 2;
+    }
 
-        #player {
-            font-size: 30px;
-            font-weight: 900;
-        }
+    #player {
+      font-size: 30px;
+      font-weight: 900;
+    }
 
-        #bomb {
-            z-index: 2;
-            position: relative;
-        }
+    #bomb {
+      z-index: 2;
+      position: relative;
+    }
 
-        #grn {
-            position: relative;
-            right: 10px;
-        }
+    #grn {
+      position: relative;
+      right: 10px;
+    }
 
-        #red {
-            position: relative;
-            left: 10px;
-        }
+    #red {
+      position: relative;
+      left: 10px;
+    }
 
-        #blue {
-            position: relative;
-            bottom: 100px;
-            left: 10px;
-            width: 450px;
-        }
+    #blue {
+      position: relative;
+      bottom: 100px;
+      left: 10px;
+      width: 450px;
+    }
 
-        #explode {
-            z-index: -1;
-            position: relative;
-            width: 450px;
-            bottom: 480px;
-        }
+    #explode {
+      z-index: -1;
+      position: relative;
+      width: 450px;
+      bottom: 480px;
+    }
 
-        #rst {
-            position: relative;
-            bottom: 50px;
-            width: 100px;
-            height: 50px;
-            border-radius: 30px;
-            color: white;
-            background-color: rgb(1, 88, 122);
-            border: none;
-            cursor: pointer;
-        }
+    #rst {
+      position: relative;
+      bottom: 50px;
+      width: 100px;
+      height: 50px;
+      border-radius: 30px;
+      color: white;
+      background-color: rgb(1, 88, 122);
+      border: none;
+      cursor: pointer;
+    }
 
-        #rst:hover {
-            background-color: rgb(196, 196, 196);
-            color: rgb(1, 88, 122);
-            cursor: pointer;
-        }
-    </style>
+    #rst:hover {
+      background-color: rgb(196, 196, 196);
+      color: rgb(1, 88, 122);
+      cursor: pointer;
+    }
+  </style>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 <html>
 
 <body>
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-            <path
-                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-        </symbol>
-    </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+  </svg>
 
-    <div id="header">
-        <p id="studentName">Defuse the Bomb</p>
-        <div id="lifeline">
-            <div id="item">
-                <button type="button" id="cll" onclick="btn()">
-                    <img src="../Resources/callafriend.png">
-                </button>
+  <div id="header">
+    <p id="studentName">Defuse the Bomb</p>
+    <div id="lifeline">
+      <div id="item">
+        <button type="button" id="cll" onclick="btn()">
+          <img src="../Resources/callafriend.png">
+        </button>
+      </div>
+      <div id="item">
+        <button type="button" id="skp" onclick="btn()">
+          <img src="../Resources/skip.png">
+        </button>
+      </div>
+      <div id="item">
+        <button type="button" id="hdle" onclick="btn()">
+          <img src="../Resources/huddle.png">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
+
+  <div id="game" class="box" style="text-align: center; padding-top: 50px;">
+
+    <p id="dis" class="center" style="font-weight: bold;">Bomb Defuser Expert:</p>
+    <p id="player" class="center"> Student Name </p><br>
+
+    <img id="red" class="center" src="../Resources/red.png" onclick="red()">
+    <img id="bomb" class="center" src="../Resources/bomb.png">
+    <img id="grn" class="center" src="../Resources/green.png" onclick="grn()"><br>
+    <img id="blue" class="center" src="../Resources/blue.png" onclick="blue()">
+
+    <button id="rst" class="center" type="button" onclick="rst()" style="font-weight: bold;">RESET</button>
+
+    <img id="explode" class="center" src="../Resources/explosion.png">
+  </div>
+
+  <!-- Modal -->
+  <div class="modal modal-dialog modal-dialog-centered fade" id="staticBackdrop" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog shadow">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <div class="d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+              <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+              Hold up! Leaving the page?
             </div>
-            <div id="item">
-                <button type="button" id="skp" onclick="btn()">
-                    <img src="../Resources/skip.png">
-                </button>
-            </div>
-            <div id="item">
-                <button type="button" id="hdle" onclick="btn()">
-                    <img src="../Resources/huddle.png">
-                </button>
-            </div>
+          </div>
         </div>
-    </div>
-
-    <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
-
-    <div id="game" class="box" style="text-align: center; padding-top: 50px;">
-
-        <p id="dis" class="center" style="font-weight: bold;">Bomb Defuser Expert:</p>
-        <p id="player" class="center"> Student Name </p><br>
-
-        <img id="red" class="center" src="../Resources/red.png" onclick="red()">
-        <img id="bomb" class="center" src="../Resources/bomb.png">
-        <img id="grn" class="center" src="../Resources/green.png" onclick="grn()"><br>
-        <img id="blue" class="center" src="../Resources/blue.png" onclick="blue()">
-
-        <button id="rst" class="center" type="button" onclick="rst()" style="font-weight: bold;">RESET</button>
-
-        <img id="explode" class="center" src="../Resources/explosion.png">
-    </div>
-
-    <!-- Modal -->
-    <div class="modal modal-dialog modal-dialog-centered fade" id="staticBackdrop" data-bs-backdrop="static"
-        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog shadow">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <div class="d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
-                            <use xlink:href="#exclamation-triangle-fill" />
-                        </svg>
-                        <div>
-                            Hold up! Leaving the page?
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    The game will reset once you leave the page and will not turn back on previous state. Do you want to continue?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-                    <a href="defuseTheBombInstruction.html">
-                        <button type="button" class="btn btn-success">Proceed</button>
-                    </a>
-                </div>
-            </div>
+        <div class="modal-body">
+          The game will reset once you leave the page and will not turn back on previous state. Do you want to continue?
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+          <a href="defuseTheBombInstruction.html">
+            <button type="button" class="btn btn-success">Proceed</button>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 
 </body>
 
 <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
+    authDomain: "curriculum-9f921.firebaseapp.com",
+    databaseURL: "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "curriculum-9f921",
+    storageBucket: "curriculum-9f921.appspot.com",
+    messagingSenderId: "850351009105",
+    appId: "1:850351009105:web:b8a53325f995a656cb7770",
+    measurementId: "G-X5NRSY58F5"
+  };
 
-    document.getElementById("rst").style.visibility = "hidden";
-    document.getElementById("explode").style.visibility = "hidden";
-    strt();
-    var a = 0;
-    var noRecite = 0;
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var ref = database.ref('studentData/Class1');
 
-    function newPlayer() {
-        var samp_names = ["LM Albo", "Junie Azul", "Rafael Edades", "Chris Lapidez", "Eugine Villar"];
-        var randnames = Math.floor(Math.random() * 4);
-        document.getElementById("player").innerText = samp_names[randnames];
-    }
+  document.getElementById("rst").style.visibility = "hidden";
+  document.getElementById("explode").style.visibility = "hidden";
+  strt();
+  var a = 0;
+  var noRecite = 0;
 
-    function strt() {
+  newPlayer()
+  function newPlayer() {
+    let samp_names = [];
+    ref.on('value', function (snapshot) {
+     snapshot.forEach(element => {
+        samp_names.push(element.val().name);
+      });
+    });
+    var randnames = Math.floor(Math.random() * samp_names.length);
+    document.getElementById("player").innerText = samp_names[randnames];
+  }
+
+  function strt() {
+    newPlayer();
+    randnum = Math.floor(Math.random() * 3) + 1;
+    a = randnum;
+  }
+
+  function grn() {
+    if (randnum != 1) {
+      noRecite = noRecite + 1;
+      if (noRecite != 2) {
         newPlayer();
-        randnum = Math.floor(Math.random() * 3) + 1;
-        a = randnum;
-    }
-
-    function grn() {
-        if (randnum != 1) {
-            noRecite = noRecite + 1;
-            if (noRecite != 2) {
-                newPlayer();
-                document.getElementById("grn").style.visibility = "hidden";
-            }
-            else if (noRecite == 2) {
-                document.getElementById("dis").innerText = "Bomb has been defused by:"
-                document.getElementById("rst").style.visibility = "visible";
-            }
-        } else
-            explode();
-    }
-
-    function red() {
-        if (randnum != 2) {
-            noRecite = noRecite + 1;
-            if (noRecite != 2) {
-                newPlayer();
-                document.getElementById("red").style.visibility = "hidden";
-            }
-            else if (noRecite == 2) {
-                document.getElementById("dis").innerText = "Bomb has been defused by:"
-                document.getElementById("rst").style.visibility = "visible";
-            }
-        } else
-            explode();
-    }
-
-    function blue() {
-        if (randnum != 3) {
-            noRecite = noRecite + 1;
-            if (noRecite != 2) {
-                newPlayer();
-                document.getElementById("blue").style.visibility = "hidden";
-            }
-            else if (noRecite == 2) {
-                document.getElementById("dis").innerText = "Bomb has been defused by:"
-                document.getElementById("rst").style.visibility = "visible";
-            }
-        } else
-            explode();
-    }
-
-    function rst() {
-        document.getElementById("dis").innerText = "Bomb Defuser Expert:"
-        document.getElementById("grn").style.visibility = "visible";
-        document.getElementById("red").style.visibility = "visible";
-        document.getElementById("blue").style.visibility = "visible";
-        document.getElementById("bomb").style.visibility = "visible";
-
-        document.getElementById("explode").style.visibility = "hidden";
-        document.getElementById("rst").style.visibility = "hidden";
-
-        a = 0;
-        noRecite = 0;
-        strt();
-    }
-
-    function explode() {
-        document.getElementById("dis").innerText = "Bomb has been activated by:"
         document.getElementById("grn").style.visibility = "hidden";
-        document.getElementById("red").style.visibility = "hidden";
-        document.getElementById("blue").style.visibility = "hidden";
-        document.getElementById("bomb").style.visibility = "hidden";
-
-        document.getElementById("explode").style.visibility = "visible";
+      } else if (noRecite == 2) {
+        document.getElementById("dis").innerText = "Bomb has been defused by:"
         document.getElementById("rst").style.visibility = "visible";
+      }
+    } else
+      explode();
+  }
 
-        document.getElementById("studentName").innerHTML = document.getElementById("player").innerText;
-    }
+  function red() {
+    if (randnum != 2) {
+      noRecite = noRecite + 1;
+      if (noRecite != 2) {
+        newPlayer();
+        document.getElementById("red").style.visibility = "hidden";
+      } else if (noRecite == 2) {
+        document.getElementById("dis").innerText = "Bomb has been defused by:"
+        document.getElementById("rst").style.visibility = "visible";
+      }
+    } else
+      explode();
+  }
 
+  function blue() {
+    if (randnum != 3) {
+      noRecite = noRecite + 1;
+      if (noRecite != 2) {
+        newPlayer();
+        document.getElementById("blue").style.visibility = "hidden";
+      } else if (noRecite == 2) {
+        document.getElementById("dis").innerText = "Bomb has been defused by:"
+        document.getElementById("rst").style.visibility = "visible";
+      }
+    } else
+      explode();
+  }
+
+  function rst() {
+    document.getElementById("dis").innerText = "Bomb Defuser Expert:"
+    document.getElementById("grn").style.visibility = "visible";
+    document.getElementById("red").style.visibility = "visible";
+    document.getElementById("blue").style.visibility = "visible";
+    document.getElementById("bomb").style.visibility = "visible";
+
+    document.getElementById("explode").style.visibility = "hidden";
+    document.getElementById("rst").style.visibility = "hidden";
+
+    a = 0;
+    noRecite = 0;
+    strt();
+  }
+
+  function explode() {
+    document.getElementById("dis").innerText = "Bomb has been activated by:"
+    document.getElementById("grn").style.visibility = "hidden";
+    document.getElementById("red").style.visibility = "hidden";
+    document.getElementById("blue").style.visibility = "hidden";
+    document.getElementById("bomb").style.visibility = "hidden";
+
+    document.getElementById("explode").style.visibility = "visible";
+    document.getElementById("rst").style.visibility = "visible";
+
+    document.getElementById("studentName").innerHTML = document.getElementById("player").innerText;
+  }
 </script>
 
 </html>
