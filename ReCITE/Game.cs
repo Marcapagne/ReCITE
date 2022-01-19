@@ -125,7 +125,7 @@ namespace ReCITE
         private void WON_game_Click(object sender, EventArgs e)
         {
             string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+            string path = Path.Combine(directory, @"Web_Apps\wheelOfNamesStart.html");
             webGame_pnl.Source = new Uri(path);
 
             LN_game.Enabled = true;
@@ -182,8 +182,9 @@ namespace ReCITE
             var lotto = new Uri (Path.Combine(directory, @"Web_Apps\LottoGame.html"));
             var oddeven = new Uri(Path.Combine(directory, @"Web_Apps\OddEvenGame.html"));
             var bomb = new Uri(Path.Combine(directory, @"Web_Apps\defuseTheBomb.html"));
+            var wheelofNames = new Uri(Path.Combine(directory, @"Web_Apps\wheelOfNames.html"));
 
-            if (webGame_pnl.Source == lotto || webGame_pnl.Source == oddeven || webGame_pnl.Source == bomb)
+            if (webGame_pnl.Source == lotto || webGame_pnl.Source == oddeven || webGame_pnl.Source == bomb || webGame_pnl.Source == wheelofNames)
             {
                 addPoint_btn.Visible = true;
             } else
