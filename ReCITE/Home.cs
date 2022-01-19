@@ -95,5 +95,11 @@ namespace ReCITE
         }
         #endregion
 
+        private void AboutUsbtn_Click(object sender, EventArgs e)
+        {
+            Form back = new AboutUs();
+            back.Show();
+            this.Hide();
+        }
     }
 }
