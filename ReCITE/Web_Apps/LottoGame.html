@@ -156,7 +156,7 @@
 
     var samp_names = [];
     function roll() {
-        var randnames = Math.floor(Math.random() * 5) + 1;
+        var randnames = Math.floor(Math.random() * samp_names.length);
         document.getElementById("names").innerHTML = samp_names[randnames];
     }
 </script>
