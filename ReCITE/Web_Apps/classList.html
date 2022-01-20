@@ -28,47 +28,98 @@
             width: 100%;
         }
     </style>
+     <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 
 <body>
     <table id="myTable" class="w3-table-all" width="auto">
-        <colgroup>
-            <col span="1" style="width: 50%;">
-            <col span="1" style="width: 30%;">
-            <col span="1" style="width: 20%;">
-        </colgroup>
-        <tbody>
-            <tr>
+        <tr>
                 <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Name</th>
                 <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Score</th>
                 <th style="cursor:pointer">Action</th>
-            </tr>
-            <tr class="item">
-                <td>Jon</td>
-                <td>1</td>
-                <td>
-                    <img class="edit" src="../Resources/edit.png" />
-                    <img class="delete" src="../Resources/delete.png" />
-                </td>
-            </tr>
-            <tr class="item">
-                <td>Jonny</td>
-                <td>2</td>
-                <td>
-                    <img src="../Resources/edit.png" />
-                    <img src="../Resources/delete.png" />
-                </td>
-            </tr>
-            <tr class="item">
-                <td>Jonnard</td>
-                <td>3</td>
-                <td>
-                    <img src="../Resources/edit.png" />
-                    <img src="../Resources/delete.png" />
-                </td>
-            </tr>
+         </tr>
+        
+        <tbody id="main">
+          <div id="elementHolder"></div>
         </tbody>
     </table>
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
+    authDomain: "curriculum-9f921.firebaseapp.com",
+    databaseURL: "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "curriculum-9f921",
+    storageBucket: "curriculum-9f921.appspot.com",
+    messagingSenderId: "850351009105",
+    appId: "1:850351009105:web:b8a53325f995a656cb7770",
+    measurementId: "G-X5NRSY58F5"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var ref = database.ref('studentData/Class1');
+
+  let data = [];
+
+  ref.orderByChild('score').on('value', function (snapshot) {
+    snapshot.forEach(element => {
+      var item = {
+        'score': element.val().score,
+        'name': element.val().name
+      }
+      segments.push(item);
+    });
+    createTableItems();
+  });
+
+
+  function createTableItems() {
+    segments.sort((a, b) => (a.score > b.score ? -1 : 1));
+
+    let main = document.getElementById("main");
+    segments.forEach(student => {
+      let tr = document.createElement("tr");
+      tr.className = 'item';
+      let td_name = document.createElement("td");
+      let name = document.createTextNode(student['name']);
+      let td_score = document.createElement("td");
+      let score = document.createTextNode(student['score']);
+      let td_Actions = document.createElement("td");
+      let edit = document.createElement("img");
+      edit.src = "../Resources/edit.png";
+      let deleteicon = document.createElement("img");
+      deleteicon.src = "../Resources/delete.png";
+    
+      td_name.appendChild(name);
+      td_score.appendChild(score);
+      td_Actions.appendChild(edit);
+      td_Actions.appendChild(deleteicon);
+      tr.appendChild(td_Actions);                       
+      tr.appendChild(td_name);
+      tr.appendChild(td_score);
+
+      main.appendChild(tr)
+    })
+  }
+
+  function addData() {
+    var data = {
+      name: "SSS",
+      score: 232
+    }
+    ref.push(data);
+  }
+
+  //  SAMPLE PALANG TO tanggalin yung ibang yan pag mdarami na laman ng data
+  let segments = [
+  ];
+
+
+
+</script>
 </body>
 
 </html>
