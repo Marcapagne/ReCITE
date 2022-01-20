@@ -77,11 +77,24 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
-  var ref = database.ref('studentData/Class1');
+  
 
-  let data = [];
+  var classId = '';
+    
+    getClassId().then(() => {
+      getData();
+    })
 
-  ref.orderByChild('score').on('value', function (snapshot) {
+
+    async function getClassId() {
+      await database.ref('key/classid').once('value').then(function (snapshot){
+        classId = snapshot.val();  
+      })
+    }
+
+  function getData() {
+    var ref = database.ref('daily/'+classId);
+    ref.orderByChild('score').on('value', function (snapshot) {
     snapshot.forEach(element => {
       var item = {
         'score': element.val().score,
@@ -91,6 +104,7 @@
     });
     createTableItems();
   });
+  }
 
 
   function createTableItems() {
