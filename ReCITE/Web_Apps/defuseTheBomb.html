@@ -4,7 +4,6 @@
   <link rel="stylesheet" href="style.css">
   <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" media="all" rel="stylesheet">
   <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-  <script src="CRUD.js"></script>
   <style>
     .modal-backdrop {
       background-color: transparent;
@@ -91,26 +90,27 @@
     <p id="studentName">Defuse the Bomb</p>
     <div id="lifeline">
       <div id="item">
-        <button type="button" id="cll" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <button type="button" id="cll" onclick="useLifeLine('cf')" data-bs-toggle="tooltip" data-bs-placement="bottom"
           title="Call A Friend">
           <img src="../Resources/callafriend.png">
         </button>
       </div>
       <div id="item">
-        <button type="button" id="skp" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Skip">
+        <button type="button" id="skp" onclick="useLifeLine('s')" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          title="Skip">
           <img src="../Resources/skip.png">
         </button>
       </div>
       <div id="item">
-        <button type="button" id="hdle" onclick="btn()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <button type="button" id="hdle" onclick="useLifeLine('hu')" data-bs-toggle="tooltip" data-bs-placement="bottom"
           title="Huddle Up">
           <img src="../Resources/huddle.png">
         </button>
       </div>
     </div>
-    <!-- Add point button -->
-    <img id="addpnt" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
-      title="+1 Point" onclick="addPoints()">
+     <!-- Add point button -->
+     <img id="addpnt" onclick="addPoints()" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
+     title="+1 Point">
   </div>
 
   <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
@@ -161,6 +161,7 @@
 
 </body>
 
+
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
@@ -176,29 +177,76 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
-  var ref = database.ref('studentData/Class1');
 
+  let selectedName = '';
+  getGameType();
+  getClassId().then(() => {
+    newPlayer()
+  })
+
+  let classId = '';
+  async function getClassId() {
+    await database.ref('key/classId').once('value').then(function (snapshot) {
+      classId = snapshot.val();
+      console.log(classId)
+    })
+  }
+
+  let game_type = '';
+
+  function getGameType() {
+    database.ref('game/type').once('value').then(function (snapshot) {
+      game_type = snapshot.val();
+      console.log(game_type)
+    })
+  }
+
+  var ref = database.ref('classList/' + classId);
+
+  let samp_names = [];
   document.getElementById("rst").style.visibility = "hidden";
   document.getElementById("explode").style.visibility = "hidden";
   strt();
   var a = 0;
   var noRecite = 0;
 
-  newPlayer()
   function newPlayer() {
-    let samp_names = [];
+    document.getElementById("cll").style.display = "flex";
+    document.getElementById("skp").style.display = "flex";
+    document.getElementById("hdle").style.display = "flex";
+    var ref = database.ref('classList/' + classId);
     ref.on('value', function (snapshot) {
       snapshot.forEach(element => {
         samp_names.push(element.val().name);
       });
     });
-    var randnames = Math.floor(Math.random() * samp_names.length);
+    var randnames = Math.floor(Math.random() * samp_names.length - 1);
     document.getElementById("player").innerText = samp_names[randnames];
+    selectedName = samp_names[randnames];
+  }
+
+  function useLifeLine(specialAttack) {
+    database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/lifeline/' + specialAttack)
+      .set(true);
+    getLifeLineStatus();
+  }
+
+  function getLifeLineStatus(name) {
+    database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/lifeline')
+      .once('value')
+      .then(function (snapshot) {
+        if (snapshot.val().cf) document.getElementById("cll").style.display = "none";
+        if (snapshot.val().s) document.getElementById("skp").style.display = "none";
+        if (snapshot.val().hu) document.getElementById("hdle").style.display = "none";
+        callAFriend = snapshot.val().cf;
+        skip = snapshot.val().s;
+        huddleUp = snapshot.val().hu;
+      });
   }
 
   function strt() {
     newPlayer();
-    randnum = Math.floor(Math.random() * 3) + 1;
+    randnum = Math.floor(Math.random() * samp_names.length - 1);
     a = randnum;
   }
 
@@ -245,6 +293,9 @@
   }
 
   function rst() {
+    document.getElementById("cll").style.display = "flex";
+    document.getElementById("skp").style.display = "flex";
+    document.getElementById("hdle").style.display = "flex";
     document.getElementById("dis").innerText = "Bomb Defuser Expert:"
     document.getElementById("grn").style.visibility = "visible";
     document.getElementById("red").style.visibility = "visible";
@@ -270,6 +321,16 @@
     document.getElementById("rst").style.visibility = "visible";
 
     document.getElementById("studentName").innerHTML = document.getElementById("player").innerText;
+  }
+
+
+
+  function addPoints() {
+    database.ref('daily/' + classId + '/' + gameType + '/' + selectedName + '/')
+      .once('value')
+      .then(function (snapshot) {
+        updateOverall(selectedName);
+      });
   }
 </script>
 
