@@ -183,9 +183,9 @@
   document.getElementById("explode").style.visibility = "hidden";
   var noRecite = 0;
 
-  let selectedName = '';
   getGameType();
   getClassId().then(() => {
+    getStudentName();
     strt();
   })
 
@@ -198,7 +198,6 @@
   }
 
   let game_type = '';
-
   function getGameType() {
     database.ref('game/type').once('value').then(function (snapshot) {
       game_type = snapshot.val();
@@ -206,25 +205,30 @@
     })
   }
 
+  function strt() {
+    newPlayer();
+    randnum = Math.floor(Math.random() * 3) + 1;
+  }
+
   let samp_names = [];
+  async function getStudentName() {
+    await database.ref('classList/' + classId).once('value').then(function (snapshot) {
+      snapshot.forEach(element => {
+        samp_names.push(element.val().name);
+        console.log(samp_names);
+      });
+    })
+  };
+
+  let selectedName = '';
   function newPlayer() {
     document.getElementById("cll").style.display = "flex";
     document.getElementById("skp").style.display = "flex";
     document.getElementById("hdle").style.display = "flex";
-    var ref = database.ref('classList/' + classId);
-    ref.on('value', function (snapshot) {
-      snapshot.forEach(element => {
-        samp_names.push(element.val().name);
-      });
-    });
-    var randnames = Math.floor(Math.random() * samp_names.length - 1);
+    
+    var randnames = Math.floor(Math.random() * samp_names.length);
     document.getElementById("player").innerText = samp_names[randnames];
     selectedName = samp_names[randnames];
-  }
-
-  function strt() {
-    newPlayer();
-    randnum = Math.floor(Math.random() * 3) + 1;
   }
 
   function useLifeLine(specialAttack) {
