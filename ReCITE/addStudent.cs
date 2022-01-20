@@ -39,7 +39,10 @@ namespace ReCITE
             //add student function to database
             Database.Database databaseConnection = new Database.Database();
             databaseConnection.AddStudent(studentName_tb.Text, globalClass.classid);
-            var firebaseWrite = firebaseClient.Set("classList/Class1/"+ studentName_tb.Text, studentName_tb.Text);
+            var firebaseWrite = firebaseClient.Set("classList/Class1/"+ studentName_tb.Text, 
+            {
+                name: studentName_tb.Text
+            });
             //Clear textbox
             studentName_tb.Text = "";
         }
