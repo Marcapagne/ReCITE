@@ -205,7 +205,6 @@
         .once('value')
         .then(function(snapshot) {
             snapshot.ref.child('score').set(snapshot.val().score + 1);
-            getData();  
             updateOverall();      
         });
     } 
