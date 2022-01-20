@@ -6,6 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using FireSharp.Config;
+using FireSharp.Response;
+using FireSharp.Interfaces;
 
 namespace ReCITE
 {
@@ -13,11 +16,28 @@ namespace ReCITE
     {
         private bool mouseDown;
         private Point lastLocation;
-
+        
+        IFirebaseConfig firebase = new FirebaseConfig() 
+        {
+            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
+            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+        
+        IFirebaseClient firebaseClient;
+        
         public Leaderboard()
         {
             InitializeComponent();
-
+            
+            try 
+            {
+                firebaseClient = new FireSharp.FirebaseClient(firebase);
+            } catch 
+            {
+                MessageBox.Show("error");
+            }
+            
+            
             // globalClass global = new globalClass();
             className_tb.Text = globalClass.classid;
 
@@ -77,6 +97,9 @@ namespace ReCITE
 
         private void Proceed_btn_Click(object sender, EventArgs e)
         {
+            var result = firebaseClient.Get('daily/BTVTEd');
+            Lists<string> = result.ResultAs<List>();
+            
             Form studentList = new Student_List();
             studentList.Show();
             this.Hide();
