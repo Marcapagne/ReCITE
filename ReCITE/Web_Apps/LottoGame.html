@@ -155,6 +155,8 @@
         snapshot.forEach(element => {
           samp_names.push(element.val().name);
         });
+
+      writeDailyRecord();
       });
     }
     
@@ -168,11 +170,6 @@
         })
     }
 
-    window.onbeforeunload = () => {
-        clearDailyRecord();
-        updateOverall();
-    }
-
     async function getDailyScore(name, score) {
         database.ref('classList/'+ classId +'/'+ name +'/')
             .once('value')
@@ -182,16 +179,23 @@
     }
     
 
-    function clearDailyRecord() {
+    function writeDailyRecord() {
         samp_names.forEach(name => {
-            database.ref('daily/'+ classId +'/'+ name +'/')
-            .once('value')
-            .then(function(snapshot) {
-                snapshot.ref.child('score').set(0);       
-            });
+            var ref = database.ref('daily/'+ classId +'/'+ name);
+            ref.set({
+                name: name,
+                score: 0
+            })
         })
     }
 
+    function addData() {
+    var data = {
+      name: "SSS",
+      score: 232
+    }
+    ref.push(data);
+  }
 
     let selectedName = '';
     function addPoints() {
