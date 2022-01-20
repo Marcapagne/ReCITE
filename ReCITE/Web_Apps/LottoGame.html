@@ -162,20 +162,21 @@
     }
     
 
-    function updateOverall() {
-        database.ref('daily/'+ classId).once('value').then(function (snapshot){
-            console.log(snapshot.val().score);
-            snapshot.forEach(student => {
-                getDailyScore(student.val().name, student.val().score)
-            })
-        })
+    function updateOverall(name) {
+        database.ref('daily/'+ classId +'/'+ name +'/')
+        .once('value')
+        .then(function(snapshot) {
+            snapshot.ref.child('score').set(snapshot.val().score + 1);
+            getDailyScore(name, student.val().score);
+        });
+
     }
 
     async function getDailyScore(name, score) {
         database.ref('classList/'+ classId +'/'+ name +'/')
             .once('value')
             .then(function(snapshot) {
-            snapshot.ref.child('score').set(snapshot.val().score + 1);
+                snapshot.ref.child('score').set(snapshot.val().score + 1);
         });
     }
     
@@ -197,7 +198,7 @@
         .then(function(snapshot) {
             snapshot.ref.child('score').set(snapshot.val().score + 1);
         });
-        updateOverall();       
+        updateOverall(selectedName);       
     } 
 
     var t;
