@@ -139,9 +139,10 @@
     var classId = '';
     
     getClassId().then(() => {
-      getData().then(() => {
+      getData();
+      setTimeout(() => {
         writeDailyRecord();
-      })
+      }, 1000);
     })
 
 
@@ -151,9 +152,9 @@
       })
     }
     
-    async function getData() {
+    function getData() {
       var ref = database.ref('classList/'+classId+'/');
-      await ref.on('value', function (snapshot) {
+      ref.on('value', function (snapshot) {
         snapshot.forEach(element => {
           samp_names.push(element.val().name);
         });
