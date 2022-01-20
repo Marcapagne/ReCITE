@@ -172,6 +172,12 @@
     })
   }
 
+function getGameType() {
+  database.ref('game/type').once('value').then(function (snapshot) {
+    game_type = snapshot.val();
+  })
+}
+
   function addPoints() {
     database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/')
       .once('value')
@@ -204,7 +210,6 @@
   }
 
   function getData() {
-    console.log(classId);
     var ref = database.ref('classList/' + classId);
     ref.on('value', function (snapshot) {
       snapshot.forEach(element => {
@@ -274,15 +279,21 @@
 
   var samp_names = [];
 
+  function pota(){
+    console.log('called');
+  }
+
   function newPlayer() {
+    var randnames = Math.floor(Math.random() * samp_names.length);
+    document.getElementById("player").innerHTML = samp_names[randnames];
+    document.getElementById("studentName").innerHTML = document.getElementById("player").innerText;
     document.getElementById("new").setAttribute("disabled", "disabled");
     document.getElementById("evn").removeAttribute("disabled");
     document.getElementById("odd").removeAttribute("disabled");
     document.getElementById("dis").innerHTML = "Recite or not?";
     document.getElementById("num").innerHTML = "?";
 
-    var randnames = Math.floor(Math.random() * samp_names.length);
-    document.getElementById("player").innerHTML = samp_names[randnames];
+    
     selectedName = samp_names[randnames];
     getLifeLineStatus();
   }
