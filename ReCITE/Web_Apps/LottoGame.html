@@ -76,7 +76,7 @@
             </div>
         </div>
         <!-- Add point button -->
-        <img id="addpnt" src="../Resources/add_point_btn.png" onclick="addPoints()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <img id="addpnt" onclick="addPoings()" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
             title="+1 Point">
     </div>
 
@@ -96,7 +96,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <div class="d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                        <svg class="bi flex-shrink-0 m  e-2" width="24" height="24" role="img" aria-label="Warning:">
                             <use xlink:href="#exclamation-triangle-fill" />
                         </svg>
                         <div>
@@ -145,7 +145,7 @@
 
     async function getClassId() {
       await database.ref('key/classid').once('value').then(function (snapshot){
-        classId = snapshot.val();  
+        classId = snapshot.val();
       })
     }
     
@@ -157,18 +157,35 @@
         });
       });
     }
+    
+
+    function updateOverall() {
+        database.ref('daily/'+ classId).once('value').then(function (snapshot){
+            console.log(snapshot.val().score);
+            snapshot.forEach(student => {
+                getDailyScore(student.val().name, student.val().score)
+            })
+        })
+    }
+
+    async function getDailyScore(name, score) {
+        database.ref('classList/'+ classId +'/'+ name +'/')
+            .once('value')
+            .then(function(snapshot) {
+            snapshot.ref.child('score').set(snapshot.val().score + score);
+        });
+    }
 
     let selectedName = '';
     function addPoints() {
-        console.log("clicked");
-    database.ref('daily/'+ classId +'/'+ selectedName +'/')
-    .once('value')
-    .then(function(snapshot) {
-      snapshot.ref.child('score').set(snapshot.val().score + 1);
-      getData();
-    });
-  } 
-
+        database.ref('daily/'+ classId +'/'+ selectedName +'/')
+        .once('value')
+        .then(function(snapshot) {
+            snapshot.ref.child('score').set(snapshot.val().score + 1);
+            updateOverall();
+            getData();        
+        });
+    } 
 
     var t;
     var s;
