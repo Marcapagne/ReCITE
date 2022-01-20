@@ -97,17 +97,11 @@ namespace ReCITE
 
         private void Proceed_btn_Click(object sender, EventArgs e)
         {
-            //var result = firebaseClient.Get("daily/BTVTEd/Allain");
-
             FirebaseResponse response = firebaseClient.Delete("daily/BTVTEd/");
-            //Dictionary<string, StudentClass> data = response.ResultAs<Dictionary<string, StudentClass>>();
 
-            //StudentClass results = result.ResultAs<StudentClass>();
-            //Console.WriteLine(data.ToString());
-
-            //Form studentList = new Student_List();
-            //studentList.Show();
-            //this.Hide();
+            Form studentList = new Student_List();
+            studentList.Show();
+            this.Hide();
         }
     }
 }
