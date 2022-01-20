@@ -135,13 +135,39 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
-    var ref = database.ref('studentData/Class1');
+    
+    var classId = '';
+    
+    getClassId().then(() => {
+      getData();
+    })
 
-    ref.on('value', function (snapshot) {
+
+    async function getClassId() {
+      await database.ref('key/classid').once('value').then(function (snapshot){
+        classId = snapshot.val();  
+      })
+    }
+    
+    function getData() {
+      var ref = database.ref('classList/'+classId+'/');
+      ref.on('value', function (snapshot) {
         snapshot.forEach(element => {
-            samp_names.push(element.val().name);
+          samp_names.push(element.val().name);
         });
+      });
+    }
+
+    let selectedName = '';
+    function addPoints() {
+    database.ref('daily/'+ classId +'/'+ selectedName +'/')
+    .once('value')
+    .then(function(snapshot) {
+      snapshot.ref.child('score').set(snapshot.val().score + 1);
+      getData();
     });
+  } 
+
 
     var t;
     var s;
@@ -165,6 +191,7 @@
     function roll() {
         var randnames = Math.floor(Math.random() * samp_names.length);
         document.getElementById("names").innerHTML = samp_names[randnames];
+        selectedName = samp_names[randnames];
     }
 </script>
 
