@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +17,27 @@ namespace ReCITE
         private bool mouseDown;
         private Point lastLocation;
 
+        IFirebaseConfig firebase = new FirebaseConfig()
+        {
+            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
+            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+
+        IFirebaseClient firebaseClient;
+
         public Game_Menu()
         {
             InitializeComponent();
+
+            // Firebase Database
+            try
+            {
+                firebaseClient = new FireSharp.FirebaseClient(firebase);
+            }
+            catch
+            {
+                MessageBox.Show("error");
+            }
         }
 
         // Remove Flickering
@@ -82,7 +102,9 @@ namespace ReCITE
             Button btnTag = (Button)sender;
             string tag = btnTag.Tag.ToString();
             string directory;
-            
+
+            var firebaseWrite = firebaseClient.Set("game/type", tag);
+
             Form game;
             string path;
             switch (tag)

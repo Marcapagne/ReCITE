@@ -61,7 +61,7 @@ namespace ReCITE
             this.game1_btn.Name = "game1_btn";
             this.game1_btn.Size = new System.Drawing.Size(478, 57);
             this.game1_btn.TabIndex = 4;
-            this.game1_btn.Tag = "Lotto";
+            this.game1_btn.Tag = "lotto_name";
             this.game1_btn.Text = "Lotto Name";
             this.game1_btn.UseVisualStyleBackColor = true;
             this.game1_btn.Click += new System.EventHandler(this.Gamebtn_Click);
@@ -103,7 +103,7 @@ namespace ReCITE
             this.game2_btn.Name = "game2_btn";
             this.game2_btn.Size = new System.Drawing.Size(478, 57);
             this.game2_btn.TabIndex = 6;
-            this.game2_btn.Tag = "Odd or Even";
+            this.game2_btn.Tag = "odd_or_even";
             this.game2_btn.Text = "Odd or Even";
             this.game2_btn.UseVisualStyleBackColor = true;
             this.game2_btn.Click += new System.EventHandler(this.Gamebtn_Click);
@@ -122,7 +122,7 @@ namespace ReCITE
             this.game3_btn.Name = "game3_btn";
             this.game3_btn.Size = new System.Drawing.Size(478, 57);
             this.game3_btn.TabIndex = 7;
-            this.game3_btn.Tag = "Wheel of Names";
+            this.game3_btn.Tag = "wheel_of_names";
             this.game3_btn.Text = "Wheel of Names";
             this.game3_btn.UseVisualStyleBackColor = true;
             this.game3_btn.Click += new System.EventHandler(this.Gamebtn_Click);
@@ -203,7 +203,7 @@ namespace ReCITE
             this.game4_btn.Size = new System.Drawing.Size(478, 57);
             this.game4_btn.TabIndex = 10;
             this.game4_btn.TabStop = false;
-            this.game4_btn.Tag = "Defuse the bomb";
+            this.game4_btn.Tag = "defuse_the_bomb";
             this.game4_btn.Text = "Defuse the bomb";
             this.game4_btn.UseVisualStyleBackColor = true;
             this.game4_btn.Click += new System.EventHandler(this.Gamebtn_Click);

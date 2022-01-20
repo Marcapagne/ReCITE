@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,14 @@ namespace ReCITE
         private bool mouseDown;
         private Point lastLocation;
 
+        IFirebaseConfig firebase = new FirebaseConfig()
+        {
+            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
+            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+
+        IFirebaseClient firebaseClient;
+
         public Class_List()
         {
             InitializeComponent();
@@ -25,6 +35,16 @@ namespace ReCITE
             class2_btn.Text = className[1].ToString();
             class3_btn.Text = className[2].ToString();
             class4_btn.Text = className[3].ToString();
+
+            // Firebase Database
+            try
+            {
+                firebaseClient = new FireSharp.FirebaseClient(firebase);
+            }
+            catch
+            {
+                MessageBox.Show("error");
+            }
         }
 
         // Remove Flickering
@@ -90,6 +110,8 @@ namespace ReCITE
             var name = btnName.Text;
 
             globalClass.classid = name;
+            var firebaseWrite = firebaseClient.Set("key/classId", name);
+
             Form student_list = new Student_List();
             student_list.Show();
             this.Hide();
