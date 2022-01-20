@@ -140,6 +140,7 @@
     
     getClassId().then(() => {
       getData();
+      writeDailyRecord();
     })
 
 
@@ -155,8 +156,6 @@
         snapshot.forEach(element => {
           samp_names.push(element.val().name);
         });
-
-      writeDailyRecord();
       });
     }
     
