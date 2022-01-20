@@ -22,7 +22,7 @@
             background-repeat: none;
         }
 
-        td canvas{
+        td canvas {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -65,6 +65,9 @@
                 </button>
             </div>
         </div>
+        <!-- Add point button -->
+        <img id="addpnt" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
+            title="+1 Point">
     </div>
 
     <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
@@ -73,7 +76,7 @@
         <div class="center">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="400" height="544" class="the_wheel" class="center" valign="center" >
+                    <td width="400" height="544" class="the_wheel" class="center" valign="center">
                         <canvas onclick="startSpin();" id="canvas" width="434" height="434">
                             <!-- Browser doesnt support canvas -->
                             <p style="color: white" class="center">There's an error loading on wheel</p>
