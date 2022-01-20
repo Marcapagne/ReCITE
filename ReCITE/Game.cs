@@ -111,6 +111,8 @@ namespace ReCITE
             OOE_game.Enabled = true;
             DTB_game.Enabled = true;
             WON_game.Enabled = true;
+
+            var firebaseWrite = firebaseClient.Set("game/type", LN_game.Tag);
         }
 
         //Odd or Even Game
@@ -124,6 +126,9 @@ namespace ReCITE
             OOE_game.Enabled = false;
             DTB_game.Enabled = true;
             WON_game.Enabled = true;
+
+            var firebaseWrite = firebaseClient.Set("game/type", OOE_game.Tag);
+
         }
 
         //Defuse the Bomb Game 
@@ -137,6 +142,8 @@ namespace ReCITE
             OOE_game.Enabled = true;
             DTB_game.Enabled = false;
             WON_game.Enabled = true;
+
+            var firebaseWrite = firebaseClient.Set("game/type", DTB_game.Tag);
         }
 
         //Wheel of Names
@@ -150,6 +157,8 @@ namespace ReCITE
             OOE_game.Enabled = true;
             DTB_game.Enabled = true;
             WON_game.Enabled = false;
+
+            var firebaseWrite = firebaseClient.Set("game/type", WON_game.Tag);
         }
 
         //Aesthetic 

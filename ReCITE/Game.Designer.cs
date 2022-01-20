@@ -222,6 +222,7 @@ namespace ReCITE
             this.DTB_game.Name = "DTB_game";
             this.DTB_game.Size = new System.Drawing.Size(196, 39);
             this.DTB_game.TabIndex = 15;
+            this.DTB_game.Tag = "defuse_the_bomb";
             this.DTB_game.Text = "Defuse the Bomb";
             this.DTB_game.UseVisualStyleBackColor = false;
             this.DTB_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
@@ -243,6 +244,7 @@ namespace ReCITE
             this.WON_game.Name = "WON_game";
             this.WON_game.Size = new System.Drawing.Size(196, 39);
             this.WON_game.TabIndex = 14;
+            this.WON_game.Tag = "wheel_of_names";
             this.WON_game.Text = "Wheel of Names";
             this.WON_game.UseVisualStyleBackColor = false;
             this.WON_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
@@ -264,6 +266,7 @@ namespace ReCITE
             this.OOE_game.Name = "OOE_game";
             this.OOE_game.Size = new System.Drawing.Size(196, 39);
             this.OOE_game.TabIndex = 13;
+            this.OOE_game.Tag = "odd_or_even";
             this.OOE_game.Text = "Odd or Even";
             this.OOE_game.UseVisualStyleBackColor = false;
             this.OOE_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
@@ -285,6 +288,7 @@ namespace ReCITE
             this.LN_game.Name = "LN_game";
             this.LN_game.Size = new System.Drawing.Size(196, 39);
             this.LN_game.TabIndex = 12;
+            this.LN_game.Tag = "lotto_name";
             this.LN_game.Text = "Lotto Name";
             this.LN_game.UseVisualStyleBackColor = false;
             this.LN_game.EnabledChanged += new System.EventHandler(this.LN_game_EnabledChanged);
