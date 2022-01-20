@@ -168,6 +168,11 @@
         })
     }
 
+    window.onbeforeunload = () => {
+        clearDailyRecord();
+        updateOverall();
+    }
+
     async function getDailyScore(name, score) {
         database.ref('classList/'+ classId +'/'+ name +'/')
             .once('value')
@@ -175,6 +180,18 @@
             snapshot.ref.child('score').set(snapshot.val().score + score);
         });
     }
+    
+
+    function clearDailyRecord() {
+        samp_names.forEach(name => {
+            database.ref('daily/'+ classId +'/'+ name +'/')
+            .once('value')
+            .then(function(snapshot) {
+                snapshot.ref.child('score').set(0);       
+            });
+        })
+    }
+
 
     let selectedName = '';
     function addPoints() {
@@ -182,7 +199,6 @@
         .once('value')
         .then(function(snapshot) {
             snapshot.ref.child('score').set(snapshot.val().score + 1);
-            updateOverall();
             getData();        
         });
     } 
