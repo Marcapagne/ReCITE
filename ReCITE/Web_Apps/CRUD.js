@@ -1,9 +1,9 @@
 
 
 var classId = '';
-
-function gameType(type) {
-    console.log(type)
+let gameType = '';
+function game_type(type) {
+    gameType = type;
     getClassId().then(() => {
         getData();
         setTimeout(() => {
@@ -30,7 +30,7 @@ function getData() {
 
 
 function updateOverall(name) {
-    database.ref('daily/' + classId + '/' + name + '/')
+    database.ref('daily/' + classId +'/'+ gameType +'/'+ name + '/')
         .once('value')
         .then(function (snapshot) {
             snapshot.ref.child('score').set(snapshot.val().score + 1);
@@ -48,21 +48,25 @@ async function getDailyScore(name) {
         });
 }
 
-
 function writeDailyRecord() {
-    samp_names.forEach(name => {
-        var ref = database.ref('daily/' + classId + '/' + name);
-        ref.set({
-            name: name,
-            score: 0
-        })
-    })
-}
+      samp_names.forEach(name => {
+          var ref = database.ref('daily/'+ classId +'/'+ gameType +'/'+ name);
+          ref.set({
+              name: name,
+              score: 0,
+              lifeline: {
+                  cf: false,
+                  s: false,
+                  hu: false
+              }
+          })
+      })
+  }
 
 let selectedName = 'Kris';
 
 function addPoints() {
-    database.ref('daily/' + classId + '/' + selectedName + '/')
+    database.ref('daily/' + classId +'/'+ gameType +'/'+ selectedName + '/')
         .once('value')
         .then(function (snapshot) {
             updateOverall(selectedName);
@@ -70,7 +74,7 @@ function addPoints() {
 }
 
 function getLifeLineStatus(name) {
-  database.ref('daily/'+ classId + '/oddEven/' + selectedName + '/lifeline')
+  database.ref('daily/'+ classId +'/'+ gameType +'/'+ selectedName + '/lifeline')
   .once('value')
   .then(function(snapshot) {
       if(snapshot.val().cf) document.getElementById("cll").style.display = "none";
