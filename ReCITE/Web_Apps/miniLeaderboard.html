@@ -90,6 +90,8 @@
   function getData() {
   var ref = database.ref('daily/'+ classId);
     ref.orderByChild('score').on('value', function (snapshot) {
+      segments.splice(0, segments.length);
+      console.log(segments.length)
       snapshot.forEach(element => {
         var item = {
           'score': element.val().score,
@@ -97,15 +99,25 @@
         }
         segments.push(item);
       });
+      console.log(segments)
       createTableItems();
     });
   }
 
+  function addPoints() {
+    database.ref('daily/'+ classId +'/Allain/')
+    .once('value')
+    .then(function(snapshot) {
+      snapshot.ref.child('score').set(snapshot.val().score + 1);
+      getData();
+    });
+  } 
 
+  
   function createTableItems() {
     segments.sort((a, b) => (a.score > b.score ? -1 : 1));
-
     let main = document.getElementById("main");
+    main.innerHTML = '';
     segments.forEach(student => {
       let tr = document.createElement("tr");
       tr.className = 'item';
@@ -121,6 +133,8 @@
 
       main.appendChild(tr)
     })
+
+    keys = [];
   }
 
   function addData() {
