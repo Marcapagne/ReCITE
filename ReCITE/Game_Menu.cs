@@ -109,7 +109,7 @@ namespace ReCITE
             string path;
             switch (tag)
             {
-                case "Lotto":
+                case "lotto_name":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                     path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
                     globalClass.choosengame = path;
@@ -118,7 +118,7 @@ namespace ReCITE
                     this.Hide();
                     break;
 
-                case "Wheel of Names":
+                case "wheel_of_names":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                     path = Path.Combine(directory, @"Web_Apps\wheelOfNamesStart.html");
                     globalClass.choosengame = path;
@@ -127,7 +127,7 @@ namespace ReCITE
                     this.Hide();
                     break;
 
-                case "Odd or Even":
+                case "odd_or_even":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                     path = Path.Combine(directory, @"Web_Apps\OddEvenGameStart.html");
                     globalClass.choosengame = path;
@@ -136,7 +136,7 @@ namespace ReCITE
                     this.Hide();
                     break;
 
-                case "Defuse the bomb":
+                case "defuse_the_bomb":
                     directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                     path = Path.Combine(directory, @"Web_Apps\defuseTheBombStart.html");
                     globalClass.choosengame = path;

@@ -8,7 +8,7 @@ function setup() {
 
 let classId = '';
 async function getClassId() {
-  await database.ref('key/classid').once('value').then(function (snapshot) {
+  await database.ref('key/classId').once('value').then(function (snapshot) {
     classId = snapshot.val();
   })
 }
