@@ -61,8 +61,6 @@
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
   var ref = database.ref('classList/BTVTEd');
-
-  let data = [];
   let keys = [];
 
   ref.on('value', function (snapshot) {
@@ -70,22 +68,14 @@
       keys.push(element.key);
     });
     getStudentData();
-    // snapshot.forEach(element => {
-    //   var item = {
-    //     'score': element.val().score,
-    //     'name': element.val().name
-    //   }
-    //   segments.push(item);
-    // });
-    // createTableItems();
   });
 
 
   function getStudentData() {
+    
+    segments = [];
     keys.forEach(e => {
       var ref = database.ref('classList/BTVTEd/'+ e);
-      
-
       ref.on('value', function (element) {
           var item = {
             'score': element.val().score,
@@ -93,14 +83,14 @@
           }
           segments.push(item);
       });
-      createTableItems();
+      createTableItems();      
     })
   }
 
   function createTableItems() {
     segments.sort((a, b) => (a.score > b.score ? -1 : 1));
-
     let main = document.getElementById("main");
+    main.innerHTML = '';
     segments.forEach(student => {
       let tr = document.createElement("tr");
       tr.className = 'item';
@@ -123,7 +113,9 @@
       tr.appendChild(td_Actions);     
 
       main.appendChild(tr)
-    })
+    });
+
+    keys = [];
   }
 
   function addData() {
@@ -137,9 +129,6 @@
   //  SAMPLE PALANG TO tanggalin yung ibang yan pag mdarami na laman ng data
   let segments = [
   ];
-
-
-
 </script>
 </body>
 
