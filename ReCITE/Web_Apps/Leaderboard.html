@@ -2,37 +2,50 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <style>
+        html,
+        body {
+            /*border: 1px solid black;*/
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        img {
+            margin-right: 10px;
+            height: 20px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        table {
+            table-layout: auto;
+            width: 100%;
+        }
+    </style>
+     <script src="https://www.w3schools.com/lib/w3.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <table id="myTable" class="w3-table-all" width="auto">
-    <colgroup>
-      <col span="1" style="width: 70%;">
-      <col span="1" style="width: 30%;">
-    </colgroup>
-    <tr>
-      <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Name</th>
-      <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Score</th>
-    </tr>
-    <tbody id="main">
-      <div id="elementHolder"></div>
-    </tbody>
-  </table>
-
-
-
-</body>
-
-
-<script>
+    <table id="myTable" class="w3-table-all" width="auto">
+        <tr>
+                <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Name</th>
+                <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Score</th>
+                <th style="cursor:pointer">Action</th>
+         </tr>
+        
+        <tbody id="main">
+          <div id="elementHolder"></div>
+        </tbody>
+    </table>
+    <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
     authDomain: "curriculum-9f921.firebaseapp.com",
@@ -47,26 +60,37 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
-  var ref = database.ref('studentData/Class1');
+  var ref = database.ref('classList/BTVTEd');
+  let keys = [];
 
-  let data = [];
-
-  ref.orderByChild('score').on('value', function (snapshot) {
+  ref.on('value', function (snapshot) {
     snapshot.forEach(element => {
-      var item = {
-        'score': element.val().score,
-        'name': element.val().name
-      }
-      segments.push(item);
+      keys.push(element.key);
     });
-    createTableItems();
+    getStudentData();
   });
 
 
+  function getStudentData() {
+    
+    segments = [];
+    keys.forEach(e => {
+      var ref = database.ref('classList/BTVTEd/'+ e);
+      ref.on('value', function (element) {
+          var item = {
+            'score': element.val().score,
+            'name': element.val().name
+          }
+          segments.push(item);
+      });
+      createTableItems();      
+    })
+  }
+
   function createTableItems() {
     segments.sort((a, b) => (a.score > b.score ? -1 : 1));
-
     let main = document.getElementById("main");
+    main.innerHTML = '';
     segments.forEach(student => {
       let tr = document.createElement("tr");
       tr.className = 'item';
@@ -74,14 +98,24 @@
       let name = document.createTextNode(student['name']);
       let td_score = document.createElement("td");
       let score = document.createTextNode(student['score']);
-
+      let td_Actions = document.createElement("td");
+      let edit = document.createElement("img");
+      edit.src = "../Resources/edit.png";
+      let deleteicon = document.createElement("img");
+      deleteicon.src = "../Resources/delete.png";
+    
       td_name.appendChild(name);
       td_score.appendChild(score);
+      td_Actions.appendChild(edit);
+      td_Actions.appendChild(deleteicon);                  
       tr.appendChild(td_name);
       tr.appendChild(td_score);
+      tr.appendChild(td_Actions);     
 
       main.appendChild(tr)
-    })
+    });
+
+    keys = [];
   }
 
   function addData() {
@@ -95,10 +129,7 @@
   //  SAMPLE PALANG TO tanggalin yung ibang yan pag mdarami na laman ng data
   let segments = [
   ];
-
-
-
 </script>
-
+</body>
 
 </html>
