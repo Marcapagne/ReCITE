@@ -175,13 +175,12 @@
         database.ref('classList/'+ classId +'/'+ name +'/')
             .once('value')
             .then(function(snapshot) {
-            snapshot.ref.child('score').set(snapshot.val().score + score);
+            snapshot.ref.child('score').set(snapshot.val().score + 1;
         });
     }
     
 
     function writeDailyRecord() {
-        console.log('got called after')
         samp_names.forEach(name => {
             var ref = database.ref('daily/'+ classId +'/'+ name);
             ref.set({
@@ -190,14 +189,6 @@
             })
         })
     }
-
-    function addData() {
-    var data = {
-      name: "SSS",
-      score: 232
-    }
-    ref.push(data);
-  }
 
     let selectedName = '';
     function addPoints() {
