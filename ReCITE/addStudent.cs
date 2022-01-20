@@ -38,8 +38,8 @@ namespace ReCITE
         {
             //add student function to database
             StudentClass student = new StudentClass() { name = studentName_tb.Text, score = 0 };
-            var firebaseWrite = firebaseClient.Set("classList/Class1/" + studentName_tb.Text, student);
-         
+            var firebaseWrite = firebaseClient.Set("classList/"+ globalClass.classid +"/" + studentName_tb.Text, student);
+            
             //Clear textbox
             studentName_tb.Text = "";
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,14 @@ namespace ReCITE
         private bool mouseDown;
         private Point lastLocation;
 
+        IFirebaseConfig firebase = new FirebaseConfig()
+        {
+            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
+            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+
+        IFirebaseClient firebaseClient;
+
         public Game()
         {
             InitializeComponent();
@@ -28,7 +38,15 @@ namespace ReCITE
             //Load Selected Game
             webGame_pnl.Source = new Uri(globalClass.choosengame);
 
-            addPoint_btn.Visible = false;
+            // Firebase Database
+            try
+            {
+                firebaseClient = new FireSharp.FirebaseClient(firebase);
+            }
+            catch
+            {
+                MessageBox.Show("error");
+            }
         }
 
         // Remove Flickering
@@ -174,22 +192,7 @@ namespace ReCITE
             leaderboard.Show();
             this.Hide();
         }
-
-        //Web App Panel
-        private void WebGame_pnl_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
-        {
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            var lotto = new Uri (Path.Combine(directory, @"Web_Apps\LottoGame.html"));
-            var oddeven = new Uri(Path.Combine(directory, @"Web_Apps\OddEvenGame.html"));
-            var bomb = new Uri(Path.Combine(directory, @"Web_Apps\defuseTheBomb.html"));
-            var wheelofNames = new Uri(Path.Combine(directory, @"Web_Apps\wheelOfNames.html"));
-
-            if (webGame_pnl.Source == lotto || webGame_pnl.Source == oddeven || webGame_pnl.Source == bomb || webGame_pnl.Source == wheelofNames)
-            {
-                addPoint_btn.Visible = true;
-            } else
-                addPoint_btn.Visible = false;
-
-        }
+        
+        //var firebaseWrite = firebaseClient.Set("classList/" + globalClass.classid + "/" + studentName_tb.Text + "/score", 5);
     }
 }

@@ -10,6 +10,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+#addpnt{
+    position: absolute;
+    height: 55px;
+    width: auto;
+    bottom: 70px;
+    right: 10px;
+    cursor: pointer;
+}
+
 #help {
     z-index: 3;
     position: absolute;

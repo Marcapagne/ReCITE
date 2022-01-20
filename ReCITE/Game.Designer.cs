@@ -34,7 +34,6 @@ namespace ReCITE
             this.leadeboard_pnl = new System.Windows.Forms.Panel();
             this.WebLeaderboard_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.leaderboard_lbl = new System.Windows.Forms.Label();
-            this.addPoint_btn = new System.Windows.Forms.Button();
             this.webGame_pnl = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolbar_pnl = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.Button();
@@ -109,24 +108,6 @@ namespace ReCITE
             this.leaderboard_lbl.Text = "Today\'s \r\nLeaderboard";
             this.leaderboard_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // addPoint_btn
-            // 
-            this.addPoint_btn.BackColor = System.Drawing.Color.White;
-            this.addPoint_btn.BackgroundImage = global::ReCITE.Properties.Resources.add_point_btn;
-            this.addPoint_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.addPoint_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addPoint_btn.FlatAppearance.BorderSize = 0;
-            this.addPoint_btn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.addPoint_btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.addPoint_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPoint_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addPoint_btn.ForeColor = System.Drawing.Color.Transparent;
-            this.addPoint_btn.Location = new System.Drawing.Point(757, 47);
-            this.addPoint_btn.Name = "addPoint_btn";
-            this.addPoint_btn.Size = new System.Drawing.Size(230, 56);
-            this.addPoint_btn.TabIndex = 3;
-            this.addPoint_btn.UseVisualStyleBackColor = false;
-            // 
             // webGame_pnl
             // 
             this.webGame_pnl.BackColor = System.Drawing.Color.White;
@@ -139,7 +120,6 @@ namespace ReCITE
             this.webGame_pnl.Source = new System.Uri("file:///C:/Users/junie/Desktop/webGame.html", System.UriKind.Absolute);
             this.webGame_pnl.TabIndex = 1;
             this.webGame_pnl.ZoomFactor = 1D;
-            this.webGame_pnl.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebGame_pnl_SourceChanged);
             // 
             // toolbar_pnl
             // 
@@ -329,7 +309,6 @@ namespace ReCITE
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.addPoint_btn);
             this.Controls.Add(this.webGame_pnl);
             this.Controls.Add(this.userControl_pnl);
             this.Controls.Add(this.toolbar_pnl);
@@ -355,7 +334,6 @@ namespace ReCITE
         private System.Windows.Forms.Button end_btn;
         private System.Windows.Forms.Panel leadeboard_pnl;
         private System.Windows.Forms.Label leaderboard_lbl;
-        private System.Windows.Forms.Button addPoint_btn;
         private Microsoft.Web.WebView2.WinForms.WebView2 webGame_pnl;
         private System.Windows.Forms.Panel toolbar_pnl;
         private System.Windows.Forms.Button minimize_btn;
