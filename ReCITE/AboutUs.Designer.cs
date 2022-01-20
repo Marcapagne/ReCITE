@@ -101,7 +101,7 @@ namespace ReCITE
             // 
             this.back_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.back_btn.Image = global::ReCITE.Properties.Resources.back_btn;
-            this.back_btn.Location = new System.Drawing.Point(1095, 52);
+            this.back_btn.Location = new System.Drawing.Point(12, 658);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(93, 36);
             this.back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

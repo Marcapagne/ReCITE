@@ -43,6 +43,13 @@ namespace ReCITE
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void back_btn_Click(object sender, EventArgs e)
+        {
+            Form back = new Student_List();
+            back.Show();
+            this.Hide();
+        }
+
         // Movable Toolbar -------------------------- 
         private void Toolbar_pnl_MouseMove(object sender, MouseEventArgs e)
         {

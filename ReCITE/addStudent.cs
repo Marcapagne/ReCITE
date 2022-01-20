@@ -37,12 +37,9 @@ namespace ReCITE
         private void Add_btn_Click(object sender, EventArgs e)
         {
             //add student function to database
-            Database.Database databaseConnection = new Database.Database();
-            databaseConnection.AddStudent(studentName_tb.Text, globalClass.classid);
-            var firebaseWrite = firebaseClient.Set("classList/Class1/"+ studentName_tb.Text, 
-            {
-                name: studentName_tb.Text
-            });
+            StudentClass student = new StudentClass() { name = studentName_tb.Text, score = 0 };
+            var firebaseWrite = firebaseClient.Set("classList/Class1/" + studentName_tb.Text, student);
+         
             //Clear textbox
             studentName_tb.Text = "";
         }
