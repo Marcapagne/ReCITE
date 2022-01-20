@@ -60,21 +60,42 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
-  var ref = database.ref('studentData/Class1');
+  var ref = database.ref('classList/BTVTEd');
 
   let data = [];
+  let keys = [];
 
-  ref.orderByChild('score').on('value', function (snapshot) {
+  ref.on('value', function (snapshot) {
     snapshot.forEach(element => {
-      var item = {
-        'score': element.val().score,
-        'name': element.val().name
-      }
-      segments.push(item);
+      keys.push(element.key);
     });
-    createTableItems();
+    getStudentData();
+    // snapshot.forEach(element => {
+    //   var item = {
+    //     'score': element.val().score,
+    //     'name': element.val().name
+    //   }
+    //   segments.push(item);
+    // });
+    // createTableItems();
   });
 
+
+  function getStudentData() {
+    keys.forEach(e => {
+      var ref = database.ref('classList/BTVTEd/'+ e);
+      
+
+      ref.on('value', function (element) {
+          var item = {
+            'score': element.val().score,
+            'name': element.val().name
+          }
+          segments.push(item);
+      });
+      createTableItems();
+    })
+  }
 
   function createTableItems() {
     segments.sort((a, b) => (a.score > b.score ? -1 : 1));
@@ -96,10 +117,10 @@
       td_name.appendChild(name);
       td_score.appendChild(score);
       td_Actions.appendChild(edit);
-      td_Actions.appendChild(deleteicon);
-      tr.appendChild(td_Actions);                       
+      td_Actions.appendChild(deleteicon);                  
       tr.appendChild(td_name);
       tr.appendChild(td_score);
+      tr.appendChild(td_Actions);     
 
       main.appendChild(tr)
     })
