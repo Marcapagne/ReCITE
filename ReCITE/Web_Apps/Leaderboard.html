@@ -59,12 +59,11 @@
         <col span="1" style="width: 30%;">
     </colgroup>
     <tbody id="main">
-      <div id="elementHolder"></div>
     </tbody>
 </table>
 </body>
 
-
+<script src="dashboard.js"></script>
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
@@ -76,75 +75,10 @@
     appId: "1:850351009105:web:b8a53325f995a656cb7770",
     measurementId: "G-X5NRSY58F5"
   };
-
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
-  
-
-  var classId = '';
-    
-    getClassId().then(() => {
-      getData();
-    })
-
-
-    async function getClassId() {
-      await database.ref('key/classid').once('value').then(function (snapshot){
-        classId = snapshot.val();  
-      })
-    }
-
-  function getData() {
-    var ref = database.ref('daily/'+classId);
-    ref.orderByChild('score').on('value', function (snapshot) {
-    snapshot.forEach(element => {
-      var item = {
-        'score': element.val().score,
-        'name': element.val().name
-      }
-      segments.push(item);
-    });
-    createTableItems();
-  });
-  }
-
-
-  function createTableItems() {
-    segments.sort((a, b) => (a.score > b.score ? -1 : 1));
-
-    let main = document.getElementById("main");
-    segments.forEach(student => {
-      let tr = document.createElement("tr");
-      tr.className = 'item';
-      let td_name = document.createElement("td");
-      let name = document.createTextNode(student['name']);
-      let td_score = document.createElement("td");
-      let score = document.createTextNode(student['score']);
-      
-      td_name.appendChild(name);
-      td_score.appendChild(score);
-      tr.appendChild(td_name);
-      tr.appendChild(td_score);
-      
-      main.appendChild(tr)
-    })
-  }
-
-  function addData() {
-    var data = {
-      name: "SSS",
-      score: 232
-    }
-    ref.push(data);
-  }
-
-  //  SAMPLE PALANG TO tanggalin yung ibang yan pag mdarami na laman ng data
-  let segments = [
-  ];
-
-
-  
+  setup();  
 </script>
 
 
