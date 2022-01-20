@@ -142,6 +142,10 @@
     var s;
 
     function strt() {
+        document.getElementById("cll").style.display = "flex";
+        document.getElementById("skp").style.display = "flex";
+        document.getElementById("hdle").style.display = "flex"; 
+        
         t = setInterval(roll, 4);
         document.getElementById("strt").setAttribute("disabled", "disabled")
         document.getElementById("gif").setAttribute("src", "../Resources/lottogif.gif")
