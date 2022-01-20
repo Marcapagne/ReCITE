@@ -1,7 +1,7 @@
 var classId = '';
 
 function setup() {
-  getGameType();
+  getgame_type();
   getClassId().then(() => {
     getData();
     setTimeout(() => {
@@ -29,7 +29,7 @@ function getData() {
 
 
 function updateOverall(name) {
-  database.ref('daily/' + classId + '/' + gameType + '/' + name + '/')
+  database.ref('daily/' + classId + '/' + game_type + '/' + name + '/')
     .once('value')
     .then(function (snapshot) {
       snapshot.ref.child('score').set(snapshot.val().score + 1);
@@ -39,7 +39,7 @@ function updateOverall(name) {
 }
 
 let game_type = '';
-function getGameType() {
+function getgame_type() {
   database.ref('game/type').once('value').then(function (snapshot) {
     game_type = snapshot.val();
   })
@@ -72,7 +72,7 @@ function writeDailyRecord() {
 let selectedName = 'Kris';
 
 function addPoints() {
-  database.ref('daily/' + classId + '/' + gameType + '/' + selectedName + '/')
+  database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/')
     .once('value')
     .then(function (snapshot) {
       updateOverall(selectedName);
@@ -80,7 +80,7 @@ function addPoints() {
 }
 
 function getLifeLineStatus(name) {
-  database.ref('daily/' + classId + '/' + gameType + '/' + selectedName + '/lifeline')
+  database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/lifeline')
     .once('value')
     .then(function (snapshot) {
       if (snapshot.val().cf) document.getElementById("cll").style.display = "none";
@@ -93,7 +93,7 @@ function getLifeLineStatus(name) {
 }
 
 function useLifeLine(specialAttack) {
-  database.ref('daily/' + classId + '/' + gameType + '/' + selectedName + '/lifeline/'+specialAttack)
+  database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/lifeline/'+specialAttack)
     .set(true);
   getLifeLineStatus();
 }
