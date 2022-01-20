@@ -183,11 +183,20 @@
   document.getElementById("explode").style.visibility = "hidden";
   var noRecite = 0;
 
-  getGameType();
-  getClassId().then(() => {
-    getStudentName();
-    strt();
-  })
+
+  setup();
+
+  function setup() {
+    getGameType();
+    getClassId().then(() => {
+      getStudentName();
+      setTimeout(() => {
+        strt();
+      }, 500);
+    })
+  }
+
+  
 
   let classId = '';
   async function getClassId() {
