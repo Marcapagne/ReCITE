@@ -139,8 +139,9 @@
     var classId = '';
     
     getClassId().then(() => {
-      getData();
-      writeDailyRecord();
+      getData().then(() => {
+        writeDailyRecord();
+      })
     })
 
 
@@ -150,9 +151,9 @@
       })
     }
     
-    function getData() {
+    async function getData() {
       var ref = database.ref('classList/'+classId+'/');
-      ref.on('value', function (snapshot) {
+      await ref.on('value', function (snapshot) {
         snapshot.forEach(element => {
           samp_names.push(element.val().name);
         });
@@ -179,6 +180,7 @@
     
 
     function writeDailyRecord() {
+        console.log('got called after')
         samp_names.forEach(name => {
             var ref = database.ref('daily/'+ classId +'/'+ name);
             ref.set({
