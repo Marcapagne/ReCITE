@@ -68,3 +68,17 @@ function addPoints() {
             updateOverall(selectedName);
         });
 }
+
+function getLifeLineStatus(name) {
+  database.ref('daily/'+ classId + '/oddEven/' + selectedName + '/lifeline')
+  .once('value')
+  .then(function(snapshot) {
+      if(snapshot.val().cf) document.getElementById("cll").style.display = "none";
+      if(snapshot.val().s) document.getElementById("skp").style.display = "none";
+      if(snapshot.val().hu) document.getElementById("hdle").style.display = "none"; 
+      callAFriend = snapshot.val().cf;
+      skip = snapshot.val().s;
+      huddleUp = snapshot.val().hu;
+      console.log(callAFriend)
+  });
+}
