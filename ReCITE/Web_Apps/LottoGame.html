@@ -167,12 +167,13 @@
         .once('value')
         .then(function(snapshot) {
             snapshot.ref.child('score').set(snapshot.val().score + 1);
-            getDailyScore(name, student.val().score);
+            getDailyScore(name);
         });
 
     }
 
-    async function getDailyScore(name, score) {
+    async function getDailyScore(name) {
+        console.log(name)
         database.ref('classList/'+ classId +'/'+ name +'/')
             .once('value')
             .then(function(snapshot) {
@@ -191,14 +192,13 @@
         })
     }
 
-    let selectedName = '';
+    let selectedName = 'Kris';
     function addPoints() {
         database.ref('daily/'+ classId +'/'+ selectedName +'/')
         .once('value')
         .then(function(snapshot) {
-            snapshot.ref.child('score').set(snapshot.val().score + 1);
+            updateOverall(selectedName);       
         });
-        updateOverall(selectedName);       
     } 
 
     var t;
