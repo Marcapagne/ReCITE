@@ -1,8 +1,7 @@
 var classId = '';
-let gameType = '';
 
-function game_type(type) {
-  gameType = type;
+function setup() {
+  getGameType();
   getClassId().then(() => {
     getData();
     setTimeout(() => {
@@ -13,13 +12,14 @@ function game_type(type) {
 
 
 async function getClassId() {
-  await database.ref('key/classid').once('value').then(function (snapshot) {
+  await database.ref('key/classId').once('value').then(function (snapshot) {
     classId = snapshot.val();
   })
 }
 
 function getData() {
-  var ref = database.ref('classList/' + classId + '/');
+  console.log(classId);
+  var ref = database.ref('classList/' + classId);
   ref.on('value', function (snapshot) {
     snapshot.forEach(element => {
       samp_names.push(element.val().name);
@@ -38,8 +38,15 @@ function updateOverall(name) {
 
 }
 
+let game_type = '';
+function getGameType() {
+  database.ref('game/type').once('value').then(function (snapshot) {
+    game_type = snapshot.val();
+  })
+}
+
+
 async function getDailyScore(name) {
-  console.log(name)
   database.ref('classList/' + classId + '/' + name + '/')
     .once('value')
     .then(function (snapshot) {
@@ -49,7 +56,7 @@ async function getDailyScore(name) {
 
 function writeDailyRecord() {
   samp_names.forEach(name => {
-    var ref = database.ref('daily/' + classId + '/' + gameType + '/' + name);
+    var ref = database.ref('daily/' + classId + '/' + game_type + '/' + name);
     ref.set({
       name: name,
       score: 0,
