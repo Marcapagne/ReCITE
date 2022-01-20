@@ -76,7 +76,7 @@
             </div>
         </div>
         <!-- Add point button -->
-        <img id="addpnt" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <img id="addpnt" src="../Resources/add_point_btn.png" onclick="addPoints()" data-bs-toggle="tooltip" data-bs-placement="bottom"
             title="+1 Point">
     </div>
 
@@ -160,6 +160,7 @@
 
     let selectedName = '';
     function addPoints() {
+        console.log("clicked");
     database.ref('daily/'+ classId +'/'+ selectedName +'/')
     .once('value')
     .then(function(snapshot) {
