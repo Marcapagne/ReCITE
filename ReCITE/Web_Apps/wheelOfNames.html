@@ -211,7 +211,7 @@
             segments.forEach(name => {
                 var ref = database.ref('daily/' + classId + '/' + game_type + '/' + name.text);
                 ref.set({
-                    name: name,
+                    name: name.text,
                     score: 0,
                     lifeline: {
                         cf: false,
