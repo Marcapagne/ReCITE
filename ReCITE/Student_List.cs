@@ -111,22 +111,38 @@ namespace ReCITE
         // Updating Class Name
         private void Check_btn_Click(object sender, EventArgs e)
         {
-            if (className_tb.Text.IndexOf(' ') >= 0 || className_tb.Text.IndexOf('-') >= 0)
+            string message = "You're about to change the name of section. This will delete \"ALL\" the current data on table. Click \"YES\" if you understand and \"NO\" to abort the changes.";
+            DialogResult dialogResult = MessageBox.Show(message, "Warning!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Invalid character detected.\n Use \"_\" to instead if there is a space.");
-            } 
-            else
+                if (className_tb.Text.IndexOf(' ') >= 0 || className_tb.Text.IndexOf('-') >= 0)
+                {
+                    MessageBox.Show("Invalid character detected.\n Use \"_\" to instead if there is a space.");
+                }
+                else
+                {
+                    className_tb.BackColor = Color.White;
+                    className_tb.ForeColor = Color.FromArgb(1, 88, 122);
+                    className_tb.ReadOnly = true;
+                    check_btn.Hide();
+                    edit_btn.Show();
+
+                    Database.Database databaseConnection = new Database.Database();
+                    databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
+
+                    globalClass.classid = className_tb.Text;
+                    webStudentList_pnl.Reload();
+                }
+            }
+            else if (dialogResult == DialogResult.No)
             {
                 className_tb.BackColor = Color.White;
                 className_tb.ForeColor = Color.FromArgb(1, 88, 122);
                 className_tb.ReadOnly = true;
                 check_btn.Hide();
                 edit_btn.Show();
-
-                Database.Database databaseConnection = new Database.Database();
-                databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
-
-                globalClass.classid = className_tb.Text;
+                
+                className_tb.Text = globalClass.classid;
             }
         }
     }
