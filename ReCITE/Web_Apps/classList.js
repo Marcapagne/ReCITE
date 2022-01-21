@@ -42,14 +42,26 @@ function createTableItems() {
     let name = document.createTextNode(student['name']);
     let td_score = document.createElement("td");
     let score = document.createTextNode(student['score']);
-
+    let td_actions = document.createElement("td");
+    let deleteButton = document.createElement('button');
+    let btnText = document.createTextNode('Delete');
+    deleteButton.appendChild(btnText);
+    deleteButton.setAttribute("onClick", "deleteStudent('"+ student['name'] +"')")
     td_name.appendChild(name);
     td_score.appendChild(score);
+    td_actions.appendChild(deleteButton)
     tr.appendChild(td_name);
     tr.appendChild(td_score);
+    tr.appendChild(td_actions);
 
     main.appendChild(tr)
   })
 
   keys = [];
+}
+
+
+function deleteStudent(studentName) {
+  var ref = database.ref('classList/' + classId + '/' + studentName);
+  ref.remove();
 }
