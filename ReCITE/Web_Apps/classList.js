@@ -86,14 +86,13 @@ function save(name) {
   document.getElementById(name).disabled = true;
   document.getElementById(name + '_save').style.display = 'none';
   var nameValue = document.getElementById(name).value;
-  console.log(nameValue)
-
+  
   var ref1 = database.ref('classList/' + classId + '/' + name);
   ref1.on('value', function (snapshot) {
     update(nameValue, snapshot.val().score);
   });
 
-  ref1.remove();
+  if(nameValue != name ) ref1.remove();
 }
 
 function update(name, score) {
