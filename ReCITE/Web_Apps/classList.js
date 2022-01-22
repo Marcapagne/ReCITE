@@ -44,7 +44,8 @@ function createTableItems() {
     name_input.disabled = true;
     name_input.value = student['name']
     name_input.id = student['name'];
-
+    name_input.style.border = 'none';
+    name_input.className = 'inputName';
 
     let td_score = document.createElement("td");
     let score = document.createTextNode(student['score']);
@@ -54,22 +55,21 @@ function createTableItems() {
     deleteButton.setAttribute("onClick", "deleteStudent('" + student['name'] + "')")
 
     let editButton = document.createElement('img');
-    editButton.src = '../Resources/delete.png';
+    editButton.src = '../Resources/edit.png';
     editButton.id = student['name'] + "_edit";
     editButton.setAttribute("onClick", "editable('" + student['name'] + "')")
 
-    let save = document.createElement("button");
-    let save_text = document.createTextNode('Save');
-    save.appendChild(save_text);
+    let save = document.createElement('img');
+    save.src = '../Resources/check.png';
     save.id = student['name'] + '_save';
     save.setAttribute('onClick', "save('" + student['name'] + "')");
     save.style.display = 'none';
 
     // td_name.appendChild(name);
     td_score.appendChild(score);
-    td_actions.appendChild(deleteButton);
     td_actions.appendChild(editButton);
     td_actions.appendChild(save);
+    td_actions.appendChild(deleteButton);
     // tr.appendChild(td_name);
     tr.appendChild(name_input)
     tr.appendChild(td_score);
