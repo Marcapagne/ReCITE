@@ -189,14 +189,31 @@
   function setup() {
     getGameType();
     getClassId().then(() => {
-      getStudentName();
-      setTimeout(() => {
+      getStudentName().then(() => {
+        writeDailyRecord();
         strt();
+      })
+      setTimeout(() => {
+       
       }, 500);
     })
   }
 
-  
+  function writeDailyRecord() {
+    console.log(samp_names)
+    samp_names.forEach(name => {
+      var ref = database.ref('daily/' + classId + '/' + game_type + '/' + name);
+      ref.set({
+        name: name,
+        score: 0,
+        lifeline: {
+          cf: false,
+          s: false,
+          hu: false
+        }
+      })
+    })
+  }
 
   let classId = '';
   async function getClassId() {
@@ -207,10 +224,11 @@
   }
 
   let game_type = '';
+
   function getGameType() {
     database.ref('game/type').once('value').then(function (snapshot) {
-      game_type = snapshot.val();
-      console.log(game_type)
+      // game_type = snapshot.val();
+      game_type = 'defuse_the_bomb';
     })
   }
 
@@ -230,6 +248,7 @@
   };
 
   let selectedName = '';
+
   function newPlayer() {
     document.getElementById("cll").style.display = "flex";
     document.getElementById("skp").style.display = "flex";
@@ -340,7 +359,6 @@
         updateOverall(selectedName);
       });
   }
-
 </script>
 
 </html>
