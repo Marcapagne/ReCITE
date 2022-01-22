@@ -57,9 +57,9 @@ namespace ReCITE
             this.game1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game1_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game1_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
-            this.game1_btn.Location = new System.Drawing.Point(129, 193);
+            this.game1_btn.Location = new System.Drawing.Point(256, 203);
             this.game1_btn.Name = "game1_btn";
-            this.game1_btn.Size = new System.Drawing.Size(478, 57);
+            this.game1_btn.Size = new System.Drawing.Size(220, 57);
             this.game1_btn.TabIndex = 4;
             this.game1_btn.Tag = "lotto_name";
             this.game1_btn.Text = "Lotto Name";
@@ -99,9 +99,9 @@ namespace ReCITE
             this.game2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game2_btn.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game2_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
-            this.game2_btn.Location = new System.Drawing.Point(129, 266);
+            this.game2_btn.Location = new System.Drawing.Point(256, 266);
             this.game2_btn.Name = "game2_btn";
-            this.game2_btn.Size = new System.Drawing.Size(478, 57);
+            this.game2_btn.Size = new System.Drawing.Size(220, 57);
             this.game2_btn.TabIndex = 6;
             this.game2_btn.Tag = "odd_or_even";
             this.game2_btn.Text = "Odd or Even";
@@ -118,9 +118,9 @@ namespace ReCITE
             this.game3_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game3_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game3_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
-            this.game3_btn.Location = new System.Drawing.Point(129, 340);
+            this.game3_btn.Location = new System.Drawing.Point(256, 329);
             this.game3_btn.Name = "game3_btn";
-            this.game3_btn.Size = new System.Drawing.Size(478, 57);
+            this.game3_btn.Size = new System.Drawing.Size(220, 57);
             this.game3_btn.TabIndex = 7;
             this.game3_btn.Tag = "wheel_of_names";
             this.game3_btn.Text = "Wheel of Names";
@@ -198,9 +198,9 @@ namespace ReCITE
             this.game4_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game4_btn.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.game4_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(88)))), ((int)(((byte)(122)))));
-            this.game4_btn.Location = new System.Drawing.Point(129, 414);
+            this.game4_btn.Location = new System.Drawing.Point(256, 392);
             this.game4_btn.Name = "game4_btn";
-            this.game4_btn.Size = new System.Drawing.Size(478, 57);
+            this.game4_btn.Size = new System.Drawing.Size(220, 57);
             this.game4_btn.TabIndex = 10;
             this.game4_btn.TabStop = false;
             this.game4_btn.Tag = "defuse_the_bomb";
