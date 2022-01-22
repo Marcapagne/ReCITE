@@ -179,18 +179,19 @@
         let data = [];
 
         function getData() {
-            ref.on('value', function (snapshot) {
-                snapshot.forEach(element => {
-                    element.forEach(data => {
+            database.ref('classList/' + classId)
+                .once('value')
+                .then(function (snapshot) {
+                    snapshot.forEach(student => {
+                        console.log(student.val().name)
                         var item = {
                             'fillStyle': "#7de6ef",
-                            'text': data.val().name
+                            'text': student.val().name
                         }
                         segments.push(item);
                     });
                     draw()
-                });
-            });
+                })
         }
 
         function getLifeLineStatus(name) {
