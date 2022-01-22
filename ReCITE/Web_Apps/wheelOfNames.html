@@ -208,6 +208,7 @@
 
 
         function writeDailyRecord() {
+            console.log(game_type)
             segments.forEach(name => {
                 var ref = database.ref('daily/' + classId + '/' + game_type + '/' + name.text);
                 ref.set({
