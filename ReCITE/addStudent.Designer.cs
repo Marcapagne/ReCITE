@@ -29,6 +29,7 @@ namespace ReCITE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addStudent));
             this.studentName_tb = new System.Windows.Forms.TextBox();
             this.studentName_lbl = new System.Windows.Forms.Label();
             this.add_btn = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@ namespace ReCITE
             this.Controls.Add(this.studentName_lbl);
             this.Controls.Add(this.studentName_tb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);

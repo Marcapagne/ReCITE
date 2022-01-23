@@ -14,11 +14,15 @@ namespace ReCITE
         public AboutUs()
         {
             InitializeComponent();
+
             //Initialize Instruction
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\AboutUs.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\AboutUs.html");
             webView_AboutUs.Source = new Uri(path);
         }
+
+
+
 
         private void Back_btn_Click(object sender, EventArgs e)
         {

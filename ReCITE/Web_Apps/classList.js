@@ -51,16 +51,16 @@ function createTableItems() {
     let score = document.createTextNode(student['score']);
     let td_actions = document.createElement("td");
     let deleteButton = document.createElement('img');
-    deleteButton.src = '../Resources/delete.png';
+    deleteButton.src = 'Resources/delete.png';
     deleteButton.setAttribute("onClick", "deleteStudent('" + student['name'] + "')")
 
     let editButton = document.createElement('img');
-    editButton.src = '../Resources/edit.png';
+    editButton.src = 'Resources/edit.png';
     editButton.id = student['name'] + "_edit";
     editButton.setAttribute("onClick", "editable('" + student['name'] + "')")
 
     let save = document.createElement('img');
-    save.src = '../Resources/check.png';
+    save.src = 'Resources/check.png';
     save.id = student['name'] + '_save';
     save.setAttribute('onClick', "save('" + student['name'] + "')");
     save.style.display = 'none';

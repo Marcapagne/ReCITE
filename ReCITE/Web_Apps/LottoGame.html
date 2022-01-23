@@ -59,31 +59,31 @@
             <div id="item">
                 <button type="button" id="cll" onclick="useLifeLine('cf')" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Call A Friend">
-                    <img src="../Resources/callafriend.png">
+                    <img src="Resources/callafriend.png">
                 </button>
             </div>
             <div id="item">
                 <button type="button" id="skp" onclick="useLifeLine('s')" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Skip">
-                    <img src="../Resources/skip.png">
+                    <img src="Resources/skip.png">
                 </button>
             </div>
             <div id="item">
                 <button type="button" id="hdle" onclick="useLifeLine('hu')" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Huddle Up">
-                    <img src="../Resources/huddle.png">
+                    <img src="Resources/huddle.png">
                 </button>
             </div>
         </div>
         <!-- Add point button -->
-        <img id="addpnt" onclick="addPoints()" src="../Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <img id="addpnt" onclick="addPoints()" src="Resources/add_point_btn.png" data-bs-toggle="tooltip" data-bs-placement="bottom"
             title="+1 Point">
     </div>
 
-    <img id="help" src="../Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
+    <img id="help" src="Resources/helpIcon.png" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
 
     <div id="game" class="box" style="text-align: center; padding-top: 0px;">
-        <img id="gif" src="../Resources/lottogifstatic.jpg" style="height: 300px; width: auto;" class="center" />
+        <img id="gif" src="Resources/lottogifstatic.jpg" style="height: 300px; width: auto;" class="center" />
         <p id="names" class="center">Lotto Name</p>
         <button type="button" id="strt" onclick="strt()">Start</button>
     </div>
@@ -149,13 +149,13 @@
         document.getElementById("hdle").style.display = "flex"; 
         t = setInterval(roll, 4);
         document.getElementById("strt").setAttribute("disabled", "disabled")
-        document.getElementById("gif").setAttribute("src", "../Resources/lottogif.gif")
+        document.getElementById("gif").setAttribute("src", "Resources/lottogif.gif")
         setTimeout(stp, 5500);
     }
 
     function stp() {
         clearTimeout(t);
-        document.getElementById("gif").setAttribute("src", "../Resources/lottogifstatic.jpg");
+        document.getElementById("gif").setAttribute("src", "Resources/lottogifstatic.jpg");
         document.getElementById("strt").removeAttribute("disabled")
         document.getElementById("studentName").innerHTML = document.getElementById("names").innerText;
         getLifeLineStatus();
