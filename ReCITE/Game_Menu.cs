@@ -1,5 +1,6 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
+using FireSharp.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +17,15 @@ namespace ReCITE
         //For Movable Toolbar
         private bool mouseDown;
         private Point lastLocation;
-
-        IFirebaseConfig firebase = new FirebaseConfig()
+        readonly IFirebaseConfig firebase = new FirebaseConfig()
         {
             AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
             BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
         };
-
-        IFirebaseClient firebaseClient;
+        readonly IFirebaseClient firebaseClient;
+        #pragma warning disable IDE0052 // Remove unread private members
+        private SetResponse firebaseWrite;
+        #pragma warning restore IDE0052 // Remove unread private members
 
         public Game_Menu()
         {
@@ -40,17 +42,6 @@ namespace ReCITE
             }
         }
 
-        // Remove Flickering
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handleparams = base.CreateParams;
-                handleparams.ExStyle |= 0x02000000;
-                return handleparams;
-            }
-        }
-
         // Minimize and Close Button
         #region Toolbar
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -63,7 +54,7 @@ namespace ReCITE
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void back_btn_Click(object sender, EventArgs e)
+        private void Back_btn_Click(object sender, EventArgs e)
         {
             Form back = new Student_List();
             back.Show();
@@ -101,17 +92,17 @@ namespace ReCITE
         {
             Button btnTag = (Button)sender;
             string tag = btnTag.Tag.ToString();
-            string directory;
+            string projectDirectory;
 
-            var firebaseWrite = firebaseClient.Set("game/type", tag);
+            firebaseWrite = firebaseClient.Set("game/type", tag);
 
             Form game;
             string path;
             switch (tag)
             {
                 case "lotto_name":
-                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    path = Path.Combine(projectDirectory, @"Web_Apps\LottoGameStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
@@ -119,8 +110,8 @@ namespace ReCITE
                     break;
 
                 case "wheel_of_names":
-                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\wheelOfNamesStart.html");
+                    projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    path = Path.Combine(projectDirectory, @"Web_Apps\wheelOfNamesStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
@@ -128,8 +119,8 @@ namespace ReCITE
                     break;
 
                 case "odd_or_even":
-                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\OddEvenGameStart.html");
+                    projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    path = Path.Combine(projectDirectory, @"Web_Apps\OddEvenGameStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
@@ -137,8 +128,8 @@ namespace ReCITE
                     break;
 
                 case "defuse_the_bomb":
-                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\defuseTheBombStart.html");
+                    projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    path = Path.Combine(projectDirectory, @"Web_Apps\defuseTheBombStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
@@ -146,14 +137,13 @@ namespace ReCITE
                     break;
 
                 default:
-                    directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-                    path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+                    projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    path = Path.Combine(projectDirectory, @"Web_Apps\LottoGameStart.html");
                     globalClass.choosengame = path;
                     game = new Game();
                     game.Show();
                     this.Hide();
                     break;
-
             }
         }
         #endregion

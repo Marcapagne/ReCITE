@@ -17,22 +17,23 @@ namespace ReCITE
         //For Movable Toolbar
         private bool mouseDown;
         private Point lastLocation;
-
-        IFirebaseConfig firebase = new FirebaseConfig()
+        readonly IFirebaseConfig firebase = new FirebaseConfig()
         {
             AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
             BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
         };
-
-        IFirebaseClient firebaseClient;
+        readonly IFirebaseClient firebaseClient;
+        #pragma warning disable IDE0052 // Remove unread private members
+        private FireSharp.Response.SetResponse firebaseWrite;
+        #pragma warning restore IDE0052 // Remove unread private members
 
         public Game()
         {
             InitializeComponent();
 
             //Initialize Class List
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\miniLeaderboard.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\miniLeaderboard.html");
             WebLeaderboard_pnl.Source = new Uri(path);
 
             //Load Selected Game
@@ -46,17 +47,6 @@ namespace ReCITE
             catch
             {
                 MessageBox.Show("error");
-            }
-        }
-
-        // Remove Flickering
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handleparams = base.CreateParams;
-                handleparams.ExStyle |= 0x02000000;
-                return handleparams;
             }
         }
 
@@ -103,8 +93,8 @@ namespace ReCITE
         //Lotto Game
         private void LN_game_Click(object sender, EventArgs e)
         {
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\LottoGameStart.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\LottoGameStart.html");
             webGame_pnl.Source = new Uri(path);
 
             LN_game.Enabled = false;
@@ -112,15 +102,15 @@ namespace ReCITE
             DTB_game.Enabled = true;
             WON_game.Enabled = true;
 
-            var firebaseWrite = firebaseClient.Set("game/type", LN_game.Tag);
+            firebaseWrite = firebaseClient.Set("game/type", LN_game.Tag);
             WebLeaderboard_pnl.Reload();
         }
 
         //Odd or Even Game
         private void OOE_game_Click(object sender, EventArgs e)
         {
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\OddEvenGameStart.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\OddEvenGameStart.html");
             webGame_pnl.Source = new Uri(path);
 
             LN_game.Enabled = true;
@@ -128,15 +118,15 @@ namespace ReCITE
             DTB_game.Enabled = true;
             WON_game.Enabled = true;
 
-            var firebaseWrite = firebaseClient.Set("game/type", OOE_game.Tag);
+            firebaseWrite = firebaseClient.Set("game/type", OOE_game.Tag);
             WebLeaderboard_pnl.Reload();
         }
 
         //Defuse the Bomb Game 
         private void DTB_game_Click(object sender, EventArgs e)
         {
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\defuseTheBombStart.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\defuseTheBombStart.html");
             webGame_pnl.Source = new Uri(path);
 
             LN_game.Enabled = true;
@@ -144,15 +134,15 @@ namespace ReCITE
             DTB_game.Enabled = false;
             WON_game.Enabled = true;
 
-            var firebaseWrite = firebaseClient.Set("game/type", DTB_game.Tag);
+            firebaseWrite = firebaseClient.Set("game/type", DTB_game.Tag);
             WebLeaderboard_pnl.Reload();
         }
 
         //Wheel of Names
         private void WON_game_Click(object sender, EventArgs e)
         {
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\wheelOfNamesStart.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\wheelOfNamesStart.html");
             webGame_pnl.Source = new Uri(path);
 
             LN_game.Enabled = true;
@@ -160,7 +150,7 @@ namespace ReCITE
             DTB_game.Enabled = true;
             WON_game.Enabled = false;
 
-            var firebaseWrite = firebaseClient.Set("game/type", WON_game.Tag);
+            firebaseWrite = firebaseClient.Set("game/type", WON_game.Tag);
             WebLeaderboard_pnl.Reload();
         }
 
@@ -204,7 +194,5 @@ namespace ReCITE
             leaderboard.Show();
             this.Hide();
         }
-        
-        //var firebaseWrite = firebaseClient.Set("classList/" + globalClass.classid + "/" + studentName_tb.Text + "/score", 5);
     }
 }

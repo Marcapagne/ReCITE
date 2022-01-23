@@ -19,8 +19,8 @@ namespace ReCITE
             InitializeComponent();
 
             //Initialize Instruction
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\Instruction.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\Instruction.html");
             webView_Instuction.Source = new Uri(path);
         }
 

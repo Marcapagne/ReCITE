@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ReCITE.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Class1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Class1 </Value>
+    </Setting>
+    <Setting Name="Class2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Class2</Value>
+    </Setting>
+    <Setting Name="Class3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Class3</Value>
+    </Setting>
+    <Setting Name="Class4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Class4</Value>
+    </Setting>
+    <Setting Name="tag" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

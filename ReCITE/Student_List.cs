@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,27 +18,38 @@ namespace ReCITE
         private bool mouseDown;
         private Point lastLocation;
 
+        // Firebase Variables
+        readonly IFirebaseConfig firebase = new FirebaseConfig()
+        {
+            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
+            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+        readonly IFirebaseClient firebaseClient;
+        #pragma warning disable IDE0052 // Remove unread private members
+        private readonly SetResponse firebaseWrite;
+        #pragma warning restore IDE0052 // Remove unread private members
+
         public Student_List()
         {
             InitializeComponent();
-            // globalClass global = new globalClass();
             className_tb.Text = globalClass.classid;
 
             //Initialize Class List
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\classList.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\classList.html");
             webStudentList_pnl.Source = new Uri(path);
-        }
 
-        // Remove Flickering
-        protected override CreateParams CreateParams
-        {
-            get
+            // Firebase Database
+            try
             {
-                CreateParams handleparams = base.CreateParams;
-                handleparams.ExStyle |= 0x02000000;
-                return handleparams;
+                firebaseClient = new FireSharp.FirebaseClient(firebase);
             }
+            catch
+            {
+                MessageBox.Show("error");
+            }
+
+            firebaseWrite = firebaseClient.Set("key/classId", globalClass.classid);
         }
 
         // Minimize and Close Button
@@ -121,17 +135,44 @@ namespace ReCITE
                 }
                 else
                 {
+
+                    globalClass.classid = className_tb.Text;
+                    var tag = Properties.Settings.Default.tag;
+
+                    switch (tag)
+                    {
+                        case "Class1":
+                            Properties.Settings.Default.Class1 = className_tb.Text;
+                            break;
+
+                        case "Class2":
+                            Properties.Settings.Default.Class2 = className_tb.Text;
+                            break;
+
+                        case "Class3":
+                            Properties.Settings.Default.Class3 = className_tb.Text;
+                            break;
+
+                        case "Class4":
+                            Properties.Settings.Default.Class4 = className_tb.Text;
+                            break;
+
+                        default:
+                            Properties.Settings.Default.Class1 = className_tb.Text;
+                            break;
+                    }
+
                     className_tb.BackColor = Color.White;
                     className_tb.ForeColor = Color.FromArgb(1, 88, 122);
                     className_tb.ReadOnly = true;
                     check_btn.Hide();
                     edit_btn.Show();
 
-                    Database.Database databaseConnection = new Database.Database();
-                    databaseConnection.UpdateTables(globalClass.classid.ToString(), className_tb.Text.ToString());
+                    Form reload = new Student_List();
+                    reload.Show();
+                    this.Hide();
 
-                    globalClass.classid = className_tb.Text;
-                    webStudentList_pnl.Reload();
+                    Properties.Settings.Default.Save();
                 }
             }
             else if (dialogResult == DialogResult.No)

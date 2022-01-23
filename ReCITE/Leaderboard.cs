@@ -16,14 +16,12 @@ namespace ReCITE
     {
         private bool mouseDown;
         private Point lastLocation;
-        
-        IFirebaseConfig firebase = new FirebaseConfig() 
+        readonly IFirebaseConfig firebase = new FirebaseConfig() 
         {
             AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
             BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
         };
-        
-        IFirebaseClient firebaseClient;
+        readonly IFirebaseClient firebaseClient;
         
         public Leaderboard()
         {
@@ -42,20 +40,9 @@ namespace ReCITE
             className_tb.Text = globalClass.classid;
 
             //Initialize Class List
-            string directory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            string path = Path.Combine(directory, @"Web_Apps\Leaderboard.html");
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(projectDirectory, @"Web_Apps\Leaderboard.html");
             webLeaderboard_pnl.Source = new Uri(path);
-        }
-
-        // Remove Flickering
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handleparams = base.CreateParams;
-                handleparams.ExStyle |= 0x02000000;
-                return handleparams;
-            }
         }
 
         // Minimize and Close Button
@@ -97,7 +84,7 @@ namespace ReCITE
 
         private void Proceed_btn_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response = firebaseClient.Delete("daily/BTVTEd/");
+            _ = firebaseClient.Delete("daily/BTVTEd/");
 
             Form studentList = new Student_List();
             studentList.Show();
