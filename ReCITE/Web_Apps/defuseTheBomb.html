@@ -72,12 +72,13 @@
       cursor: pointer;
     }
   </style>
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 <html>
 
 <body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -161,7 +162,6 @@
 
 </body>
 
-
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBHcokPUxsadjWEnRugBcjSZERODdTnPVo",
@@ -194,7 +194,7 @@
         strt();
       })
       setTimeout(() => {
-       
+
       }, 500);
     })
   }
@@ -225,13 +225,6 @@
 
   let game_type = '';
 
-  function getGameType() {
-    database.ref('game/type').once('value').then(function (snapshot) {
-      // game_type = snapshot.val();
-      game_type = 'defuse_the_bomb';
-    })
-  }
-
   function strt() {
     newPlayer();
     randnum = Math.floor(Math.random() * 3) + 1;
@@ -258,6 +251,31 @@
     selectedName = samp_names[randnames];
     getLifeLineStatus();
   }
+
+  function updateOverall(name) {
+    database.ref('daily/' + classId + '/' + game_type + '/' + name + '/')
+      .once('value')
+      .then(function (snapshot) {
+        snapshot.ref.child('score').set(snapshot.val().score + 1);
+        getDailyScore(name);
+      });
+
+  }
+
+  async function getDailyScore(name) {
+    database.ref('classList/' + classId + '/' + name + '/')
+      .once('value')
+      .then(function (snapshot) {
+        snapshot.ref.child('score').set(snapshot.val().score + 1);
+      });
+  }
+
+  function getGameType() {
+    database.ref('game/type').once('value').then(function (snapshot) {
+      // game_type = snapshot.val();
+      game_type = 'defuse_the_bomb';
+    })
+  } 
 
   function useLifeLine(specialAttack) {
     database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/lifeline/' + specialAttack)
@@ -353,7 +371,7 @@
   //#endregion 
 
   function addPoints() {
-    database.ref('daily/' + classId + '/' + gameType + '/' + selectedName + '/')
+    database.ref('daily/' + classId + '/' + game_type + '/' + selectedName + '/')
       .once('value')
       .then(function (snapshot) {
         updateOverall(selectedName);
