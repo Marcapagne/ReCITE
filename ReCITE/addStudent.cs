@@ -15,8 +15,8 @@ namespace ReCITE
     {
         IFirebaseConfig firebase = new FirebaseConfig() 
         {
-            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
-            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+            AuthSecret = "o2qaPcXL4Ph4BXt6QlYSa50IZmpkqLRd6Xeusrup",
+            BasePath = "https://recite-2f22b-default-rtdb.asia-southeast1.firebasedatabase.app/"
         };
         
         IFirebaseClient firebaseClient;

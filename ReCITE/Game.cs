@@ -19,8 +19,8 @@ namespace ReCITE
         private Point lastLocation;
         readonly IFirebaseConfig firebase = new FirebaseConfig()
         {
-            AuthSecret = "cf5r8ujKHgNDlXCsRNLJq9aUDKSF4do8gU1kio50",
-            BasePath = "https://curriculum-9f921-default-rtdb.asia-southeast1.firebasedatabase.app/"
+            AuthSecret = "o2qaPcXL4Ph4BXt6QlYSa50IZmpkqLRd6Xeusrup",
+            BasePath = "https://recite-2f22b-default-rtdb.asia-southeast1.firebasedatabase.app/"
         };
         readonly IFirebaseClient firebaseClient;
         #pragma warning disable IDE0052 // Remove unread private members
@@ -33,7 +33,7 @@ namespace ReCITE
 
             //Initialize Class List
             string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string path = Path.Combine(projectDirectory, @"Web_Apps\miniLeaderboard.html");
+            string path = Path.Combine(projectDirectory, @"Web_Apps\classList.html");
             WebLeaderboard_pnl.Source = new Uri(path);
 
             //Load Selected Game
