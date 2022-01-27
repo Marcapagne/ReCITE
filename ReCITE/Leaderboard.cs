@@ -84,7 +84,7 @@ namespace ReCITE
 
         private void Proceed_btn_Click(object sender, EventArgs e)
         {
-            _ = firebaseClient.Delete("daily/BTVTEd/");
+            _ = firebaseClient.Delete("daily/" + globalClass.classid);
 
             Form studentList = new Student_List();
             studentList.Show();
